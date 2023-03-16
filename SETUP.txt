@@ -1,0 +1,8 @@
+//=====GO TO VISUAL STUDIO CODE=====
+1. PRESS CLONE GIT REPOSITORY
+2. PASTE THE URL
+
+//=====ENTER IN YOUR COMMAND LINE=====
+1. composer install
+2. php artisan key:generate
+3. php artisan serve
