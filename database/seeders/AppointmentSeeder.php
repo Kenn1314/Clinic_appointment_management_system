@@ -17,28 +17,28 @@ class AppointmentSeeder extends Seeder
         $appointments = [
             //=====FIRST USER (PATIENT1)======
             [
-                'patient_id' => '1',
+                'user_id' => '1',
                 'doctor_id' => '2',
                 'date' => '2023-10-10',
                 'time' => '12:00am',
                 'status' => 'PENDING',
             ],
             [
-                'patient_id' => '1',
+                'user_id' => '1',
                 'doctor_id' => '2',
                 'date' => '2023-04-01',
                 'time' => '13:00pm',
                 'status' => 'APPROVED',
             ],
             [
-                'patient_id' => '1',
+                'user_id' => '1',
                 'doctor_id' => '2',
                 'date' => '2023-02-02',
                 'time' => '15:00pm',
                 'status' => 'DONE',
             ],
             [
-                'patient_id' => '1',
+                'user_id' => '1',
                 'doctor_id' => '2',
                 'date' => '2023-05-05',
                 'time' => '18:00pm',
@@ -47,28 +47,28 @@ class AppointmentSeeder extends Seeder
 
             //======SECOND USER (PATIENT2)=====
             [
-                'patient_id' => '4',
+                'user_id' => '4',
                 'doctor_id' => '2',
                 'date' => '2023-10-10',
                 'time' => '12:00am',
                 'status' => 'PENDING',
             ],
             [
-                'patient_id' => '4',
+                'user_id' => '4',
                 'doctor_id' => '2',
                 'date' => '2023-04-01',
                 'time' => '13:00pm',
                 'status' => 'APPROVED',
             ],
             [
-                'patient_id' => '4',
+                'user_id' => '4',
                 'doctor_id' => '2',
                 'date' => '2023-02-02',
                 'time' => '15:00pm',
                 'status' => 'DONE',
             ],
             [
-                'patient_id' => '4',
+                'user_id' => '4',
                 'doctor_id' => '2',
                 'date' => '2023-05-05',
                 'time' => '18:00pm',
