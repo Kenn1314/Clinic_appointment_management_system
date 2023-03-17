@@ -22,21 +22,24 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('123456789'),
                 'role' => 'patient',
                 'ic'=>'123456-33-4444',
-                'gender'=>'male',
+                'gender'=>'Male',
+                'phone'=>'011-11111111',
             ], [
                 'name' => 'Doctor1',
                 'email' => "doctor@gmail.com",
                 'password' => bcrypt('123456789'),
                 'role' => 'doctor',
                 'ic'=>'123456-33-4444',
-                'gender'=>'female',
+                'gender'=>'Female',
+                'phone'=>'011-11111112',
             ], [
                 'name' => 'Admin1',
                 'email' => "admin@gmail.com",
                 'password' => bcrypt('123456789'),
                 'role' => 'admin',
                 'ic'=>'123456-33-4444',
-                'gender'=>'male',
+                'gender'=>'Male',
+                'phone'=>'011-11111113',
             ],
             [
                 'name' => 'Patient2',
@@ -44,7 +47,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('123456789'),
                 'role' => 'patient',
                 'ic'=>'123456-33-4444',
-                'gender'=>'female',
+                'gender'=>'Female',
             ],
         ];
 
