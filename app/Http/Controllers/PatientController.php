@@ -22,7 +22,7 @@ class PatientController extends Controller
         $data = patient_record::where('patient_id', $id)->get();
         return view('patient.viewpatient',['patient'=>$data, 'name'=>$name]);
     }
-
+    
     public function deletePatient($id){
         $data = User::find($id);
         $data->delete();
@@ -36,7 +36,7 @@ class PatientController extends Controller
         $data->name=$req->name;
         $data->email=$req->email;
         $data->save();
-        return redirect("datatest");
+        return redirect("/patient/viewpatient/{id}");
     }
     else 
         return("error no data"); 
