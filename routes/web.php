@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\PatientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +24,7 @@ Route::get('/', function () {
 // }); // NAVIGATE TO LOGIN PAGE FIRST
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+//manage patient
+Route::get('/patient/record',[PatientController::class, 'loadViewPatients']);
+Route::view('viewPatients','managepatient');
