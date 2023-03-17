@@ -28,4 +28,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //manage patient
 Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
 Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
+Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
 Route::view('viewPatients','managepatient');

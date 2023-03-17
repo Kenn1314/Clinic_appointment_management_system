@@ -10,6 +10,7 @@
         <td>Prescription</td>
         <td>Date Updated</td>
         <td>Test Result</td>
+        <td>Actions</td>
     </thead>
     <tbody class="table-light table-striped ">
     @foreach ($patient as $details)

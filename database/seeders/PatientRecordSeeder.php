@@ -34,6 +34,15 @@ class PatientRecordSeeder extends Seeder
                 'prescription' => 'Central Nervous System (CNS) Depressants.',
                 'test_result' => 'positive for too much meme',
             ],
+            [
+                'patient_id' => '1',
+                'doctor_id' => '2',
+                'appointment_id' => '2',
+                'symptoms' => 'Cough, fever, lost of taste',
+                'diagnosis' => 'COVID-19',
+                'prescription' => 'Opioids. Examples: oxycodone (OxyContin), hydrocodone (Vicodin), and meperidine (Demerol)',
+                'test_result' => 'positive for drugs',
+            ],
         ];
 
         foreach($patient_records as $patient_record)
