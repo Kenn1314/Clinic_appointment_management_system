@@ -5,8 +5,10 @@
 //=====ENTER IN YOUR COMMAND LINE=====
 1. composer install
 2. Setup database (refer to setup database step)
-2. php artisan key:generate
-3. php artisan serve
+3. php artisan key:generate
+4. php artisan serve
+5. php artisan migrate
+6. php artisan db:seed
 
 
 //====DATABASE SETUP====
