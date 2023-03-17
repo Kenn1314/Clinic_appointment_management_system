@@ -4,5 +4,14 @@
 
 //=====ENTER IN YOUR COMMAND LINE=====
 1. composer install
+2. Setup database (refer to setup database step)
 2. php artisan key:generate
 3. php artisan serve
+
+
+//====DATABASE SETUP====
+1. create new .env file 
+2. Copy all content from .env.example into the newly created .env file
+3. Change the database name to *TBC later on* in the .env file
+4. Go to localhost(mysql) create a database with the name *TBC later on*
+
