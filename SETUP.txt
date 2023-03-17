@@ -17,3 +17,6 @@
 3. Change the database name to *TBC later on* in the .env file
 4. Go to localhost(mysql) create a database with the name *TBC later on*
 
+//====DATABASE PROBLEM====
+1.run 'php artisan migrate:fresh'
+2.run 'php artisan db:seed'
