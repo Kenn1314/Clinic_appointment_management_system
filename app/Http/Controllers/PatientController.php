@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\patient_record;
 use App\Models\User;
-
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -46,4 +46,35 @@ class PatientController extends Controller
     //     $data = User::find($id);
     //     return view('/patient/updatepatient',['patient'=>$data] );
     // }
+
+    function appointment(Request $request){
+
+        return view('/patient/appointment', [
+            'doctors' => User::where('role', 1)
+                             ->where('id', $request->input('chosen_doctor_id'))
+                             ->first(),
+            'appointments' => Appointment::where('doctor_id', $request->input('chosen_doctor_id'))
+                                          ->where('status', 'PENDING')
+                                          ->orWhere('status', 'APPROVED')
+                                          ->get(),
+        ]);
+    }
+
+    function viewDoctors(){
+        return view('/patient/viewDoctors',['doctors'=>User::where('role',1)->get()]);
+    }
+
+    public function submitForm(Request $request)
+    {
+
+        $appointment=new Appointment;
+        $appointment->doctor_id=$request->input('doctor_id');
+        $appointment->date= $request->input('appointment_date');
+        $appointment->time= $request->input('time');
+        $appointment->user_id= 1; //use session later
+        $appointment->status= 'PENDING';
+        $appointment->save();
+
+        return redirect('/home');
+    }
 }

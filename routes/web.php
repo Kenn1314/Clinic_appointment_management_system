@@ -30,3 +30,8 @@ Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
 Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
 Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
 Route::view('viewPatients','managepatient');
+
+//patient controller or appointment controller?
+Route::post('/patient/appointment', [PatientController::class, 'appointment']);
+Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
+Route::post('/patient/make-appointment',[PatientController::class,'submitForm']);
