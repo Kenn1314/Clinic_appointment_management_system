@@ -1,6 +1,8 @@
-<h3> This is the list of Patients </h3>
+@extends('layouts.app')
 
-<table border="1">
+@section('content')
+<div class ="container-sm">
+<table class="table table-success table-striped">
     <thead>
         <td>Patient Name</td>
         <td>Email</td>
@@ -24,4 +26,6 @@
                         </tr>
     @endforeach
     </tbody>
-</table>  
+</table>
+</div> 
+@endsection 

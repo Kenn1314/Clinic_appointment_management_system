@@ -21,22 +21,30 @@ class UserSeeder extends Seeder
                 'email' => "patient@gmail.com",
                 'password' => bcrypt('123456789'),
                 'role' => 'patient',
+                'ic'=>'123456-33-4444',
+                'gender'=>'male',
             ], [
                 'name' => 'Doctor1',
                 'email' => "doctor@gmail.com",
                 'password' => bcrypt('123456789'),
                 'role' => 'doctor',
+                'ic'=>'123456-33-4444',
+                'gender'=>'female',
             ], [
                 'name' => 'Admin1',
                 'email' => "admin@gmail.com",
                 'password' => bcrypt('123456789'),
                 'role' => 'admin',
+                'ic'=>'123456-33-4444',
+                'gender'=>'male',
             ],
             [
                 'name' => 'Patient2',
                 'email' => "patient2@gmail.com",
                 'password' => bcrypt('123456789'),
                 'role' => 'patient',
+                'ic'=>'123456-33-4444',
+                'gender'=>'female',
             ],
         ];
 
