@@ -29,6 +29,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
 Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
 Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
+Route::post("/patient/updatepatient/{id}",[PatientController::class,'updateUser']);
 Route::view('viewPatients','managepatient');
 
 //patient controller or appointment controller?
