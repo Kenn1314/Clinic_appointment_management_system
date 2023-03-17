@@ -23,6 +23,7 @@ class PatientRecordSeeder extends Seeder
                 'symptoms' => 'Cough, fever, lost of taste',
                 'diagnosis' => 'COVID-19',
                 'prescription' => 'Opioids. Examples: oxycodone (OxyContin), hydrocodone (Vicodin), and meperidine (Demerol)',
+                'test_result' => 'positive for weed',
             ],
             [
                 'patient_id' => '4',
@@ -31,6 +32,7 @@ class PatientRecordSeeder extends Seeder
                 'symptoms' => 'lower temperature than normal, raised or lowered blood pressure',
                 'diagnosis' => 'hypertension',
                 'prescription' => 'Central Nervous System (CNS) Depressants.',
+                'test_result' => 'positive for too much meme',
             ],
         ];
 

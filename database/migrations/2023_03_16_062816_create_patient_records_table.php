@@ -21,6 +21,7 @@ class CreatePatientRecordsTable extends Migration
             $table->longText('symptoms');
             $table->longText('diagnosis');
             $table->longText('prescription');
+            $table->longText('test_result');
             $table->timestamps();
         });
     }
