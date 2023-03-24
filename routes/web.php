@@ -19,12 +19,12 @@ Route::get('/', function () {
     return redirect(route('login'));
 }); // NAVIGATE TO LOGIN PAGE FIRST
 
-// Route::get('/', function () {
-//     return redirect(route('login'));
-// }); // NAVIGATE TO LOGIN PAGE FIRST
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//============================MIDDLEWARE TO LIMIT EACH EACH USER ROLE'S=====================================
+
+//==========PATIENT ROUTE==========
+Route::middleware(['can:isPatient'])->group(function() {
 //manage patient
 Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
 Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
@@ -36,3 +36,28 @@ Route::view('viewPatients','managepatient');
 Route::post('/patient/appointment', [PatientController::class, 'appointment']);
 Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
 Route::post('/patient/make-appointment',[PatientController::class,'submitForm']);
+});
+
+//==========DOCTOR ROUTE==========
+Route::middleware(['can:isDoctor'])->group(function() {
+
+});
+
+//==========ADMIN ROUTE==========
+Route::middleware(['can:isAdmin'])->group(function() {
+    
+});
+
+//=================================================================
+
+
+
+
+//==================BACK UP CODE==================================
+
+// manage patient
+// Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
+// Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
+// Route::view('viewPatients','managepatient');
+
+//=================================================================
