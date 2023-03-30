@@ -50,7 +50,7 @@ class PatientController extends Controller
     function appointment(Request $request){
 
         return view('/patient/appointment', [
-            'doctors' => User::where('role', 1)
+            'doctors' => User::where('role', 'doctor')
                              ->where('id', $request->input('chosen_doctor_id'))
                              ->first(),
             'appointments' => Appointment::where('doctor_id', $request->input('chosen_doctor_id'))
@@ -61,7 +61,7 @@ class PatientController extends Controller
     }
 
     function viewDoctors(){
-        return view('/patient/viewDoctors',['doctors'=>User::where('role',1)->get()]);
+        return view('/patient/viewDoctors',['doctors'=>User::where('role', 'doctor')->get()]);
     }
 
     public function submitForm(Request $request)

@@ -82,7 +82,7 @@
                                 <a href="../home" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../patient/viewDoctors" class="nav-link">Make appointment</a>
+                                <a href="/patient/viewDoctors" class="nav-link">Make appointment</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../aboutUs" class="nav-link">About Us</a>

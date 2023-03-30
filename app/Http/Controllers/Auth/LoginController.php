@@ -48,8 +48,14 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
      
+        //=====CHECK IF USER IS A USER OF THIS SYSTEM BY CHECKING ITS USER EMAIL AND PASSWORD=======
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
+            //=====REDIRECT TO HOME=====
+            return redirect()->route('home');
+
+        //===========REMARKS :: BACK UP CODE LEARN FROM YOUTUBE, REMEMBER TO BE DELETED==================
+
         //     if (auth()->user()->role == 'patient') 
         //     {
         //         return "patient";
@@ -65,7 +71,8 @@ class LoginController extends Controller
         //         return "admin";
         //     //   return redirect()->route('admin.home');
         //     }
-            return redirect()->route('home');
+        //========================================================================
+        
         }
         else
         {

@@ -25,6 +25,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //==========PATIENT ROUTE==========
 Route::middleware(['can:isPatient'])->group(function() {
+
 //manage patient
 Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
 Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
@@ -36,6 +37,7 @@ Route::view('viewPatients','managepatient');
 Route::post('/patient/appointment', [PatientController::class, 'appointment']);
 Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
 Route::post('/patient/make-appointment',[PatientController::class,'submitForm']);
+
 });
 
 //==========DOCTOR ROUTE==========

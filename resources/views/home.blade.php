@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <div class="card-body">
-        Welcome to YLLoo’s Web Application.
         @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
