@@ -15,6 +15,7 @@ use App\Http\Controllers\AppointmentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes(); // GENERATE ALL THE AUTHENTICATION ROUTE LIKE REGISTER AND LOGIN
 
 Route::get('/', function () {
@@ -26,34 +27,33 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //============================MIDDLEWARE TO LIMIT EACH EACH USER ROLE'S=====================================
 
 //==========PATIENT ROUTE==========
-Route::middleware(['can:isPatient'])->group(function() {
+Route::middleware(['can:isPatient'])->group(function () {
 
-//manage patient
-Route::get('/patient/all',[PatientController::class, 'loadViewPatients']);
-Route::get('/patient/viewpatient/{id}',[PatientController::class, 'loadPatientDetails']);
-Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
-Route::post("/patient/updatepatient/{id}",[PatientController::class,'updateUser']);
-Route::post("/updateUser",[PatientController::class,'updateRecords']);
-Route::view('viewPatients','managepatient');
-Route::view('aboutUs','aboutUs');
-Route::view('faq','faq');
-//patient controller or appointment controller?
-Route::post('/patient/appointment', [PatientController::class, 'appointment']);
-Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
-Route::post('/patient/make-appointment',[PatientController::class,'submitForm']);
+    //manage patient
+    
+    Route::view('aboutUs', 'aboutUs');
+    Route::view('faq', 'faq');
+    //patient controller or appointment controller?
+    Route::post('/patient/appointment', [PatientController::class, 'appointment']);
+    Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
+    Route::post('/patient/make-appointment', [PatientController::class, 'submitForm']);
 
     //=====Cancel appointment=====
-Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
+    Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
 });
 
 //==========DOCTOR ROUTE==========
-Route::middleware(['can:isDoctor'])->group(function() {
-
+Route::middleware(['can:isDoctor'])->group(function () {
 });
 
 //==========ADMIN ROUTE==========
-Route::middleware(['can:isAdmin'])->group(function() {
-    
+Route::middleware(['can:isAdmin'])->group(function () {
+    Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
+    Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
+    Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
+    Route::post("/patient/updatepatient/{id}", [PatientController::class, 'updateUser']);
+    Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+    Route::view('viewPatients', 'managepatient');
 });
 
 //=================================================================
