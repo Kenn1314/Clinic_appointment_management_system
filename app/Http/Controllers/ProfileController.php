@@ -20,7 +20,7 @@ class ProfileController extends Controller
     {
         $data = User::find($id);
         return view("/updateProfile",['data'=>$data]);
-    }                   //blade
+    }
 
     public function updateProfile(Request $req)
     {
