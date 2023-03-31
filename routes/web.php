@@ -35,7 +35,8 @@ Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePati
 Route::post("/patient/updatepatient/{id}",[PatientController::class,'updateUser']);
 Route::post("/updateUser",[PatientController::class,'updateRecords']);
 Route::view('viewPatients','managepatient');
-
+Route::view('aboutUs','aboutUs');
+Route::view('faq','faq');
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);

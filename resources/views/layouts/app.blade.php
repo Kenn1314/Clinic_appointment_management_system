@@ -85,6 +85,9 @@
                                 <a href="/patient/viewDoctors" class="nav-link">Make appointment</a>
                             </li>
                             <li class="nav-item">
+                                <a href="../faq" class="nav-link">FAQ</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="../aboutUs" class="nav-link">About Us</a>
                             </li>
                             @endif
