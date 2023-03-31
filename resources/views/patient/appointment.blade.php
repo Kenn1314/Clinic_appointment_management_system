@@ -6,7 +6,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Make an Appointment') }}</div>
+                    <div class="card-header" style="text-align:center; background:black;
+                    color: white; ">{{ __('Make an Appointment') }}</div>
 
                     <div class="card-body">
                         <form action="/patient/make-appointment" method="POST">
@@ -48,7 +49,7 @@
 <br/>
                             <div class="form-group row text-center">
                               <div class="col-md-12">
-                                  <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to create this appointment?')">{{ __('Create appointment') }}</button>
+                                  <button type="submit" class="btn btn-primary" style="background:black;"onclick="return confirm('Are you sure you want to create this appointment?')">{{ __('Create appointment') }}</button>
                               </div>
                           </div>
                         </form>

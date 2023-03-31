@@ -3,15 +3,11 @@
 @section('content')
 <head>
   <style type="text/css">
-    body{
-      background: #eee;
-      padding-top: 20px;
-      font-family: monospace;
-    }
+
     .header{
       border-radius: 20px 20px 0px 0px;
       padding: 10px 0px;
-      background: purple;
+      background: black;
       color: #fff;
       width: 100%;
       display: flex;

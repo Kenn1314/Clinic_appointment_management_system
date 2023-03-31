@@ -7,14 +7,17 @@
   }
 </style>
 <div class="container">
-  <div class="row m-b-40">
+  <div class="row m-b-40" style="      background: black;
+  color: #fff; margin-bottom: 18px;">
     <div class="col-12 text-center">
       <h1 class="page-resources__title">Content strategy</h1>
       <div class="page-resources__desc">
           Developing a content strategy is a challenge. Contentoo is here to make it easier and inspire you.            </div>
     </div>
+    
   </div>
-<div class="row row-cols-3 g-3">
+  
+<div class="row row-cols-3 g-3" style="background: aliceblue">
   @foreach($doctors as $doctor)
   <div class="col">
     <div class="card doctor-card">
@@ -26,7 +29,7 @@
       <form method="POST" action="/patient/appointment">
         @csrf
         <input type="hidden" name="chosen_doctor_id" value="{{strval($doctor['id'])}}">
-        <button type="submit" class="btn btn-primary w-100">View available time</button>
+        <button type="submit" class="btn btn-primary w-100" style="background: black;">View available time</button>
       </form>
     </div>
   </div>

@@ -14,7 +14,8 @@
       </div>
     </div>
   </div> --}}
-  <div class="bg-yellow points-block text-center block-text" style="background-image: url('test.png'); background-size: cover; background-position: center center;">
+  <div class="text-center block-text" style="      background: black;
+  color: #fff;">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -38,15 +39,15 @@
   </div>
   <br/>
   <br/>
-  <section class="has_ae_slider ae-bg-gallery-type-default">
+  <section>
     <div class="row row-cols-1 row-cols-md-2 g-0">
       <div class="col">
-        <div class="card border-0 ae-bg-gallery-type-default">
+        <div class="card border-0">
           <img src="https://invoiceninja.com/wp-content/uploads/2022/07/Rectangle-18-1.jpg" class="card-img-top" alt="">
         </div>
       </div>
       <div class="col">
-        <div class="card border-0 ae-bg-gallery-type-default">
+        <div class="card border-0">
           <div class="card-body">
             <h3 class="card-title">Team Ninja! Bootstrapped since 2014!</h3>
             <p class="card-text">We’re a small team of three founders – Hillel, Dave, Shalom. Hillel &amp; Shalom met for coffee in late 2013 to discuss the idea of Invoice Ninja. By March 2014, Invoice Ninja was live! Dave (CTO) came on board in 2015 and we never looked back!&nbsp;</p>
@@ -60,8 +61,8 @@
   </section>
 
   <div class="container">
-  <div class="row ae-bg-gallery-type-default">
-    <div class="col-md-6 has_ae_slider">
+  <div class="row">
+    <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Open Source Development</h3>
@@ -71,7 +72,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 has_ae_slider">
+    <div class="col-md-6">
       <div class="card">
         <img src="https://invoiceninja.com/wp-content/uploads/2022/11/Team-Invoice-Ninja.jpg" class="card-img-top" alt="">
       </div>
@@ -79,8 +80,8 @@
   </div>
 </div>
 
-    <h2 class="text-center text-white">Our Instructors</h2>
-    <p class="lead text-center text-white mb-5">
+    <h2 class="text-center">Our Instructors</h2>
+    <p class="lead text-center mb-5">
       Our instructors all have 5+ years working as a web developer in the
       industry
     </p>
