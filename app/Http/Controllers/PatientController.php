@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -75,10 +76,11 @@ class PatientController extends Controller
     {
 
         $appointment=new Appointment;
+        $user = Auth::user();
         $appointment->doctor_id=$request->input('doctor_id');
         $appointment->date= $request->input('appointment_date');
         $appointment->time= $request->input('time');
-        $appointment->user_id= 1; //use session later
+        $appointment->user_id= $user['id']; //use session later
         $appointment->status= 'PENDING';
         $appointment->save();
 
