@@ -58,7 +58,6 @@ Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
-    Route::view('viewPatients', 'managepatient');
 });
 
 
