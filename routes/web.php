@@ -31,7 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::middleware(['can:isPatient'])->group(function () {
 
     //manage patient
-    
+
     Route::view('aboutUs', 'aboutUs');
     Route::view('faq', 'faq');
     //patient controller or appointment controller?
@@ -39,27 +39,56 @@ Route::middleware(['can:isPatient'])->group(function () {
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
     Route::post('/patient/make-appointment', [PatientController::class, 'submitForm']);
 
-Route::get('/profile',[ProfileController::class,'loadViewUser']);
-Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
-Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
+    Route::get('/profile',[ProfileController::class,'loadViewUser']);
+    Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
+    Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
 
     //=====Cancel appointment=====
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
 });
 
-//==========DOCTOR ROUTE==========
-Route::middleware(['can:isDoctor'])->group(function () {
-});
-
-//==========ADMIN ROUTE==========
 Route::middleware(['can:isAdmin'])->group(function () {
-    Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
     Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
-    Route::post("/patient/updatepatient/{id}", [PatientController::class, 'updateUser']);
+    Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
     Route::view('viewPatients', 'managepatient');
 });
+
+Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
+    Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
+    Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
+    Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+});
+
+
+//==========DOCTOR ROUTE==========
+// Route::middleware(['can:isDoctor'])->group(function () {
+//     // Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
+//     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
+//     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+// });
+
+// //==========ADMIN ROUTE==========
+// Route::middleware(['can:isAdmin'])->group(function () {
+//     // Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
+//     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
+//     Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
+//     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
+//     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+//     Route::view('viewPatients', 'managepatient');
+// });
+
+
+// Route::middleware(['can:isAdmin', 'can:isDoctor'])->group(function () {
+
+//     Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
+//     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
+//     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
+//     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+//     Route::view('viewPatients', 'managepatient');
+
+// });
 
 //=================================================================
 

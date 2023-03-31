@@ -6,10 +6,13 @@ use App\Models\patient_record;
 use App\Models\User;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PatientController extends Controller
 {
     public function loadViewPatients(){
+        // Gate::authorize('isDoctor');
+        // Gate::authorize('isAdmin');
         $data = User::whereRole('patient')
         ->paginate(3);
         return view('patient.managepatient',['patients'=>$data]);
@@ -39,7 +42,7 @@ class PatientController extends Controller
         $data->prescription=$req->prescription;
         $data->test_result=$req->test_result;
         $data->save();
-        return view("viewpatient");
+        return redirect("/patient/viewpatient/".$patient['id']);
     }
     else 
         return("error no data"); 
