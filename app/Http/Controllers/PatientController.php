@@ -33,19 +33,23 @@ class PatientController extends Controller
     function updateRecords(Request $req){
         if ($req != null){
         $data= patient_record::find($req->id);
-        $data->name=$req->name;
-        $data->email=$req->email;
+        $patient = patient_record::find($req->patient_id);
+        $data->symptoms=$req->symptoms;
+        $data->diagnosis=$req->diagnosis;
+        $data->prescription=$req->prescription;
+        $data->test_result=$req->test_result;
         $data->save();
-        return redirect("/patient/viewpatient/{id}");
+        return view("viewpatient");
     }
     else 
         return("error no data"); 
     }
 
-    // public function updatePatientDetails($id){
-    //     $data = User::find($id);
-    //     return view('/patient/updatepatient',['patient'=>$data] );
-    // }
+    public function updatePatientDetails($id){
+        $data = patient_record::find($id);
+        $patient = User::where('id', $data['patient_id'])->first();
+        return view('patient.editpatient',['data'=>$data, 'patient'=>$patient] );
+    }
 
     function appointment(Request $request){
 

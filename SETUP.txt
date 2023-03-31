@@ -20,3 +20,8 @@
 //====DATABASE PROBLEM====
 1.run 'php artisan migrate:fresh'
 2.run 'php artisan db:seed'
+
+
+
+
+//====

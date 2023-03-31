@@ -20,8 +20,12 @@
                             <td>{{ $patient['gender'] }}</td>
                             <td>{{ $patient['phone'] }}</td>
                             <td>
+                                @can('isDoctor')
+                                <a href="viewpatient/{{$patient['id']}}">View</a>
+                                @elsecan('isAdmin')
                                 <a href="viewpatient/{{$patient['id']}}">View</a>
                                 <a href="deletepatient/{{$patient['id']}}">Delete</a>
+                                @endcan
                             </td> 
                         </tr>
     @endforeach
