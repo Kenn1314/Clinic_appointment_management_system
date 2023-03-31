@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\AppointmentController;
 
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,14 @@ Route::middleware(['can:isPatient'])->group(function () {
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
     Route::post('/patient/make-appointment', [PatientController::class, 'submitForm']);
+
+Route::get('/profile',[ProfileController::class,'loadViewUser']);
+Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
+Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
+
+Route::get('/profile',[ProfileController::class,'loadViewUser']);
+Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
+Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
 
     //=====Cancel appointment=====
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
