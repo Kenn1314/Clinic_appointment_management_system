@@ -47,10 +47,6 @@ Route::get('/profile',[ProfileController::class,'loadViewUser']);
 Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
 Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
 
-Route::get('/profile',[ProfileController::class,'loadViewUser']);
-Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
-Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
-
     //=====Cancel appointment=====
 Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
 });
