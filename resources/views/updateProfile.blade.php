@@ -1,5 +1,9 @@
 <h1>Update Profile page</h1>
 
+@if(session()->has('PassFailedUpdate'))
+    <span style="color:red">{{session('PassFailedUpdate')}}</span>
+@endif
+
 
 <form action='/updateProfile' method="POST">
     
