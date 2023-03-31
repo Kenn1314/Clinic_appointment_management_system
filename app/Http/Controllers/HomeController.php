@@ -37,6 +37,7 @@ class HomeController extends Controller
         //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE COMPLETED=====
         $completed_appointment = User::find($user_id)->getAppointments()->where('status', 'DONE')->get();
 
+        // return $upcoming_appointment;
         return view('home', ['upcoming' => $upcoming_appointment, 'pending' => $pending_appointment, 'completed' => $completed_appointment]);
     }
 }
