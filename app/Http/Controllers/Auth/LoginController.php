@@ -42,7 +42,9 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $input = $request->all();
-     
+        
+        
+
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
@@ -53,26 +55,6 @@ class LoginController extends Controller
         {
             //=====REDIRECT TO HOME=====
             return redirect()->route('home');
-
-        //===========REMARKS :: BACK UP CODE LEARN FROM YOUTUBE, REMEMBER TO BE DELETED==================
-
-        //     if (auth()->user()->role == 'patient') 
-        //     {
-        //         return "patient";
-        //     //   return redirect()->route('patient.home');
-        //     }
-        //     else if (auth()->user()->role == 'doctor') 
-        //     {
-        //         return "doctor";
-        //     //   return redirect()->route('doctor.home');
-        //     }
-        //     else
-        //     {
-        //         return "admin";
-        //     //   return redirect()->route('admin.home');
-        //     }
-        //========================================================================
-        
         }
         else
         {

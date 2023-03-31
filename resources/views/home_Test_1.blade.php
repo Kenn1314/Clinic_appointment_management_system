@@ -10,7 +10,7 @@
                             <a href="https://infycare.infyom.com/patients/appointments" class="text-decoration-none">
                                 <div class="bg-primary rounded-10 p-xxl-10 px-7 py-10 d-flex align-items-center justify-content-between my-3">
                                     <div class="bg-cyan-300 widget-icon rounded-10 d-flex align-items-center justify-content-center">
-                                       <svg> </svg>
+                                       <svg></svg>
                                     </div>
                                     <div class="text-end text-white">ss</div>
                                 </div>

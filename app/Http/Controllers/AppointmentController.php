@@ -17,7 +17,8 @@ class AppointmentController extends Controller
         return redirect('home');
     }
 
-    public function edit_Appointment(){
+    public function edit_Appointment()
+    {
         
     }
 }
