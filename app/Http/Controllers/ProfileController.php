@@ -49,13 +49,14 @@ class ProfileController extends Controller
             $data -> email = $req -> email;
             $data -> password = $hashedPassword;
             $data -> save();
-            return redirect('/profile')->with('error', 'old password not match, failed to renew password');
+            return redirect('/profile');
             
         }else{
             //flash
             //redirect update profile
 
-            $req->session()->flash('status','Password update failed');
+            $req->session()->flash('PassFailedUpdate','Password update failed');
+            return redirect('/updateProfile/'.$req -> id);
         }
 
         
