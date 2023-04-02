@@ -30,6 +30,9 @@ class HomeController extends Controller
 
         //=====SET USER ID TO SESSION=====
         $request->session()->put('user_id', $user_id);
+        
+        //=====SET USER NAME TO SESSION=====
+        $request->session()->put('user_name', Auth::user()->name);
 
         //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE APPROVED=====
         $upcoming_appointment = User::find($user_id)->getAppointments()->where('status', 'APPROVED')->get();
