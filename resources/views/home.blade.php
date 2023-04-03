@@ -13,12 +13,12 @@
         <!-- ADMIN HOME -->
         @can('isAdmin')
         
-        @include('admin.admin_main');
+        @include('admin.admin_main')
 
         <!-- DOCTOR HOME -->
         @elsecan('isDoctor')
 
-        @include('doctor.doctor_main');
+        @include('doctor.doctor_main')
 
         <!-- PATIENT HOME -->
         @else

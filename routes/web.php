@@ -30,15 +30,14 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //==========PATIENT ROUTE==========
 Route::middleware(['can:isPatient'])->group(function () {
     
-    //manage patient
-
+    //=====YONG ZHENG HENG========================
     Route::view('aboutUs', 'aboutUs');
     Route::view('faq', 'faq');
-    
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
     Route::post('/patient/make-appointment', [PatientController::class, 'submitForm']);
+    //============================================
 
     Route::get('/profile',[ProfileController::class,'loadViewUser']);
     Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
@@ -46,6 +45,7 @@ Route::middleware(['can:isPatient'])->group(function () {
 
     //=====Cancel appointment=====
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
+    
 });
 
 Route::middleware(['can:isAdmin'])->group(function () {

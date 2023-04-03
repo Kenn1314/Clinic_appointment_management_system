@@ -50,9 +50,7 @@ class HomeController extends Controller
 
         } else {
             $pending_Appointment_all = Appointment::where('status', 'PENDING')->get();
-            return view('home');
-            // return $pending_Appointment_all;
-
+            return view('home', ['all_pending_appointments' => $pending_Appointment_all]);
         }
     }
 }
