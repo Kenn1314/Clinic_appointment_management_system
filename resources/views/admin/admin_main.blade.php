@@ -51,10 +51,26 @@
                 <td>{{$appointment->status}}</td>
                 <td>{{$appointment->doctor->name}}</td>
                 <td>
-                    <form action="" method="POST">
+                    {{-- <form action="/update_Status" method="POST">
                         @csrf
-                        <button type="button" class="btn btn-success" onclick="">APPROVED</button>
-                    </form>
+                        <input type="hidden" value="{{$appointment->id}}" name="id" />
+                        <input type="submit" class="btn btn-success" value="Approved"/>
+                    </form> --}}
+
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target='#approvedModal_{{$appointment->id}}'>
+                        APPROVED
+                    </button>
+
+                    <!-- APPROVED MODAL DISPLAY -->
+                    @include('partials.prompt_window', [
+                    'modal_id' => 'approvedModal_'.$appointment->id,
+                    'aria_label' => 'approvedModalLabel',
+                    'modal_title' => 'Appointment Approval',
+                    'modal_body' => 'DO YOU WANT TO APPROVE THIS APPOINTMENT ?',
+                    'id' => $appointment->id,
+                    'route_name' => "/update_Status/".$appointment->id
+                    ]);
+                    
                 </td>
             </tr>
         @endforeach

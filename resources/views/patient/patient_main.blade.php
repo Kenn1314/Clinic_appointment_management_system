@@ -276,8 +276,8 @@
                                     </a>
 
                                     <!-- CANCEL MODAL -->
-                                    @include('partials.prompt_window', ['modal_id' =>
-                                    'cancelModal_'.$upcoming_booking['id'] ,
+                                    @include('partials.prompt_window', [
+                                    'modal_id' => 'cancelModal_'.$upcoming_booking['id'] ,
                                     'aria_label' => 'cancelModalLabel',
                                     'modal_title' => 'Cancel Request',
                                     'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
@@ -320,7 +320,7 @@
                                         </div>
                                     </div> --}}
                                 </span>
-                                
+
                             </div>
 
                         </div>
@@ -455,8 +455,7 @@
                                 <span>
 
                                     <!-- CANCEL BUTTON -->
-                                    <a data-bs-toggle="modal"
-                                        data-bs-target="#cancelModal_{{$pending_appointment['id']}}">
+                                    <a data-bs-toggle="modal" data-bs-target="#cancelModal_{{$pending_appointment['id']}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                             <path
@@ -465,8 +464,8 @@
                                     </a>
 
                                     <!-- CANCEL MODAL -->
-                                    @include('partials.prompt_window', ['modal_id' =>
-                                    'cancelModal_'.$pending_appointment['id'],
+                                    @include('partials.prompt_window', [
+                                    'modal_id' => 'cancelModal_'.$pending_appointment['id'],
                                     'aria_label' => 'cancelModalLabel',
                                     'modal_title' => 'Cancel Request',
                                     'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',

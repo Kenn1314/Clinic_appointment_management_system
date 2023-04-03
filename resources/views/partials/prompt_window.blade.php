@@ -4,7 +4,8 @@
     aria_label   => any
     modal_title  => any
     modal_body   => any
-    delete_id    => pass in an id of the object you want to delete
+    id           => pass in an id of the object you want to perform anything on it
+    route_name   => The route name in web.php
 
 -->
 <div class="modal fade" id="{{$modal_id}}" tabindex="-1" aria-labelledby="{{$aria_label}}" aria-hidden="true">
@@ -29,7 +30,7 @@
                 <button type="button" class="btn btn-secondary"
                     data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger">
-                    <a href="/cancel/{{$delete_id}}" style="color: white; text-decoration:none">Confirm</a>
+                    <a href="{{$route_name}}" style="color: white; text-decoration:none">Confirm</a>
                 </button>
             </div>
 

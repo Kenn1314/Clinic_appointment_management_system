@@ -26,15 +26,15 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
-    <link rel="shortcut icon" type="image/png" href="/media/images/favicon.png">
-	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
-	<link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=ee251b2e366fd8325168a7c17e83be281">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    {{-- <link rel="shortcut icon" type="image/png" href="/media/images/favicon.png"> --}}
+	{{-- <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml"> --}}
+	{{-- <link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=ee251b2e366fd8325168a7c17e83be281"> --}}
+	{{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 
-    <script type="text/javascript" src="/media/js/site.js?_=354829d85c66f61a3a9a975f0688f684" data-domain="datatables.net" data-api="https://plausible.sprymedia.co.uk/api/event"></script>
+    {{-- <script type="text/javascript" src="/media/js/site.js?_=354829d85c66f61a3a9a975f0688f684" data-domain="datatables.net" data-api="https://plausible.sprymedia.co.uk/api/event"></script>
 	<script src="/media/js/dynamic.php?comments-page=examples%2Fstyling%2Fbootstrap5.html"></script>
-	<script defer async src="https://media.ethicalads.io/media/client/ethicalads.min.js" onload="window.dtAds()" onerror="window.dtAds()"></script>
+	<script defer async src="https://media.ethicalads.io/media/client/ethicalads.min.js" onload="window.dtAds()" onerror="window.dtAds()"></script> --}}
 </head>
 <body style="background-color:darkgrey">
     <div id="app">

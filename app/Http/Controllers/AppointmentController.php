@@ -22,8 +22,13 @@ class AppointmentController extends Controller
         
     }
 
-    public function update_Appointment_Id()
+    public function update_Appointment_Id(Request $req)
     {
+        $update_appointment = Appointment::find($req->id);
+        $update_appointment->status = "APPROVED";
+        $update_appointment->save();
         
+        return redirect()->route('home'); // GO BACK TO HOME PAGE ACCORDING TO USER ROLE
+
     }
 }

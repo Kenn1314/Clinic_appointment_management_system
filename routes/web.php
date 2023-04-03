@@ -43,14 +43,17 @@ Route::middleware(['can:isPatient'])->group(function () {
     Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
     Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
 
-    //=====Cancel appointment=====
+    //=====CANCEL OWN APPOINTMENT=====
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
-    
+
 });
 
 Route::middleware(['can:isAdmin'])->group(function () {
     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
     Route::get('/patient/deletepatient/{id}', [PatientController::class, 'deletePatient']);
+
+    //=====UPDATE FROM PENDING TO APPROVED=====
+    Route::get('/update_Status/{id}', [AppointmentController::class, 'update_Appointment_Id']);
 
 });
 
