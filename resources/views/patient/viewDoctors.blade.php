@@ -10,9 +10,9 @@
   <div class="row m-b-40" style="      background: black;
   color: #fff; margin-bottom: 18px;">
     <div class="col-12 text-center">
-      <h1 class="page-resources__title">Content strategy</h1>
+      <h1 class="page-resources__title">Doctors</h1>
       <div class="page-resources__desc">
-          Developing a content strategy is a challenge. Contentoo is here to make it easier and inspire you.            </div>
+         Choose a doctor you like!            </div>
     </div>
     
   </div>

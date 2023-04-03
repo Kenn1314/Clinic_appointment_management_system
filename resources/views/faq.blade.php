@@ -50,15 +50,35 @@
       <div class="faq-inner">
         <div class="faq-item">
           <h3>
-            What is an FAQ page ?
+            What is your clinic operation time?
             <span class="faq-plus">&plus;</span>
           </h3>
           <div class="faq-body">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            Our operation is 9am-5pm, Monday to Sunday.
           </div>
         </div>
         <hr>
         <div class="faq-item">
+          <h3>
+            Can I book an appointment today?
+            <span class="faq-plus">&plus;</span>
+          </h3>
+          <div class="faq-body">
+            No, you cannot book appointment today, you can book appoinment before today.
+          </div>
+        </div>
+        <hr>
+        <div class="faq-item">
+          <h3>
+            How can I contact your clinic if I have any problem?
+            <span class="faq-plus">&plus;</span>
+          </h3>
+          <div class="faq-body">
+           You can contact us using email or phone, you can find information in our about us page.
+          </div>
+        </div>
+        <hr>
+        {{-- <div class="faq-item">
           <h3>
             What is an FAQ page ?
             <span class="faq-plus">&plus;</span>
@@ -76,27 +96,7 @@
           <div class="faq-body">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
           </div>
-        </div>
-        <hr>
-        <div class="faq-item">
-          <h3>
-            What is an FAQ page ?
-            <span class="faq-plus">&plus;</span>
-          </h3>
-          <div class="faq-body">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
-        <hr>
-        <div class="faq-item">
-          <h3>
-            What is an FAQ page ?
-            <span class="faq-plus">&plus;</span>
-          </h3>
-          <div class="faq-body">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
