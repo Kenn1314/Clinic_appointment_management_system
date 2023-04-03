@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['patient', 'doctor', 'admin'])->default('patient');
             $table->string('ic');
             $table->string('gender');
+            $table->string('expertise');
+            $table->string('profilePic');
             $table->string('phone')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();

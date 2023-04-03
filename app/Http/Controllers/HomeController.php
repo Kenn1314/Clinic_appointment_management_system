@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\User;
@@ -34,15 +35,24 @@ class HomeController extends Controller
         //=====SET USER NAME TO SESSION=====
         $request->session()->put('user_name', Auth::user()->name);
 
-        //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE APPROVED=====
-        $upcoming_appointment = User::find($user_id)->getAppointments()->where('status', 'APPROVED')->get();
+        if(Gate::allows("isPatient")){
+            //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE APPROVED=====
+            $upcoming_appointment = User::find($user_id)->getAppointments()->where('status', 'APPROVED')->get();
 
-        //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE PENDING=====
-        $pending_appointment = User::find($user_id)->getAppointments()->where('status', 'PENDING')->get();
+            //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE PENDING=====
+            $pending_appointment = User::find($user_id)->getAppointments()->where('status', 'PENDING')->get();
 
-        //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE COMPLETED=====
-        $completed_appointment = User::find($user_id)->getAppointments()->where('status', 'DONE')->get();
+            //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE COMPLETED=====
+            $completed_appointment = User::find($user_id)->getAppointments()->where('status', 'DONE')->get();
 
-        return view('home', ['upcoming' => $upcoming_appointment, 'pending' => $pending_appointment, 'completed' => $completed_appointment]);
+             return view('home', ['upcoming' => $upcoming_appointment, 'pending' => $pending_appointment, 'completed' => $completed_appointment]);
+        } else if(Gate::allows("isDoctor")){
+
+        } else {
+            $pending_Appointment_all = Appointment::where('status', 'PENDING')->get();
+            return view('home');
+            // return $pending_Appointment_all;
+
+        }
     }
 }

@@ -23,7 +23,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body style="background-color:darkgrey">
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">

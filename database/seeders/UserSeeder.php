@@ -23,6 +23,8 @@ class UserSeeder extends Seeder
                 'role' => 'patient',
                 'ic'=>'123456-33-4444',
                 'gender'=>'Male',
+                'expertise'=>'Expertise in everything',
+                'profilePic'=>'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg',
                 'phone'=>'011-11111111',
             ], [
                 'name' => 'Doctor1',
@@ -31,6 +33,8 @@ class UserSeeder extends Seeder
                 'role' => 'doctor',
                 'ic'=>'123456-33-4444',
                 'gender'=>'Female',
+                'expertise'=>'Expertise in everything',
+                'profilePic'=>'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg',
                 'phone'=>'011-11111112',
             ], [
                 'name' => 'Admin1',
@@ -39,6 +43,8 @@ class UserSeeder extends Seeder
                 'role' => 'admin',
                 'ic'=>'123456-33-4444',
                 'gender'=>'Male',
+                'expertise'=>'Expertise in everything',
+                'profilePic'=>'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg',
                 'phone'=>'011-11111113',
             ],
             [
@@ -48,6 +54,9 @@ class UserSeeder extends Seeder
                 'role' => 'patient',
                 'ic'=>'123456-33-4444',
                 'gender'=>'Female',
+                'expertise'=>'Expertise in everything',
+                'profilePic'=>'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg',
+                'phone'=>'012-0034567891'
             ],
         ];
 

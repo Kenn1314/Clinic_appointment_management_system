@@ -34,6 +34,7 @@ Route::middleware(['can:isPatient'])->group(function () {
 
     Route::view('aboutUs', 'aboutUs');
     Route::view('faq', 'faq');
+    
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
