@@ -29,7 +29,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //==========PATIENT ROUTE==========
 Route::middleware(['can:isPatient'])->group(function () {
-
+    
     //manage patient
 
     Route::view('aboutUs', 'aboutUs');
