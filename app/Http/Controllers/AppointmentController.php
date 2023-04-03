@@ -28,7 +28,7 @@ class AppointmentController extends Controller
         $update_appointment->status = "APPROVED";
         $update_appointment->save();
         
-        return redirect()->route('home'); // GO BACK TO HOME PAGE ACCORDING TO USER ROLE
+        return redirect('home'); // GO BACK TO HOME PAGE ACCORDING TO USER ROLE
 
     }
 }

@@ -53,8 +53,10 @@ class LoginController extends Controller
         //=====CHECK IF USER IS A USER OF THIS SYSTEM BY CHECKING ITS USER EMAIL AND PASSWORD=======
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
-            //=====REDIRECT TO HOME=====
-            return redirect()->route('home');
+            //=====REDIRECT TO HOME ROUTE=====
+            // return redirect()->route('home');
+
+            return redirect('home');
         }
         else
         {

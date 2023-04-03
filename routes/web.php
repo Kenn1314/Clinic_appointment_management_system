@@ -23,10 +23,11 @@ Route::get('/', function () {
     return redirect(route('login'));
 }); // NAVIGATE TO LOGIN PAGE FIRST
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'index']);
 
 //============================MIDDLEWARE TO LIMIT EACH EACH USER ROLE'S=====================================
-
+Route::middleware('auth')->group(function () {
+    
 //==========PATIENT ROUTE==========
 Route::middleware(['can:isPatient'])->group(function () {
     
@@ -57,11 +58,16 @@ Route::middleware(['can:isAdmin'])->group(function () {
 
 });
 
+Route::middleware(['can:isDoctor'])->group(function () {
+});
+
 Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
     Route::get('/patient/all', [PatientController::class, 'loadViewPatients']);
     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+});
+
 });
 
 

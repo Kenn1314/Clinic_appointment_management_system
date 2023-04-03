@@ -36,6 +36,7 @@ class HomeController extends Controller
         $request->session()->put('user_name', Auth::user()->name);
 
         if(Gate::allows("isPatient")){
+
             //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE APPROVED=====
             $upcoming_appointment = User::find($user_id)->getAppointments()->where('status', 'APPROVED')->get();
 
@@ -45,11 +46,19 @@ class HomeController extends Controller
             //=====GET APPOINTMENT OF THE LOGIN USER, THAT HAVE APPOINTMENT THAT ARE COMPLETED=====
             $completed_appointment = User::find($user_id)->getAppointments()->where('status', 'DONE')->get();
 
-             return view('home', ['upcoming' => $upcoming_appointment, 'pending' => $pending_appointment, 'completed' => $completed_appointment]);
+            return view('home', ['upcoming' => $upcoming_appointment, 'pending' => $pending_appointment, 'completed' => $completed_appointment]);
+            
         } else if(Gate::allows("isDoctor")){
 
+            //=====GET ALL DOCTOR=====
+
+            return view('home');
+
         } else {
+            
+            //=====GET ALL PENDING APPOINTMENT FROM APPOINTMENT TABLE=====
             $pending_Appointment_all = Appointment::where('status', 'PENDING')->get();
+
             return view('home', ['all_pending_appointments' => $pending_Appointment_all]);
         }
     }

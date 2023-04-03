@@ -69,8 +69,8 @@
                     'modal_body' => 'DO YOU WANT TO APPROVE THIS APPOINTMENT ?',
                     'id' => $appointment->id,
                     'route_name' => "/update_Status/".$appointment->id
-                    ]);
-                    
+                    ])
+
                 </td>
             </tr>
         @endforeach
