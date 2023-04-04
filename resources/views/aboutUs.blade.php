@@ -60,12 +60,12 @@
           <img src= {{asset('clinicPicture.jpg')}}  class="card-img-top" alt="">
         </div>
       </div>
-      <div class="col">
+      <div class="col" style="    padding-left: 30px;">
         <div class="card border-0">
           <div class="card-body">
             <h3 class="card-title">Dr. Ho Clinic! A clinic started from 2015!</h3>
-            <p class="card-text">We are a dedicated team of healthcare professionals who are committed to providing high-quality medical care to our patients. Our clinic is a safe and welcoming environment where you can receive comprehensive health services that meet your individual needs.&nbsp;</p>
-            <p class="card-text">At our clinic, we believe that healthcare should be accessible to everyone, regardless of their background or circumstances. We strive to provide affordable and compassionate care to all of our patients, while maintaining the highest standards of medical excellence..</p>
+            <p class="card-text">We are a committed group of medical professionals that are committed to giving our patients the best possible care. You can obtain complete healthcare services at our clinic in a friendly, secure setting that is tailored to your specific need.&nbsp;</p>
+            <p class="card-text">In our clinic, we hold the view that everyone, regardless of background or circumstance, should have access to healthcare. By upholding the highest standards of medical expertise, we work hard to offer all of our patients care that is both affordable and compassionate.</p>
             {{-- <p class="card-text"><span style="color: var( --e-global-color-text );">We have the tools you need to facilitate business &amp; get paid.</span></p>
             <p class="card-text"><strong><span style="color: var( --e-global-color-text );">Email for support and we – the co-founders – will reply, fast.</span></strong></p> --}}
           </div>
@@ -73,7 +73,8 @@
       </div>
     </div>
   </section>
-
+<br/>
+<br/>
   <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -81,7 +82,7 @@
         <div class="card-body">
           <h3 class="card-title">Experienced team!</h3>
           <p class="card-text">
-            Our team of experienced doctors, nurses, and support staff are here to ensure that you receive the best possible care. We take a patient-centered approach to healthcare, which means that we work closely with you to develop a personalized treatment plan that addresses your unique needs and concerns.
+            Our group of skilled medical professionals, nurses, and support personnel are here to make certain that you get the best care possible. We practise patient-centered care, which entails close collaboration with you to create a specialised treatment strategy that takes into account your particular requirements and worries.
           </p>
         </div>
       </div>
@@ -94,24 +95,22 @@
   </div>
 </div>
 
-    <h2 class="text-center">Our Instructors</h2>
+    <h2 class="text-center">Our Founders</h2>
     <p class="lead text-center mb-5">
-      Our instructors all have 5+ years working as a web developer in the
-      industry
+      Our founders all have 10+ years working as a doctor in the industry
     </p>
     <div class="row g-4">
       <div class="col-md-6 col-lg-3">
         <div class="card bg-light">
           <div class="card-body text-center">
             <img
-              src="https://randomuser.me/api/portraits/men/11.jpg"
+              src="https://xsgames.co/randomusers/assets/avatars/male/67.jpg"
               class="rounded-circle mb-3"
               alt=""
             />
-            <h3 class="card-title mb-3">John Doe</h3>
+            <h3 class="card-title mb-3">Dr. Ho</h3>
             <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
+              Founder of Dr.Ho clicnic, he has 15 years experience in healthcare. 
             </p>
             <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
             <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
@@ -125,14 +124,13 @@
         <div class="card bg-light">
           <div class="card-body text-center">
             <img
-              src="https://randomuser.me/api/portraits/women/11.jpg"
+              src="https://xsgames.co/randomusers/assets/avatars/male/21.jpg"
               class="rounded-circle mb-3"
               alt=""
             />
-            <h3 class="card-title mb-3">Jane Doe</h3>
+            <h3 class="card-title mb-3">Dr. Yong</h3>
             <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
+              Co-founder of Dr. Ho clinic, he has 10 years experience in orthopedics. 
             </p>
             <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
             <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
@@ -146,14 +144,13 @@
         <div class="card bg-light">
           <div class="card-body text-center">
             <img
-              src="https://randomuser.me/api/portraits/men/12.jpg"
+              src="https://xsgames.co/randomusers/assets/avatars/male/20.jpg"
               class="rounded-circle mb-3"
               alt=""
             />
-            <h3 class="card-title mb-3">Steve Smith</h3>
+            <h3 class="card-title mb-3">Dr. Hai</h3>
             <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
+               Co-founder of Dr. Ho clinic, he has 10 years experience in cardiology. 
             </p>
             <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
             <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
@@ -167,14 +164,13 @@
         <div class="card bg-light">
           <div class="card-body text-center">
             <img
-              src="https://randomuser.me/api/portraits/women/12.jpg"
+              src="https://xsgames.co/randomusers/assets/avatars/female/23.jpg"
               class="rounded-circle mb-3"
               alt=""
             />
-            <h3 class="card-title mb-3">Sara Smith</h3>
+            <h3 class="card-title mb-3">Dr. Wee</h3>
             <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
+               Co-founder of Dr. Ho clinic, she has 10 years experience in dermatology. 
             </p>
             <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
             <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
@@ -190,7 +186,9 @@
   <h1 style="text-align: center;">Where our clinic located?</h1>
   <br/><br/>
   <div class="google-map" style="text-align: center;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63749.369116873386!2d101.3577783021111!3d3.004070075898394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdab41c005abe1%3A0x23801912ca427896!2sKelinik%20Ho!5e0!3m2!1sen!2smy!4v1680595177850!5m2!1sen!2smy" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    {{-- <iframe src="" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
   </div>
   
 @endsection

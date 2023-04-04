@@ -23,13 +23,25 @@
                                 @can('isDoctor')
                                 <a href="viewpatient/{{$patient['id']}}">View</a>
                                 @elsecan('isAdmin')
-                                <a href="viewpatient/{{$patient['id']}}">View</a>
-                                <a href="deletepatient/{{$patient['id']}}">Delete</a>
+                                <button type="button" class="btn btn-info"><a href="viewpatient/{{$patient['id']}}" style="text-decoration: none; color: inherit;">View</a></button>
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target='#DeletePatientModal_{{$patient->id}}'>
+                                    Delete
+                                </button>
+            
+                                <!-- APPROVED MODAL DISPLAY -->
+                                @include('partials.prompt_window', [
+                                'modal_id' => 'DeletePatientModal_'.$patient->id,
+                                'aria_label' => 'DeleteModalLabel',
+                                'modal_title' => 'Delete Patient',
+                                'modal_body' => 'DO YOU WANT TO DELETE THIS PATIENT ?',
+                                'id' => $patient->id,
+                                'route_name' => "deletepatient/".$patient->id
+                                ])
                                 @endcan
                             </td> 
                         </tr>
     @endforeach
     </tbody>
 </table>
-</div> 
+</div>
 @endsection 
