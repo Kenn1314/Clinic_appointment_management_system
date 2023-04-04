@@ -3,17 +3,7 @@
 @section('content')
 <div class="container">
   <br/>
-  {{-- <div class="row">
-    <div class="col-12">
-      <div class="card mb-4">
-        <div class="card-body">
-          <h6 class="card-title">INVOICE NINJA</h6>
-          <h1 class="card-subtitle mb-4">Our Story</h1>
-          <p class="card-text">We launched in early 2014 to build a suite of apps for freelancers &amp; small-businesses. From the very beginning we worked to make Invoice Ninja different.</p>
-        </div>
-      </div>
-    </div>
-  </div> --}}
+
   <div class="text-center block-text" style="      background: black;
   color: #fff;">
     <div class="container">
@@ -66,8 +56,7 @@
             <h3 class="card-title">Dr. Ho Clinic! A clinic started from 2015!</h3>
             <p class="card-text">We are a committed group of medical professionals that are committed to giving our patients the best possible care. You can obtain complete healthcare services at our clinic in a friendly, secure setting that is tailored to your specific need.&nbsp;</p>
             <p class="card-text">In our clinic, we hold the view that everyone, regardless of background or circumstance, should have access to healthcare. By upholding the highest standards of medical expertise, we work hard to offer all of our patients care that is both affordable and compassionate.</p>
-            {{-- <p class="card-text"><span style="color: var( --e-global-color-text );">We have the tools you need to facilitate business &amp; get paid.</span></p>
-            <p class="card-text"><strong><span style="color: var( --e-global-color-text );">Email for support and we – the co-founders – will reply, fast.</span></strong></p> --}}
+
           </div>
         </div>
       </div>
@@ -112,10 +101,6 @@
             <p class="card-text">
               Founder of Dr.Ho clicnic, he has 15 years experience in healthcare. 
             </p>
-            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
           </div>
         </div>
       </div>
@@ -152,10 +137,6 @@
             <p class="card-text">
                Co-founder of Dr. Ho clinic, he has 10 years experience in cardiology. 
             </p>
-            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
           </div>
         </div>
       </div>
@@ -172,10 +153,6 @@
             <p class="card-text">
                Co-founder of Dr. Ho clinic, she has 10 years experience in dermatology. 
             </p>
-            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
           </div>
         </div>
       </div>
@@ -188,7 +165,6 @@
   <div class="google-map" style="text-align: center;">
     
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63749.369116873386!2d101.3577783021111!3d3.004070075898394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdab41c005abe1%3A0x23801912ca427896!2sKelinik%20Ho!5e0!3m2!1sen!2smy!4v1680595177850!5m2!1sen!2smy" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    {{-- <iframe src="" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
   </div>
   
 @endsection
