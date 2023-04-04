@@ -27,7 +27,7 @@
 
 <h1 style="text-align:center;">Welcome to Admin page, {{session('user_name')}}</h1>
 
-<table class="table table-striped table-hover" id="admin_table">
+<table class="table table-striped table-hover dt-responsive nowrap" id="admin_table" style="width:100%">
     <thead class="table-dark">
       <tr>
         <th scope="col"></th>
@@ -81,5 +81,5 @@
 </table>
 
 <script>
-    $('#admin_table').DataTable();
+     $('#admin_table').DataTable();
 </script>

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,31 +12,40 @@
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    {{--
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- OLD -->
+    {{-- <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> --}}
+    {{-- <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script> --}}
+    {{--
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    --}}
+
     <!-- NEWEST -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
+
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-
-    {{-- <link rel="shortcut icon" type="image/png" href="/media/images/favicon.png"> --}}
-	{{-- <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml"> --}}
-	{{-- <link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=ee251b2e366fd8325168a7c17e83be281"> --}}
-	{{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> --}}
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-
-    {{-- <script type="text/javascript" src="/media/js/site.js?_=354829d85c66f61a3a9a975f0688f684" data-domain="datatables.net" data-api="https://plausible.sprymedia.co.uk/api/event"></script>
-	<script src="/media/js/dynamic.php?comments-page=examples%2Fstyling%2Fbootstrap5.html"></script>
-	<script defer async src="https://media.ethicalads.io/media/client/ethicalads.min.js" onload="window.dtAds()" onerror="window.dtAds()"></script> --}}
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
 </head>
+
 <body style="background-color:darkgrey">
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -43,7 +53,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -57,86 +69,66 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
 
-                        <!-- DEFAULT CODE START -->
-                            {{-- <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        @if(auth()->user()->role == 'patient')
+                        <li class="nav-item">
+                            <a href="../home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/patient/viewDoctors" class="nav-link">Make appointment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../faq" class="nav-link">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../aboutUs" class="nav-link">About Us</a>
+                        </li>
+                        @endif
+                        @if(auth()->user()->role == 'admin')
+                        <li class="nav-item">
+                            <a href="/patient/all" class="nav-link">Patient</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/viewDoctor" class="nav-link">Doctor</a>
+                        </li>
+                        @endif
+                        @if(auth()->user()->role == 'doctor')
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Appointment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/patient/all" class="nav-link">Patient</a>
+                        </li>
+                        @endif
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li> --}}
-                        <!-- DEFAULT CODE END -->
-
-                            @if(auth()->user()->role == 'patient')
-                            <li class="nav-item">
-                                <a href="../home" class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/patient/viewDoctors" class="nav-link">Make appointment</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../faq" class="nav-link">FAQ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../aboutUs" class="nav-link">About Us</a>
-                            </li>
-                            @endif
-                            @if(auth()->user()->role == 'admin')
-                            <li class="nav-item">
-                                <a href="/patient/all" class="nav-link">Patient</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">Doctor</a>
-                            </li>
-                            @endif
-                            @if(auth()->user()->role == 'doctor')
-                            <li class="nav-item">
-                                <a href="" class="nav-link">Appointment</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/patient/all" class="nav-link">Patient</a>
-                            </li>
-                            @endif
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-    
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-    
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -144,7 +136,11 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="card-body">
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 
@@ -155,43 +151,56 @@
     </footer> --}}
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
         <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
-          <div class="row">
-            <div class="col-lg-3 mb-3">
-              <a class="d-inline-flex align-items-center mb-2 text-body-secondary text-decoration-none" href="/" aria-label="Bootstrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
-                <span class="fs-5">Bootstrap</span>
-              </a>
-              <ul class="list-unstyled small">
-                <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.3/about/team/">Bootstrap team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</li>
-                <li class="mb-2">Code licensed <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</li>
-                <li class="mb-2">Currently v5.3.0-alpha1.</li>
-              </ul>
-            </div>
-            <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-              <h5>Links</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="/">Home</a></li>
-                <li class="mb-2"><a href="/docs/5.3/">Docs</a></li>
-                <li class="mb-2"><a href="/docs/5.3/examples/">Examples</a></li>
-                <li class="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
-                <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
-                <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
-                <li class="mb-2"><a href="https://cottonbureau.com/people/bootstrap">Swag Store</a></li>
-              </ul>
-            </div>
+            <div class="row">
+                <div class="col-lg-3 mb-3">
+                    <a class="d-inline-flex align-items-center mb-2 text-body-secondary text-decoration-none" href="/"
+                        aria-label="Bootstrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block me-2"
+                            viewBox="0 0 118 94" role="img">
+                            <title>Bootstrap</title>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="fs-5">Bootstrap</span>
+                    </a>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2">Designed and built with all the love in the world by the <a
+                                href="/docs/5.3/about/team/">Bootstrap team</a> with the help of <a
+                                href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</li>
+                        <li class="mb-2">Code licensed <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE"
+                                target="_blank" rel="license noopener">MIT</a>, docs <a
+                                href="https://creativecommons.org/licenses/by/3.0/" target="_blank"
+                                rel="license noopener">CC BY 3.0</a>.</li>
+                        <li class="mb-2">Currently v5.3.0-alpha1.</li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/">Home</a></li>
+                        <li class="mb-2"><a href="/docs/5.3/">Docs</a></li>
+                        <li class="mb-2"><a href="/docs/5.3/examples/">Examples</a></li>
+                        <li class="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
+                        <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
+                        <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
+                        <li class="mb-2"><a href="https://cottonbureau.com/people/bootstrap">Swag Store</a></li>
+                    </ul>
+                </div>
                 <div class="col-6 col-lg-2 mb-3">
-                <h5>Guides</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="/docs/5.3/getting-started/">Getting started</a></li>
-                    <li class="mb-2"><a href="/docs/5.3/examples/starter-template/">Starter template</a></li>
-                    <li class="mb-2"><a href="/docs/5.3/getting-started/webpack/">Webpack</a></li>
-                    <li class="mb-2"><a href="/docs/5.3/getting-started/parcel/">Parcel</a></li>
-                    <li class="mb-2"><a href="/docs/5.3/getting-started/vite/">Vite</a></li>
-                </ul>
+                    <h5>Guides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/docs/5.3/getting-started/">Getting started</a></li>
+                        <li class="mb-2"><a href="/docs/5.3/examples/starter-template/">Starter template</a></li>
+                        <li class="mb-2"><a href="/docs/5.3/getting-started/webpack/">Webpack</a></li>
+                        <li class="mb-2"><a href="/docs/5.3/getting-started/parcel/">Parcel</a></li>
+                        <li class="mb-2"><a href="/docs/5.3/getting-started/vite/">Vite</a></li>
+                    </ul>
                 </div>
 
-          </div>
+            </div>
         </div>
-      </footer>
+    </footer>
 </body>
+
 </html>

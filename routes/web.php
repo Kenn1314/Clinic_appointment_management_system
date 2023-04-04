@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\AppointmentController;
-
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +66,11 @@ Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
+
+    //=====DOCTOR MANAGEMENT=====
+    Route::get('/viewDoctor', [DoctorController::class, 'viewDoctor']);
+    Route::get('/updateDoctor/{id}', [DoctorController::class, 'showUpdate']);
+    Route::get('/deleteDoctor/{id}', [DoctorController::class, 'deleteDoctor']);
 });
 
 });

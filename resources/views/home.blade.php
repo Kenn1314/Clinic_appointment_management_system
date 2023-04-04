@@ -32,7 +32,6 @@
 <style>
     .h-custom {
         height: 200px;
-        /* Adjust the height value as per your requirement */
     }
 </style>
 @endsection

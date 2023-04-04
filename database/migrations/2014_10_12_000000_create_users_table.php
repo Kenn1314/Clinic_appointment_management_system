@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->enum('role', ['patient', 'doctor', 'admin'])->default('patient');
             $table->string('ic');
             $table->string('gender');
-            $table->string('expertise');
-            $table->string('profilePic');
-            $table->string('phone')->unique()->nullable();
+            $table->string('expertise')->default('');
+            $table->string('profilePic')->default('https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg');
+            $table->string('phone')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

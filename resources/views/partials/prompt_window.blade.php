@@ -29,7 +29,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
                     data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">
+                <button type="button" class="btn btn-danger" id="confirmBtn">
                     <a href="{{$route_name}}" style="color: white; text-decoration:none">Confirm</a>
                 </button>
             </div>
@@ -37,3 +37,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#confirmBtn').click(function() {
+        $(this).attr('disabled', true);
+    });
+</script>
