@@ -30,7 +30,7 @@ class PatientController extends Controller
     public function deletePatient($id){
         $data = User::find($id);
         $data->delete();
-        return view('/patient/all');
+        return redirect('/patient/all');
 
     }
 

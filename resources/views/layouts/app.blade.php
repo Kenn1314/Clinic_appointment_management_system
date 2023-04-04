@@ -109,12 +109,12 @@
                                 <a href="/patient/all" class="nav-link">Patient</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/aboutUs" class="nav-link">Doctor</a>
+                                <a href="" class="nav-link">Doctor</a>
                             </li>
                             @endif
                             @if(auth()->user()->role == 'doctor')
                             <li class="nav-item">
-                                <a href="/aboutUs" class="nav-link">Appointment</a>
+                                <a href="" class="nav-link">Appointment</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/patient/all" class="nav-link">Patient</a>

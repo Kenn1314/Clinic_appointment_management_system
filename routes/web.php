@@ -17,13 +17,13 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Auth::routes(); // GENERATE ALL THE AUTHENTICATION ROUTE LIKE REGISTER AND LOGIN
+Auth::routes();// GENERATE ALL THE AUTHENTICATION ROUTE LIKE REGISTER AND LOGIN
 
 Route::get('/', function () {
     return redirect(route('login'));
-}); // NAVIGATE TO LOGIN PAGE FIRST
+});// NAVIGATE TO LOGIN PAGE FIRST
 
-Route::get('home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 
 //============================MIDDLEWARE TO LIMIT EACH EACH USER ROLE'S=====================================
 Route::middleware('auth')->group(function () {

@@ -42,6 +42,7 @@
     </thead>
     <tbody class="table-info">
         @foreach($all_pending_appointments as $key => $appointment)
+        @if($appointment->patient_name)
             <tr>
                 <th scope="row">{{$key++}}.</th>
                 <td>{{$appointment->user_id}}</td>
@@ -73,6 +74,8 @@
 
                 </td>
             </tr>
+        @endif
+
         @endforeach
     </tbody>
 </table>
