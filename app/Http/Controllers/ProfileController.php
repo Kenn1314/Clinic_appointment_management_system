@@ -22,11 +22,18 @@ class ProfileController extends Controller
         return view("/updateProfile",['data'=>$data]);
     }
 
+    public function showProfilePicture($id)
+    {
+        $data = User::find($id);
+        return view("/updateProfilePicture",['data'=>$data]);
+    }      
+
     public function updateProfile(Request $req)
     {
         $req -> validate([
             'name' => 'required',
             'email' => 'required | email',
+            'expertise' => 'required',
             'oldPassword' => 'required',
             'newPassword' => 'required',
             'confirmPassword' => 'required | same:newPassword'
@@ -47,6 +54,7 @@ class ProfileController extends Controller
             $data = User::find($req -> id);
             $data -> name = $req -> name;
             $data -> email = $req -> email;
+            $data -> expertise = $req -> expertise;
             $data -> password = $hashedPassword;
             $data -> save();
             return redirect('/profile');
@@ -58,8 +66,16 @@ class ProfileController extends Controller
             $req->session()->flash('PassFailedUpdate','Password update failed');
             return redirect('/updateProfile/'.$req -> id);
         }
+    }
 
+    public function updateProfilePicture(Request $req)
+    {
+        $data = $req->input();
+
+        $data = User::find($req -> id);
+        $data ->profilePic = $req -> profilePic;
+        $data -> save();
+        return redirect('/profile');
         
-
     }
 }
