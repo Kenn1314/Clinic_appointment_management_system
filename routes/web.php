@@ -41,9 +41,9 @@ Route::middleware(['can:isPatient'])->group(function () {
     //============================================
 
 
-    Route::get('/profile',[ProfileController::class,'loadViewUser']);
-    Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
-    Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
+   
+
+    
 
     Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
     Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
@@ -76,7 +76,11 @@ Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
 });
-
+Route::middleware(['can:isPatient|isDoctor'])->group(function () {
+    Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
+    Route::get('/profile',[ProfileController::class,'loadViewUser']);
+    Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
+});
 });
 
 

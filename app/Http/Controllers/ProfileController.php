@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 
 use App\Models\User;
 
@@ -31,6 +32,9 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $req)
     {
+        if(Gate::allows('isPatient')){
+
+        
         $req -> validate([
             'name' => 'required',
             'email' => 'required | email',
@@ -67,6 +71,27 @@ class ProfileController extends Controller
             $req->session()->flash('PassFailedUpdate','Password update failed');
             return redirect('/updateProfile/'.$req -> id);
         }
+    } else{
+        $validated = $req->validate([
+            'name' => 'required',
+            'email' => 'required | email | unique:users',
+            'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
+            'phone' => 'regex: /^\d{3}-\d{7}$/ | required | unique:users',
+            'password' => 'required | string | min:8 | confirmed',
+            'expertise' => 'required | max:255',
+        ]);
+
+        $update_Doctor = User::find($req->id);
+        $update_Doctor->name = $req->email;
+        $update_Doctor->ic = $req->ic;
+        $update_Doctor->phone = $req->phone;
+        $update_Doctor->expertise = $req->expertise;
+        $update_Doctor->password = bcrypt($req->password);
+        $update_Doctor->save();
+
+        return redirect('/profile');
+    }
+
     }
 
     public function updateProfilePicture(Request $req)
