@@ -72,11 +72,11 @@ password
                         <div class="col-md-12 mt-3">
                             <label class="mb-3 mr-1" for="gender">Gender: </label>
 
-                            <input type="radio" class="btn-check @error('Gender') is-invalid @enderror" name="gender"
+                            <input type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender"
                                 id="male" autocomplete="off" value="Male">
                             <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
 
-                            <input type="radio" class="btn-check @error('Gender') is-invalid @enderror" name="gender"
+                            <input type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender"
                                 id="female" autocomplete="off" value="Female">
                             <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
 
