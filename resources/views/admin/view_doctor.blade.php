@@ -20,7 +20,7 @@
     <tbody class="table-info">
         @foreach($doctors as $key => $doctor)
             <tr>
-                <th scope="row">{{$key++}}.</th>
+                <th scope="row">{{$key+1}}.</th>
                 <td>{{$doctor->name}}</td>
                 <td>{{$doctor->email}}</td>
                 <td>{{$doctor->ic}}</td>

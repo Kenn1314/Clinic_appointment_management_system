@@ -44,7 +44,7 @@
         @foreach($all_pending_appointments as $key => $appointment)
         @if($appointment->patient_name)
             <tr>
-                <th scope="row">{{$key++}}.</th>
+                <th scope="row">{{$key+1}}.</th>
                 <td>{{$appointment->user_id}}</td>
                 <td>{{$appointment->patient_name->name}}</td>
                 <td>{{$appointment->date}}</td>
@@ -79,6 +79,8 @@
         @endforeach
     </tbody>
 </table>
+
+
 
 <script>
      $('#admin_table').DataTable();

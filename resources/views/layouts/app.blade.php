@@ -98,6 +98,9 @@
                         @endif
                         @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
+                            <a href="../home" class="nav-link">Appointments</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/patient/all" class="nav-link">Patient</a>
                         </li>
                         <li class="nav-item">
