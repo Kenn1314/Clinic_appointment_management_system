@@ -92,7 +92,7 @@ class PatientController extends Controller
     public function submitForm(Request $request)
     {
 
-        $appointment = new Appointment;
+        $appointment=Appointment::find($request->id);
         $user = Auth::user();
         $appointment->doctor_id = $request->input('doctor_id');
         $appointment->date = $request->input('appointment_date');
