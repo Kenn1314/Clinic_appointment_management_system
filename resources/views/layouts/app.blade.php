@@ -54,7 +54,7 @@
         src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
 </head>
 
-<body style="background-color:darkgrey">
+<body style="background-color:#c1e8ff">
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">

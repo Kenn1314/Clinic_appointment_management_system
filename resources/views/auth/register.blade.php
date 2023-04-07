@@ -25,7 +25,7 @@ password
                         <div class="form-floating col-md-12">
                             <input id="floatingUsername" class="form-control @error('name') is-invalid @enderror"
                                 placeholder="Jordon Poole" type="text" name="name" value="{{ old('name') }}">
-                            <label for="floatingUsername" style="color:gray">Username</label>
+                            <label for="floatingUsername" style="color:rgb(93, 92, 92)">Username</label>
 
                             {{-- @if ($errors->has('name') )
                             <div class="valid-feedback" role="alert">Username field is valid!</div>
@@ -40,7 +40,7 @@ password
                         <div class="form-floating col-md-12">
                             <input id="floatingEmail" class="form-control @error('email') is-invalid @enderror"
                                 placeholder="Ex: name@mail.com" type="email" name="email" value="{{ old('email') }}">
-                            <label for="floatingEmail" style="color:gray">Email address</label>
+                            <label for="floatingEmail" style="color:rgb(93, 92, 92)">Email address</label>
                             @error('email')
                             <div class="invalid-feedback" role="alert">{{$message}}</div>
                             @enderror
@@ -50,7 +50,7 @@ password
                         <div class="form-floating col-md-12">
                             <input id="floatingIC" class="form-control @error('ic') is-invalid @enderror"
                                 placeholder="Ex: 000000-00-0000" type="text" name="ic" value="{{ old('ic')}}">
-                            <label for="floatingIC" style="color:gray">IC number</label>
+                            <label for="floatingIC" style="color:rgb(93, 92, 92)">IC number</label>
                             @error('ic')
                             <div class="invalid-feedback" role="alert">{{$message}}</div>
                             @enderror
@@ -60,7 +60,7 @@ password
                         <div class="form-floating col-md-12">
                             <input id="floatingPhoneNumber" class="form-control @error('phone') is-invalid @enderror"
                                 placeholder="Ex: 000-0000000" type="text" name="phone" value="{{ old('phone') }}">
-                            <label for="floatingPhoneNumber" style="color:gray">Phone number</label>
+                            <label for="floatingPhoneNumber" style="color:rgb(93, 92, 92)">Phone number</label>
                             @error('phone')
                             <div class="invalid-feedback" role="alert">{{$message}}</div>
                             @enderror
@@ -88,7 +88,7 @@ password
                             <input id="floatingPassword" class="form-control @error('password') is-invalid @enderror"
                                 placeholder="Please enter your password" type="text" name="password"
                                 value="{{ old('password') }}">
-                            <label for="floatingPassword" style="color:gray">Password</label>
+                            <label for="floatingPassword" style="color:rgb(93, 92, 92)">Password</label>
                             @error('password')
                             <div class="invalid-feedback" role="alert">{{$message}}</div>
                             @enderror
@@ -97,7 +97,7 @@ password
                         <!-- PASSWORD CONFIRMATION -->
                         <div class="form-floating col-md-12 mb-3">
                             <input id="floatingPassCon" name="password_confirmation"  class="form-control" placeholder="Please enter your password again" type="text" name="password_confirmation">
-                            <label for="floatingPassCon" style="color:gray">Confirm password</label>
+                            <label for="floatingPassCon" style="color:rgb(93, 92, 92)">Confirm password</label>
                         </div>
 
                         <!-- CHECKBOX -->
@@ -167,7 +167,7 @@ password
 
     .form-content .form-items {
         border: 5px solid #fff;
-        background-color: darkslategray;
+        background-color: #3b5ba9;
         padding: 40px;
         display: inline-block;
         width: 100%;
