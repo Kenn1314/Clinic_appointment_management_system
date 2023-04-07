@@ -8,6 +8,7 @@
 @if(session()->has('PassFailedUpdate'))
 <span style="color:red">{{session('PassFailedUpdate')}}</span>
 @endif
+
 <div class="row ">
     <div class="col-lg-7 mx-auto">
         <div class="card mt-2 mx-auto p-4 bg-light">

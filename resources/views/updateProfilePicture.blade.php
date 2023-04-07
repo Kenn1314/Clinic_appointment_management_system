@@ -1,10 +1,33 @@
-<h1>Update Profile Picture page</h1>
+@extends('layouts.app')
+ 
+@section('content')
+<div class=" text-center mt-5 ">
+<h1  >Update {{$data['name']}} Profile Picture</h1>
+</div>
 
-<form action='/updateProfilePicture' method="POST" enctype="multipart/form-data">
-  @csrf
-  <label for="file-input">Choose a JPG file:</label>
-  <input type="hidden" name="id" value="{{session('user_id')}}">
-  <input type="file" name="profilePic" accept=".jpg, .png">
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
+ 
+<div class="row ">
+    <div class="col-lg-7 mx-auto">
+        <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+
+               
+ <div class="container">
+
+                <form action='/updateProfilePicture' method="POST" enctype="multipart/form-data">
+                @csrf
+                <label for="file-input">Choose a JPG file:</label>
+                <input type="hidden" name="id" value="{{session('user_id')}}">
+                <input type="file" name="profilePic" accept=".jpg, .png">
+                <br><br>
+                <input type="submit" value="Submit">
+              </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@endsection
