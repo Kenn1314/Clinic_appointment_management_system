@@ -32,8 +32,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['can:isPatient'])->group(function () {
     
     //=====YONG ZHENG HENG========================
-    Route::view('aboutUs', 'aboutUs');
-    Route::view('faq', 'faq');
+    Route::view('aboutUs', 'quicklinks/aboutUs');
+    Route::view('faq', 'quicklinks/faq');
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
