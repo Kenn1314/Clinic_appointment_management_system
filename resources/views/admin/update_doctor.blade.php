@@ -99,7 +99,7 @@
                                         <div class="form-group">
                                             <label for="form_phoneNumber">Phone number *</label>
                                             <input id="form_phoneNumber" type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
-                                                placeholder="Ex: 012-34567890 *">
+                                                placeholder="Ex: 012-34567890 *" value="{{ old('phone') }}">
                                         </div>
                                     </div>
 
@@ -113,7 +113,7 @@
                                         <div class="form-group">
                                             <label for="form_Expertise">Expertise *</label>
                                             <textarea id="form_Expertise" name="expertise" class="form-control @error('expertise') is-invalid @enderror"
-                                                placeholder="Please enter the expertise description of the doctor" rows="4"></textarea>
+                                                placeholder="Please enter the expertise description of the doctor" rows="4"> {{ old('expertise') }}</textarea>
                                         </div>
                                     </div>
 
