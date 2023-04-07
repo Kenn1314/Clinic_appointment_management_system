@@ -132,6 +132,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @can('isPatient|isDoctor')
                                 <a class="dropdown-item" href="/profile">Profile</a>
+                                @endcan
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -179,8 +180,6 @@
                     <ul class="list-unstyled">
                         <li><a href="/aboutUs">About Us</a></li>
                         <li><a href="/faq">FAQs</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">

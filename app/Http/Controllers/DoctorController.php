@@ -40,7 +40,8 @@ class DoctorController extends Controller
         ]);
 
         $update_Doctor = User::find($request->id);
-        $update_Doctor->name = $request->email;
+        $update_Doctor->name = $request->name;
+        $update_Doctor->email = $request->email;
         $update_Doctor->ic = $request->ic;
         $update_Doctor->phone = $request->phone;
         $update_Doctor->expertise = $request->expertise;

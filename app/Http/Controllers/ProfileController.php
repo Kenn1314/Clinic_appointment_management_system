@@ -82,7 +82,8 @@ class ProfileController extends Controller
         ]);
 
         $update_Doctor = User::find($req->id);
-        $update_Doctor->name = $req->email;
+        $update_Doctor->name = $req->name;
+        $update_Doctor->email = $req->email;
         $update_Doctor->ic = $req->ic;
         $update_Doctor->phone = $req->phone;
         $update_Doctor->expertise = $req->expertise;
