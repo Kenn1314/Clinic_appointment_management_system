@@ -97,12 +97,12 @@
                         <li class="nav-item">
                             <a href="/patient/viewDoctors" class="nav-link">Make appointment</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="../faq" class="nav-link">FAQ</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a href="../aboutUs" class="nav-link">About Us</a>
-                        </li>
+                        </li> --}}
                         @endif
                         @if(auth()->user()->role == 'admin')
                         <li class="nav-item">
@@ -127,11 +127,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/profile">Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -173,8 +173,8 @@
                 <div class="col-md-4">
                     <h3>Quick Links</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="/aboutUs">About Us</a></li>
+                        <li><a href="/faq">FAQs</a></li>
                         <li><a href="#">Products</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
