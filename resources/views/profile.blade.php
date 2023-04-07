@@ -11,7 +11,7 @@
     @endforeach
 @endif
 
-Currrent User: {{$image_test=$user->profilePic}}
+{{-- Currrent User: {{$image_test=$user->profilePic}} --}}
 
 <div class="container">
     <div class="col-12">

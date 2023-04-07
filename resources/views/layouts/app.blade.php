@@ -153,13 +153,6 @@
     </div>
     @can('isAdmin|isDoctor|isPatient')
     <footer class="footer" style="background-color: #17171A">
-
-<<<<<<< Updated upstream
-
-      <footer class="footer" style="background-color: #17171A">
-        
-=======
->>>>>>> Stashed changes
         <div class="container" style="color: white;">
             <hr />
             <div class="row">
