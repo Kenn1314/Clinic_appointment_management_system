@@ -2,8 +2,8 @@
 
 @section('content')
 <div class ="container-sm" >
-{{-- <h3>{{$name['name']}}</h3> --}}
-<table class="table table-dark table-bordered border-2 border-secondary" >
+<h3>{{$name['name']}}</h3>
+<table class="table table-dark table-bordered border-2 border-secondary">
     <thead>
         <td>Symptoms</td>
         <td>Diagnosis</td>
@@ -28,4 +28,5 @@
     </tbody>
 </table>
 </div> 
+
 @endsection 
