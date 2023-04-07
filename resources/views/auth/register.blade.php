@@ -111,7 +111,7 @@ password
                         </div>
 
 
-                        <div class="form-button mt-3">
+                        <div class="form-button mt-3" style="text-align: center;">
                             <button id="submit" type="submit" class="btn btn-primary">Register</button>
                         </div>
                     </form>
@@ -166,8 +166,8 @@ password
     }
 
     .form-content .form-items {
-        border: 5px solid #fff;
-        background-color: #3b5ba9;
+        border: 3px solid black;
+        background-color: #abcdef;
         padding: 40px;
         display: inline-block;
         width: 100%;
@@ -181,7 +181,7 @@ password
     }
 
     .form-content h3 {
-        color: #fff;
+        color: black;
         text-align: left;
         font-size: 28px;
         font-weight: 600;
@@ -193,7 +193,7 @@ password
     }
 
     .form-content p {
-        color: #fff;
+        color: black;
         text-align: left;
         font-size: 17px;
         font-weight: 300;
@@ -205,7 +205,7 @@ password
     .form-content label,
     .was-validated .form-check-input:invalid~.form-check-label,
     .was-validated .form-check-input:valid~.form-check-label {
-        color: #fff;
+        color: black;
     }
 
     .form-content input[type=text],

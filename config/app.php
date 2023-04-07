@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => "Clinic Appoint Management System",
+    'name' => "Clinic Appointment Management System",
 
     /*
     |--------------------------------------------------------------------------

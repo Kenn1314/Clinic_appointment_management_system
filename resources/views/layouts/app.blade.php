@@ -54,7 +54,7 @@
         src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
 </head>
 
-<body style="background-color:#c1e8ff">
+<body style="background-color:#f0f8ff">
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">
@@ -130,9 +130,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                @can('isPatient')
                                 <a class="dropdown-item" href="/profile">Profile</a>
-                                @endcan
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -180,6 +178,8 @@
                     <ul class="list-unstyled">
                         <li><a href="/aboutUs">About Us</a></li>
                         <li><a href="/faq">FAQs</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
