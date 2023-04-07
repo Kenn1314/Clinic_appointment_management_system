@@ -45,10 +45,8 @@ Route::middleware(['can:isPatient'])->group(function () {
     Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
     Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
 
-Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
-Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
-
-
+    Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
+    Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
 
     //=====CANCEL OWN APPOINTMENT=====
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
@@ -62,6 +60,11 @@ Route::middleware(['can:isAdmin'])->group(function () {
     //=====UPDATE FROM PENDING TO APPROVED=====
     Route::get('/update_Status/{id}', [AppointmentController::class, 'update_Appointment_Id']);
 
+    //=====DOCTOR MANAGEMENT=====
+    Route::get('/viewDoctor', [DoctorController::class, 'viewDoctor']);
+    Route::get('/updateDoctor/{id}', [DoctorController::class, 'showUpdate']);
+    Route::get('/deleteDoctor/{id}', [DoctorController::class, 'deleteDoctor']);
+    Route::post('/updateDoctor', [DoctorController::class, 'updateDoctor']);
 });
 
 Route::middleware(['can:isDoctor'])->group(function () {
@@ -72,11 +75,6 @@ Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
     Route::get('/patient/viewpatient/{id}', [PatientController::class, 'loadPatientDetails']);
     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
-
-    //=====DOCTOR MANAGEMENT=====
-    Route::get('/viewDoctor', [DoctorController::class, 'viewDoctor']);
-    Route::get('/updateDoctor/{id}', [DoctorController::class, 'showUpdate']);
-    Route::get('/deleteDoctor/{id}', [DoctorController::class, 'deleteDoctor']);
 });
 
 });

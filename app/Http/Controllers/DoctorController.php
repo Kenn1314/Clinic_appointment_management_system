@@ -28,8 +28,26 @@ class DoctorController extends Controller
         return view("admin.update_doctor", ["doctor_info"=>$data]);
     }
 
-    function updateDoctor($id)
+    function updateDoctor(Request $request)
     {
-        $found_doctor = User::find($id);
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required | email | unique:users',
+            'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
+            'phone' => 'regex: /^\d{3}-\d{7}$/ | required | unique:users',
+            'password' => 'required | string | min:8 | confirmed',
+            'expertise' => 'required | max:255',
+        ]);
+
+        $update_Doctor = User::find($request->id);
+        $update_Doctor->name = $request->email;
+        $update_Doctor->ic = $request->ic;
+        $update_Doctor->phone = $request->phone;
+        $update_Doctor->expertise = $request->expertise;
+        $update_Doctor->password = bcrypt($request->password);
+        $update_Doctor->save();
+
+        return redirect('/viewDoctor');
     }
+
 }

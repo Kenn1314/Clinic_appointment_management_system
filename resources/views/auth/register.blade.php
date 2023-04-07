@@ -21,8 +21,6 @@ password
                     <form method="POST" action="{{ route('register') }}">
                         <!-- class="requires-validation" novalidate -->
                         @csrf
-
-
                         <!-- USERNAME -->
                         <div class="form-floating col-md-12">
                             <input id="floatingUsername" class="form-control @error('name') is-invalid @enderror"
@@ -72,16 +70,16 @@ password
                         <div class="col-md-12 mt-3">
                             <label class="mb-3 mr-1" for="gender">Gender: </label>
 
-                            <input type="radio" class="btn-check @error('Gender') is-invalid @enderror" name="gender"
+                            <input type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender"
                                 id="male" autocomplete="off" value="Male">
                             <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
 
-                            <input type="radio" class="btn-check @error('Gender') is-invalid @enderror" name="gender"
+                            <input type="radio" class="btn-check @error('gender') is-invalid @enderror" name="gender"
                                 id="female" autocomplete="off" value="Female">
                             <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
 
                             @error('gender')
-                            <div class="invalid-feedback mv-up">Please select a gender!</div>
+                                <div class="invalid-feedback mv-up">Please select a gender!</div>
                             @enderror
                         </div>
 
