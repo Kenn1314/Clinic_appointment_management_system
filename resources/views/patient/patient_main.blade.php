@@ -221,7 +221,7 @@
 
                             <!-- SHOW EDIT AND DELETE ICON -->
                             <div class="p-2">
-                                <form method="POST" action="/patient/appointment">
+                                <form method="POST" action="/patient/patientEditAppointment">
                                     @csrf
                                     <input type="hidden" name="chosen_doctor_id" value="{{strval($pending_appointment['doctor_id'])}}">
                                     <input type="hidden" name="is_patient_edit" value="true">

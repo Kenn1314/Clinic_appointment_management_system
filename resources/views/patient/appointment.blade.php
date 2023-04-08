@@ -30,11 +30,14 @@
                                 <div class='input-group date' id='datetimepicker'>
                                     <input type='date' class="form-control" name="appointment_date"
                                         min="{{ date('Y-m-d', strtotime('tomorrow')) }}"
-                                        @if(isset($is_patient_edit)&&!empty($is_patienr_edit)){
-                                            value="{{$edit_date}}"/>
+                                        @if (isset($is_patient_edit)){
+                                            value="{{$edit_date}}" 
+                                        }
+                                        @elseif(!isset($is_patient_edit)){
+                                            value="{{ date('Y-m-d', strtotime('tomorrow')) }}"
                                         }
                                         @endif
-                                        value="{{ date('Y-m-d', strtotime('tomorrow')) }}" />
+                                        />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -97,7 +100,6 @@
                     select.appendChild(option);
                 }
             }
-
             $(document).ready(function() {
                 updateAppointmentTimes();
             });

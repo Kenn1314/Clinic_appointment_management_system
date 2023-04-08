@@ -23,6 +23,22 @@ class AppointmentController extends Controller
                 ->get(),
         ]);
     }
+
+    function patientEditAppointment(Request $request)
+    {
+
+        return view('/patient/appointment', [
+            'doctors' => User::where('role', 'doctor')
+                ->where('id', $request->input('chosen_doctor_id'))
+                ->first(),
+            'appointments' => Appointment::where('doctor_id', $request->input('chosen_doctor_id'))
+                ->where('status', 'PENDING')
+                ->orWhere('status', 'APPROVED')
+                ->get(),
+            'is_patient_edit'=>$request->input('is_patient_edit'),
+            'edit_date'=>$request->input('edit_date'),
+        ]);
+    }
     public function cancel_Appointment($appointment_id)
     {
         $delete_Data = appointment::find($appointment_id);
