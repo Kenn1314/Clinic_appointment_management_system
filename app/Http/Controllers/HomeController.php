@@ -28,10 +28,12 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $user_id = Auth::user()->id; // logged in user_id
+        $user_password = Auth::user()->password; 
 
         //=====SET USER ID TO SESSION=====
         $request->session()->put('user_id', $user_id);
-        
+        // $request->session()->put('user_password', $user_password);
+
         //=====SET USER NAME TO SESSION=====
         $request->session()->put('user_name', Auth::user()->name);
 
@@ -51,8 +53,9 @@ class HomeController extends Controller
         } else if(Gate::allows("isDoctor")){
 
             //=====GET ALL DOCTOR=====
-
-            return view('home');
+        $completed_appointment =Appointment::where('doctor_id', $user_id ) ->where('status', 'DONE')->get();
+            return view('home',['completed_appointment'=> $completed_appointment]);
+            // return   $completed_appointment;
 
         } else {
             

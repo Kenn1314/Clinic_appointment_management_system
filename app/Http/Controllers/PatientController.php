@@ -52,12 +52,13 @@ class PatientController extends Controller
     {
         if ($req != null) {
             $data = patient_record::find($req->id);
-            $patient = patient_record::find($req->patient_id);
+            $patient = User::find($req->patient_id);
             $data->symptoms = $req->symptoms;
             $data->diagnosis = $req->diagnosis;
             $data->prescription = $req->prescription;
             $data->test_result = $req->test_result;
             $data->save();
+            // return $req->patient_id;
             return redirect("/patient/viewpatient/" . $patient['id']);
         } else
             return ("error no data");
@@ -70,37 +71,10 @@ class PatientController extends Controller
         return view('patient.editpatient', ['data' => $data, 'patient' => $patient]);
     }
 
-    function appointment(Request $request)
-    {
-
-        return view('/patient/appointment', [
-            'doctors' => User::where('role', 'doctor')
-                ->where('id', $request->input('chosen_doctor_id'))
-                ->first(),
-            'appointments' => Appointment::where('doctor_id', $request->input('chosen_doctor_id'))
-                ->where('status', 'PENDING')
-                ->orWhere('status', 'APPROVED')
-                ->get(),
-        ]);
-    }
-
     function viewDoctors()
     {
         return view('/patient/viewDoctors', ['doctors' => User::where('role', 'doctor')->get()]);
     }
 
-    public function submitForm(Request $request)
-    {
 
-        $appointment=Appointment::find($request->id);
-        $user = Auth::user();
-        $appointment->doctor_id = $request->input('doctor_id');
-        $appointment->date = $request->input('appointment_date');
-        $appointment->time = $request->input('time');
-        $appointment->user_id = $user['id']; //use session later
-        $appointment->status = 'PENDING';
-        $appointment->save();
-
-        return redirect('/home');
-    }
 }
