@@ -21,10 +21,9 @@
       <td>{{$appointment->date}}</td>
       <td>{{$appointment->time}}</td>
       <td>
-        <form action="" method="POST">
+        <form action="/patient/addpatientrecord/{{$appointment->id}}" method="POST">
           @csrf
-          <input type="hidden" name="id" value="{{$appointment->id}}" />
-
+          <input type="hidden" name="patient_id" />
           <button type="submit" class="btn btn-success">
             DONE
           </button>

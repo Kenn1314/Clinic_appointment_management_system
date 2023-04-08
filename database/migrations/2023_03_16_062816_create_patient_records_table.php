@@ -17,11 +17,11 @@ class CreatePatientRecordsTable extends Migration
             $table->id();
             $table->foreignId('patient_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreignId('doctor_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreignIdFor(\App\Models\Appointment::class, 'appointment_id')->nullable();
+            $table->foreignIdFor(\App\Models\Appointment::class, 'appointment_id');
             $table->longText('symptoms');
             $table->longText('diagnosis');
             $table->longText('prescription');
-            $table->longText('test_result');
+            $table->longText('test_result')->nullable();
             $table->timestamps();
         });
     }
