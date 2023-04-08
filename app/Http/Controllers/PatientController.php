@@ -52,12 +52,13 @@ class PatientController extends Controller
     {
         if ($req != null) {
             $data = patient_record::find($req->id);
-            $patient = patient_record::find($req->patient_id);
+            $patient = User::find($req->patient_id);
             $data->symptoms = $req->symptoms;
             $data->diagnosis = $req->diagnosis;
             $data->prescription = $req->prescription;
             $data->test_result = $req->test_result;
             $data->save();
+            // return $req->patient_id;
             return redirect("/patient/viewpatient/" . $patient['id']);
         } else
             return ("error no data");

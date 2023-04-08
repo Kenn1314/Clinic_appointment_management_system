@@ -97,7 +97,7 @@
     </ul>
 
     <!-- Tab panes -->
-    <div class="tab-content container-fluid" style="background-color:lightgray">
+    <div class="tab-content container-fluid" style="background-color:#838996">
 
         <!-- UPCOMING TAB -->
         <div class="tab-pane fade show active" id="Upcoming" role="tabpanel" aria-labelledby="Upcoming-tab">
@@ -106,7 +106,7 @@
 
                     @foreach($upcoming as $upcoming_booking)
 
-                    <div class="border border-dark rounded m-4" style="background-color:cornflowerblue">
+                    <div class="border border-dark rounded m-4" style="background-color:#d0f0c0">
                         <div class="d-flex justify-content-between">
 
                             <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
@@ -210,7 +210,7 @@
 
                     @foreach($pending as $pending_appointment)
 
-                    <div class="border border-dark rounded m-4" style="background-color:yellow">
+                    <div class="border border-dark rounded m-4" style="background-color:#fffacd">
                         <div class="d-flex justify-content-between">
 
                             <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
@@ -280,7 +280,7 @@
 
                     @foreach($completed as $completed_appointment)
 
-                    <div class="border border-dark rounded m-4" style="background-color:darkseagreen">
+                    <div class="border border-dark rounded m-4" style="background-color:#d3d3d3">
                         <div class="d-flex justify-content-between">
 
                             <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->

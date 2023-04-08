@@ -156,7 +156,7 @@
                             @endif
                             
                             <!-- Submit button -->
-                            <div class="mt-3">
+                            <div class="mt-3" style="text-align: center">
                                 <input type="submit" class="btn btn-success btn-send  pt-2 btn-block" value="Update">
                             </div>
                         </form>
