@@ -28,12 +28,14 @@ Route::get('/home', [HomeController::class, 'index']);
 //============================MIDDLEWARE TO LIMIT EACH EACH USER ROLE'S=====================================
 Route::middleware('auth')->group(function () {
     
+
+    Route::view('aboutUs', 'quicklinks/aboutUs');
+    Route::view('faq', 'quicklinks/faq');    
 //==========PATIENT ROUTE==========
 Route::middleware(['can:isPatient'])->group(function () {
     
     //=====YONG ZHENG HENG========================
-    Route::view('aboutUs', 'quicklinks/aboutUs');
-    Route::view('faq', 'quicklinks/faq');
+
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);

@@ -21,7 +21,7 @@
                             <td>{{ $details['updated_at'] }}</td>
                             <td>{{ $details['test_result'] }}</td>
                             <td>
-                                <button type="button" class="btn btn-danger"><a href="/patient/updatepatient/{{$details['id']}}" style="text-decoration: none; color: inherit;">Edit</a></button>
+                                <a href="/patient/updatepatient/{{$details['id']}}" class="btn btn-info" style="text-decoration: none; color: white;">Edit</a>
                             </td> 
                         </tr>
     @endforeach
