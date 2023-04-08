@@ -3,7 +3,7 @@
 <table class="table">
     <thead class="table-dark">
       <tr>
-        <th scope="col">No.</th>
+        <th scope="col">Completed appointment No.</th>
         <th scope="col">Patient_id</th>
         <th scope="col">Patient_name</th>
         <th scope="col">Date</th>
