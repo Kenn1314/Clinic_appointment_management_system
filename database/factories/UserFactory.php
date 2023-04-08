@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Provider\bg_BG\PhoneNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -14,12 +15,25 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $role = $this->faker->randomElement(['patient', 'doctor']);
+        
+        $expertise = '';
+        if ($role === 'doctor') {
+            $expertise = $this->faker->sentence;
+        }
+        
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'password' => bcrypt('password'), // Default password for all users
+            'role' => $role,
+            'ic' => $this->faker->regexify('(([[1-9]{2})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])-([0-9]{2})-([0-9]{4})'),
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'expertise' => $expertise,
+            'profilePic' => 'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg',
+        'phone' => $this->faker->unique()->numerify("01#-#######"),
             'remember_token' => Str::random(10),
+
         ];
     }
 
