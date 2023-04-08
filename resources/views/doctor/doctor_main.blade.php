@@ -8,6 +8,7 @@
         <th scope="col">Patient_name</th>
         <th scope="col">Date</th>
         <th scope="col">Time</th>
+        <th scope="col">ACTION</th>
       </tr>
     </thead>
     <tbody class="table-info">
@@ -19,6 +20,11 @@
                 <td>{{$appointment->patient_name->name}}</td>
                 <td>{{$appointment->date}}</td>
                 <td>{{$appointment->time}}</td>
+                <td>
+                  <button type="button" class="btn btn-success">
+                    DONE
+                  </button>
+                </td>
             </tr>
         @endif
 

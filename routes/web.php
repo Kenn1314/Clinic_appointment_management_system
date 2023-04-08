@@ -29,8 +29,9 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::middleware('auth')->group(function () {
     
 
-    Route::view('aboutUs', 'quicklinks/aboutUs');
-    Route::view('faq', 'quicklinks/faq');    
+Route::view('aboutUs', 'quicklinks/aboutUs');
+Route::view('faq', 'quicklinks/faq');  
+
 //==========PATIENT ROUTE==========
 Route::middleware(['can:isPatient'])->group(function () {
     
@@ -78,12 +79,12 @@ Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
     Route::get("/patient/updatepatient/{id}", [PatientController::class, 'updatePatientDetails']);
     Route::post("/updateUser", [PatientController::class, 'updateRecords']);
 });
+
 Route::middleware(['can:isPatient|isDoctor'])->group(function () {
     Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
     Route::get('/profile',[ProfileController::class,'loadViewUser']);
     Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
 });
-
 
 });
 
