@@ -25,25 +25,25 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="text-info-emphasis col-form-label-lg">Symptoms </label><textarea  class="form-control @error ('symptoms') is-invalid @enderror"
+                                <label class="text-info-emphasis col-form-label-lg">Symptoms*</label><textarea  class="form-control @error ('symptoms') is-invalid @enderror"
                                     name="symptoms"></textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="text-info-emphasis col-form-label-lg">Diagnosis </label><textarea  class="form-control @error ('diagnosis') is-invalid @enderror"
+                                <label  class="text-info-emphasis col-form-label-lg">Diagnosis*</label><textarea  class="form-control @error ('diagnosis') is-invalid @enderror"
                                     name="diagnosis" ></textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="text-info-emphasis col-form-label-lg">Prescription </label><textarea  class="form-control @error ('prescription') is-invalid @enderror"
+                                <label  class="text-info-emphasis col-form-label-lg">Prescription*</label><textarea  class="form-control @error ('prescription') is-invalid @enderror"
                                     name="prescription"></textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="col-form-label-lg">Test Result</label><textarea class="form-control" name="test_result"
+                                <label  class="col-form-label-lg text-info-emphasis col-form-label-lg">Test Result</label><textarea class="form-control" name="test_result"
                                     ></textarea>
                             </div>
                         </div>
