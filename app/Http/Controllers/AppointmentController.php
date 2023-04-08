@@ -36,6 +36,28 @@ class AppointmentController extends Controller
                 ->orWhere('status', 'APPROVED')
                 ->get(),
             'is_edit'=>$request->input('is_edit'),
+
+            'edit_date'=>$request->input('edit_date'),
+            'appointment_id'=>$request->input('appointment_id'),
+        ]);
+
+        // return $request->input('appointment_id');
+    }
+
+    
+    function editAppointment_admin(Request $request)
+    {
+
+        return view('/patient/appointment', [
+            'doctors' => User::where('role', 'doctor')
+                ->where('id', $request->input('chosen_doctor_id'))
+                ->first(),
+            'appointments' => Appointment::where('doctor_id', $request->input('chosen_doctor_id'))
+                ->where('status', 'PENDING')
+                ->orWhere('status', 'APPROVED')
+                ->get(),
+            'is_edit'=>$request->input('is_edit'),
+            'is_admin'=>$request->input('is_admin'),
             'edit_date'=>$request->input('edit_date'),
             'appointment_id'=>$request->input('appointment_id'),
         ]);

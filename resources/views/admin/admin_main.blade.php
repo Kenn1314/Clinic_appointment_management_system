@@ -208,7 +208,7 @@
 
                                 <!-- UPDATE -->
                                 <td>
-                                    <form method="POST" action="/patient/editAppointment">
+                                    <form method="POST" action="/patient/editAppointment_admin">
                                         @csrf
                                         <input type="hidden" name="chosen_doctor_id" value="{{strval($approved_Appointment->doctor->id)}}">
                                         <input type="hidden" name="is_edit" value="true">
