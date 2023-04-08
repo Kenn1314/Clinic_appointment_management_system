@@ -51,8 +51,9 @@ class HomeController extends Controller
         } else if(Gate::allows("isDoctor")){
 
             //=====GET ALL DOCTOR=====
-
-            return view('home');
+        $completed_appointment =Appointment::where('doctor_id', $user_id ) ->where('status', 'DONE')->get();
+            return view('home',['completed_appointment'=> $completed_appointment]);
+            // return   $completed_appointment;
 
         } else {
             
