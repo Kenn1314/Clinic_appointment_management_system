@@ -40,11 +40,6 @@ Route::middleware(['can:isPatient'])->group(function () {
     Route::post('/patient/make-appointment', [PatientController::class, 'submitForm']);
     //============================================
 
-
-   
-
-    
-
     Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
     Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
 
@@ -65,6 +60,9 @@ Route::middleware(['can:isAdmin'])->group(function () {
     Route::get('/updateDoctor/{id}', [DoctorController::class, 'showUpdate']);
     Route::get('/deleteDoctor/{id}', [DoctorController::class, 'deleteDoctor']);
     Route::post('/updateDoctor', [DoctorController::class, 'updateDoctor']);
+
+    //=====CANCEL PATIENT APPOINTMENT=====
+    Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
 });
 
 Route::middleware(['can:isDoctor'])->group(function () {

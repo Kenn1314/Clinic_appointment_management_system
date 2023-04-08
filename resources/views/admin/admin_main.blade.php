@@ -1,37 +1,3 @@
-{{--
-
-<head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>DataTables example - Bootstrap 5</title>
-    <link rel="shortcut icon" type="image/png" href="/media/images/favicon.png">
-    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
-    <link rel="stylesheet" type="text/css" href="/media/css/site-examples.css?_=ee251b2e366fd8325168a7c17e83be281">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-    <style type="text/css" class="init">
-
-    </style>
-    <script type="text/javascript" src="/media/js/site.js?_=354829d85c66f61a3a9a975f0688f684"
-        data-domain="datatables.net" data-api="https://plausible.sprymedia.co.uk/api/event"></script>
-    <script src="/media/js/dynamic.php?comments-page=examples%2Fstyling%2Fbootstrap5.html"></script>
-    <script defer async src="https://media.ethicalads.io/media/client/ethicalads.min.js" onload="window.dtAds()"
-        onerror="window.dtAds()"></script>
-
-
-    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" language="javascript"
-        src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" language="javascript"
-        src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    <script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
-    <script type="text/javascript" class="init">
-
-
-    </script>
-</head> --}}
-
 <h1 style="text-align:center;">Welcome to Admin page, {{session('user_name')}}</h1>
 
 <table class="table table-striped table-hover dt-responsive nowrap" id="admin_table" style="width:100%">
@@ -88,8 +54,6 @@
     </tbody>
 </table>
 
-
-
 <script>
     $('#admin_table').DataTable();
 </script>
@@ -100,30 +64,158 @@
         <div class="row">
 
             <!-- PENDING APPOINTMENT-->
-            <div class="col-xxl-6 col-12 mb-7 mb-xxl-0">
+            <div class="col-xxl-6 col-12">
 
                 <div class="d-flex border-0 pt-5 mb-2">
-
                     <h3 class="align-items-start flex-column">
-                        <span class="fw-bolder fs-3 mb-1">Today Appointments</span>
+                        <span class="fw-bolder fs-3 mb-1">Completed Appointment</span>
                     </h3>
-
                 </div>
 
                 <div class="table-responsive livewire-table">
-                    <table class="table table-striped">
+
+                    <table id="pending_table" class="table table-striped table-bordered table-sm below_table"
+                        cellspacing="0" width="100%">
                         <thead>
                             <tr class="text-uppercase">
-                                <th class="text-muted mt-1 fw-bold fs-7">Doctor</th>
-                                <th class="text-muted mt-1 fw-bold fs-7 text-center">Time</th>
+                                <th class="th-sm">#</th>
+                                <th class="th-sm">Appointment_id</th>
+                                <th class="th-sm">DATE
+                                </th>
+                                <th class="th-sm">Time
+                                </th>
+                                <th class="th-sm">Action</th>
+                                <th class="th-sm">Action</th>
+                                <th class="th-sm">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="monthlyReport">
+                        <tbody>
+
+                            @foreach($approved_Appointment_All as $key => $approved_Appointment)
                             <tr>
-                                <td colspan="4" class="text-center text-muted fw-bold">
-                                    No Data Available
+                                <td>{{$key+1}}</td>
+                                <td>{{$approved_Appointment['id']}}</td>
+                                <td>{{$approved_Appointment['date']}}</td>
+                                <td>{{$approved_Appointment['time']}}</td>
+
+                                <!-- VIEW -->
+                                <td>
+
+                                    <a data-bs-toggle="modal"
+                                        data-bs-target="#viewModal_{{$approved_Appointment['id']}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                            <path
+                                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                        </svg>
+                                    </a>
+
+                                    <div class="modal fade" id="viewModal_{{$approved_Appointment['id']}}" tabindex="-1"
+                                        aria-labelledby="viewModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- MODAL HEADER -->
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="viewModalLabel">
+                                                        Appointment details
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <!-- MODAL BODY -->
+                                                <div class="modal-body">
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment ID : </strong>
+                                                        </span>
+                                                        {{$approved_Appointment['id']}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment date : </strong>
+                                                        </span>
+                                                        {{$approved_Appointment['date']}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment time : </strong>
+                                                        </span>
+                                                        {{$approved_Appointment['time']}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointed doctor : </strong>
+                                                        </span>
+                                                        {{$approved_Appointment->doctor->name}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment time : </strong>
+                                                        </span>
+                                                        {{$approved_Appointment['time']}}
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <!-- DELETE -->
+                                <td>
+                                    <a data-bs-toggle="modal"
+                                        data-bs-target="#cancelModal_{{$approved_Appointment['id']}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                        </svg>
+                                    </a>
+
+                                    <div class="modal fade" id="cancelModal_{{$approved_Appointment['id']}}"
+                                        tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- MODAL HEADER -->
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="cancelModalLabel">
+                                                        Appointment details
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <!-- MODAL BODY -->
+                                                <div class="modal-body">
+                                                    Are your sure to delete this appointment ?
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-danger" id="confirmBtn">
+                                                        <a href="/cancel/{{$approved_Appointment['id']}}"
+                                                            style="color: white; text-decoration:none">DELETE</a>
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <!-- UPDATE -->
+                                <td>
+
                                 </td>
                             </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -140,21 +232,96 @@
                 </div>
 
                 <div class="table-responsive livewire-table">
-                    <table class="table table-striped">
+
+                    <table id="all_appointment" class="table table-striped table-bordered table-sm below_table"
+                        cellspacing="0" width="100%">
                         <thead>
                             <tr class="text-uppercase">
-                                {{-- <th class="text-muted mt-1 fw-bold fs-7">Doctor</th>
-                                <th class="text-muted mt-1 fw-bold fs-7 text-center">Date</th> --}}
-                                <th>#</th>
-                                <th>Appointment_id</th>
-                                <th>DATE</th>
-                                <th>Time</th>
+                                <th class="th-sm">#</th>
+                                <th class="th-sm">Appointment_id</th>
+                                <th class="th-sm">DATE
+                                </th>
+                                <th class="th-sm">Time
+                                </th>
+                                <th class="th-sm">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="monthlyReport">
+                        <tbody>
+
+                            @foreach($all_completed_appointment as $key => $completed_Appointment)
                             <tr>
-                                
+                                <td>{{$key+1}}</td>
+                                <td>{{$completed_Appointment['id']}}</td>
+                                <td>{{$completed_Appointment['date']}}</td>
+                                <td>{{$completed_Appointment['time']}}</td>
+                                <td>
+
+                                    <a data-bs-toggle="modal"
+                                        data-bs-target="#viewModal_{{$completed_Appointment['id']}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                            <path
+                                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                        </svg>
+                                    </a>
+
+                                    <div class="modal fade" id="viewModal_{{$completed_Appointment['id']}}"
+                                        tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- MODAL HEADER -->
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="viewModalLabel">
+                                                        Appointment details
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <!-- MODAL BODY -->
+                                                <div class="modal-body">
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment ID : </strong>
+                                                        </span>
+                                                        {{$completed_Appointment['id']}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment date : </strong>
+                                                        </span>
+                                                        {{$completed_Appointment['date']}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment time : </strong>
+                                                        </span>
+                                                        {{$completed_Appointment['time']}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointed doctor : </strong>
+                                                        </span>
+                                                        {{$completed_Appointment->doctor->name}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Appointment time : </strong>
+                                                        </span>
+                                                        {{$completed_Appointment['time']}}
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
                             </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -165,3 +332,28 @@
     </div>
 </div>
 </div>
+
+<style>
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_asc_disabled:after,
+    table.dataTable thead .sorting_asc_disabled:before,
+    table.dataTable thead .sorting_desc:after,
+    table.dataTable thead .sorting_desc:before,
+    table.dataTable thead .sorting_desc_disabled:after,
+    table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+  $('.below_table').DataTable({
+    "scrollY": "200px",
+    "scrollCollapse": true,
+  });
+  $('.dataTables_length').addClass('bs-select');
+});
+</script>
