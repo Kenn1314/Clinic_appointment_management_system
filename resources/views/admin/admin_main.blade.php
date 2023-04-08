@@ -1,5 +1,6 @@
 <h1 style="text-align:center;">Welcome to Admin page, {{session('user_name')}}</h1>
 
+<!-- PENGING TO APPROVED APPOINTMENT -->
 <table class="table table-striped table-hover dt-responsive nowrap" id="admin_table" style="width:100%">
     <thead class="table-dark">
         <tr>
@@ -54,11 +55,7 @@
     </tbody>
 </table>
 
-<script>
-    $('#admin_table').DataTable();
-</script>
-
-
+<!-- ON GOIND AND COMPLETED APPOINTMENTS -->
 <div class="container-fluid">
     <div class="d-flex flex-column">
         <div class="row">
@@ -68,7 +65,7 @@
 
                 <div class="d-flex border-0 pt-5 mb-2">
                     <h3 class="align-items-start flex-column">
-                        <span class="fw-bolder fs-3 mb-1">Completed Appointment</span>
+                        <span class="fw-bolder fs-3 mb-1">On Going Appointment</span>
                     </h3>
                 </div>
 
@@ -211,7 +208,24 @@
 
                                 <!-- UPDATE -->
                                 <td>
-
+                                    <form method="POST" action="/patient/editAppointment">
+                                        @csrf
+                                        <input type="hidden" name="chosen_doctor_id" value="{{strval($approved_Appointment->doctor->id)}}">
+                                        <input type="hidden" name="is_edit" value="true">
+                                        <input type="hidden" name="is_admin" value="true">
+                                        <input type="hidden" name="edit_date" value="{{$approved_Appointment['date']}}">
+                                        <input type="hidden" name="appointment_id" value={{$approved_Appointment['id']}}>
+                                                                    <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary" style="background:black;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                      </svg></button>
+                                </div>
+                                </form>
+{{-- <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+  </svg></a> --}}
                                 </td>
                             </tr>
                             @endforeach
@@ -331,6 +345,7 @@
         </div>
     </div>
 </div>
+
 </div>
 
 <style>
@@ -356,4 +371,6 @@
   });
   $('.dataTables_length').addClass('bs-select');
 });
+
+$('#admin_table').DataTable();
 </script>

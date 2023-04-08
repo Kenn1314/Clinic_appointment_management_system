@@ -40,17 +40,17 @@ Route::middleware(['can:isPatient'])->group(function () {
     // Route::view('faq', 'quicklinks/faq');
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [AppointmentController::class, 'getAppointmentForSpecificDoctor']);
-    Route::post('/patient/patientEditAppointment', [AppointmentController::class, 'patientEditAppointment']);
+    // Route::post('/patient/editAppointment', [AppointmentController::class, 'editAppointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
-    Route::post('/patient/make-appointment', [AppointmentController::class, 'make_appointment']);
-    // Route::post('/patient/edit_appointment', [AppointmentController::class, 'edit_Appointment']);
+    // Route::post('/patient/make-appointment', [AppointmentController::class, 'make_appointment']);
+    // Route::post('/patient/submit_edit_appointment_form', [AppointmentController::class, 'submit_edit_appointment_form']);
     //============================================
 
     Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
     Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
 
     //=====CANCEL OWN APPOINTMENT=====
-    Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
+    // Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
 
 });
 
@@ -68,7 +68,10 @@ Route::middleware(['can:isAdmin'])->group(function () {
     Route::post('/updateDoctor', [DoctorController::class, 'updateDoctor']);
 
     //=====CANCEL PATIENT APPOINTMENT=====
-    Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
+    // Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
+
+    // Route::post('/patient/make-appointment', [AppointmentController::class, 'make_appointment']);
+    // Route::post('/patient/submit_edit_appointment_form', [AppointmentController::class, 'submit_edit_appointment_form']);
 });
 
 Route::middleware(['can:isDoctor'])->group(function () {
@@ -87,6 +90,14 @@ Route::middleware(['can:isPatient|isDoctor'])->group(function () {
     Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
 });
 
+
+Route::middleware(['can:isAdmin|isPatient'])->group(function() {
+    Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
+    Route::post('/patient/editAppointment', [AppointmentController::class, 'editAppointment']);
+    Route::post('/patient/make-appointment', [AppointmentController::class, 'make_appointment']);
+    Route::post('/patient/submit_edit_appointment_form', [AppointmentController::class, 'submit_edit_appointment_form']);
+    Route::post('/patient/admin_submit_edit_appointment_form', [AppointmentController::class, 'admin_submit_edit_appointment_form']);
+});
 });
 
 

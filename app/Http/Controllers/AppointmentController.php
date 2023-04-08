@@ -24,7 +24,7 @@ class AppointmentController extends Controller
         ]);
     }
 
-    function patientEditAppointment(Request $request)
+    function editAppointment(Request $request)
     {
 
         return view('/patient/appointment', [
@@ -35,9 +35,12 @@ class AppointmentController extends Controller
                 ->where('status', 'PENDING')
                 ->orWhere('status', 'APPROVED')
                 ->get(),
-            'is_patient_edit'=>$request->input('is_patient_edit'),
+            'is_edit'=>$request->input('is_edit'),
             'edit_date'=>$request->input('edit_date'),
+            'appointment_id'=>$request->input('appointment_id'),
         ]);
+
+        // return $request->input('appointment_id');
     }
     public function cancel_Appointment($appointment_id)
     {
@@ -46,9 +49,9 @@ class AppointmentController extends Controller
         return redirect('home');
     }
 
-    public function edit_Appointment(Request $request)
+    public function submit_edit_appointment_form(Request $request)
     {
-        $appointment=Appointment::find($request->id);
+        $appointment=Appointment::find($request->appointment_id);
         $user = Auth::user();
         $appointment->doctor_id = $request->doctor_id;
         $appointment->date = $request->input('appointment_date');
@@ -58,8 +61,25 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('/home');
+
+        // return Appointment::find($request->appointment_id);
     }
 
+    public function admin_submit_edit_appointment_form(Request $request)
+    {
+        $appointment=Appointment::find($request->appointment_id);
+        $user = Auth::user();
+        $appointment->doctor_id = $request->doctor_id;
+        $appointment->date = $request->input('appointment_date');
+        $appointment->time = $request->input('time');
+        $appointment->user_id = $user['id']; //use session later
+        $appointment->status = 'APPROVED';
+        $appointment->save();
+
+        return redirect('/home');
+
+        // return Appointment::find($request->appointment_id);
+    }
     public function update_Appointment_Id(Request $req)
     {
         $update_appointment = Appointment::find($req->id);
