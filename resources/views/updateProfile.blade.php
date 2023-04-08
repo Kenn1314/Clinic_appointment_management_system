@@ -24,22 +24,25 @@
                         <input type="hidden" name='oldPasswordHash' value='{{$data->password}}' />
 
 
+                        <label>Name</label><br>
                         <input name='name' value='{{$data->name}}' /> <br><br>
                         <span style="color:red">@error('name'){{$message}}@enderror</span> <br><br>
 
+                        <label>Email</label><br>
                         <input name='email' value='{{$data->email}}' /> <br><br>
                         <span style="color:red">@error('email'){{$message}}@enderror</span> <br><br>
 
+                        <label>Expertise</label><br>
                         <input name='expertise' value='{{$data->expertise}}' /> <br><br>
                         <span style="color:red">@error('expertise'){{$message}}@enderror</span> <br><br>
 
-                        <input name='oldPassword' placeholder="oldPassword" /> <br><br>
+                        <input type="password" name='oldPassword' placeholder="oldPassword" /> <br><br>
                         <span style="color:red">@error('oldPassword'){{$message}}@enderror</span> <br><br>
 
-                        <input name='newPassword' placeholder="newPassword" /> <br><br>
+                        <input type="password" name='newPassword' placeholder="newPassword" /> <br><br>
                         <span style="color:red">@error('newPassword'){{$message}}@enderror</span> <br><br>
 
-                        <input name='confirmPassword' placeholder='confirmPassword' /> <br><br>
+                        <input type="password" name='confirmPassword' placeholder='confirmPassword' /> <br><br>
                         <span style="color:red">@error('confirmPassword'){{$message}}@enderror</span> <br><br>
                         @elsecan('isDoctor')
 

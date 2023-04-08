@@ -38,17 +38,12 @@ Route::middleware(['can:isPatient'])->group(function () {
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
     Route::post('/patient/make-appointment', [PatientController::class, 'submitForm']);
-    //============================================
 
+Route::get('/profile',[ProfileController::class,'loadViewUser']);
+Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
+Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
 
-   
-
-    
-
-    Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
-    Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
-
-    //=====CANCEL OWN APPOINTMENT=====
+    //=====Cancel appointment=====
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
 
 });
