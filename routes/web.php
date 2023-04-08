@@ -72,6 +72,8 @@ Route::middleware(['can:isAdmin'])->group(function () {
 });
 
 Route::middleware(['can:isDoctor'])->group(function () {
+    Route::post('/addNewRecord',[PatientController::class,'addnewrecord']);
+    Route::get('/patient/addpatientrecord/{id}', [PatientController::class, 'loadPatientDetail']);
 });
 
 Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
