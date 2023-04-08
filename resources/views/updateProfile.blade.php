@@ -20,11 +20,99 @@
 
                         @csrf
                         <input type="hidden" name='id' value='{{$data->id}}' />
+
+                        {{-- PATIENT --}}
                         @can('isPatient')
-                        <input type="hidden" name='oldPasswordHash' value='{{$data->password}}' />
+
+                        <div class="controls">
+
+                            <input type="hidden" name='oldPasswordHash' value='{{$data->password}}' />
+
+                            <div class="row">
+
+                                <!-- NAME -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_name">Name *</label>
+                                        <input id="form_name" type="text" name="name"
+                                                class="form-control @error('name') is-invalid @enderror"
+                                                placeholder="Please enter the name *" value="{{ old('name') }}">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- ROW 2 -->  
+                            <div class="row">
+                                <!-- IC -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_ic">IC *</label>
+                                            <input id="form_ic" type="text" name="ic"
+                                                    class="form-control @error('ic') is-invalid @enderror"
+                                                    placeholder="Ex: 123456-78-9999 *" value="{{ old('ic') }}">
+                                    </div>
+                                </div>
+                                
+                                <!-- Phone number -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_phoneNumber">Phone number *</label>
+                                            <input id="form_phoneNumber" type="text" name="phone"
+                                                    class="form-control @error('phone') is-invalid @enderror"
+                                                    placeholder="Ex: 012-34567890 *" value="{{ old('phone') }}">
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        <!-- ROW 3 -->
+                        <div class="row">
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_passsword">Old Password *</label>
+                                    <input id="form_password" type="text" name="oldPassword"
+                                            class="form-control @error('oldPassword') is-invalid @enderror"
+                                            placeholder="Please enter your old password *">
+                                </div>
+                            </div>
+                        </div>    
+                            
+                            <!-- New Password -->
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_passCon">New password *</label>
+                                            <input id="form_passwNew" type="text" name="newPassword"
+                                                    class="form-control @error('newPassword') is-invalid @enderror"
+                                                    placeholder="Please enter your new password *">
+                                    </div>
+                            </div>
+                            
+                            <!-- Password confirmation -->
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_passCon">Confirm password *</label>
+                                            <input id="form_passwCon" type="text" name="confirmPassword"
+                                                    class="form-control @error('confirmPassword') is-invalid @enderror" 
+                                                    placeholder="Please enter the password again *">
+                                    </div>
+                            </div>
+                            
+                        </div>
+
+                        @if ($errors->any())
+                        <div class="alert alert-danger mt-2">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
 
 
-                        <input name='name' value='{{$data->name}}' /> <br><br>
+
+                        {{-- <input name='name' value='{{$data->name}}' /> <br><br>
                         <span style="color:red">@error('name'){{$message}}@enderror</span> <br><br>
 
                         <input name='email' value='{{$data->email}}' /> <br><br>
@@ -40,7 +128,11 @@
                         <span style="color:red">@error('newPassword'){{$message}}@enderror</span> <br><br>
 
                         <input name='confirmPassword' placeholder='confirmPassword' /> <br><br>
-                        <span style="color:red">@error('confirmPassword'){{$message}}@enderror</span> <br><br>
+                        <span style="color:red">@error('confirmPassword'){{$message}}@enderror</span> <br><br> --}}
+
+
+
+                        {{-- DOCTOR --}}
                         @elsecan('isDoctor')
 
                         <div class="controls">
@@ -133,7 +225,8 @@
                                     <div class="form-group">
                                         <label for="form_passCon">Confirm password *</label>
                                         <input id="form_passwCon" type="text" name="password_confirmation"
-                                            class="form-control" placeholder="Please enter the password again *">
+                                            class="form-control @error('password_confirmation') is-invalid @enderror" 
+                                            placeholder="Please enter the password again *">
                                     </div>
                                 </div>
 

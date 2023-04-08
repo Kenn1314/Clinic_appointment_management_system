@@ -35,7 +35,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['can:isPatient'])->group(function () {
     
     //=====YONG ZHENG HENG========================
-
+    // Route::view('aboutUs', 'quicklinks/aboutUs');
+    // Route::view('faq', 'quicklinks/faq');
     //patient controller or appointment controller?
     Route::post('/patient/appointment', [PatientController::class, 'appointment']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
@@ -83,6 +84,10 @@ Route::middleware(['can:isPatient|isDoctor'])->group(function () {
     Route::get('/profile',[ProfileController::class,'loadViewUser']);
     Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
 });
+
+
 });
+
+
 
 
