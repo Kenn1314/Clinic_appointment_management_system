@@ -70,59 +70,7 @@
             </div>
         </div>
 
-        <!-- LOWER PART -->
-        {{-- <div class="col-xxl-6 col-12 mb-7 mb-xxl-0">
-            <!-- TODAY APPOINTMENT -->
-            <div class="d-flex border-0 pt-5 mb-2">
-                <h3 class="align-items-start flex-column">
-                    <span class="fw-bolder fs-3 mb-1">Today Appointments</span>
-                </h3>
-            </div>
-
-            <div class="table-responsive livewire-table">
-                <table class="table table-striped">
-                    <thead>
-                        <tr class="text-uppercase">
-                            <th class="text-muted mt-1 fw-bold fs-7">Doctor</th>
-                            <th class="text-muted mt-1 fw-bold fs-7 text-center">Time</th>
-                        </tr>
-                    </thead>
-                    <tbody id="monthlyReport">
-                        <tr>
-                            <td colspan="4" class="text-center text-muted fw-bold">
-                                No Data Available
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
-        <div class="col-xxl-6 col-12">
-            <div class="d-flex border-0 pt-5 mb-2">
-                <h3 class="align-items-start flex-column">
-                    <span class="fw-bolder fs-3 mb-1">Upcoming Appointments</span>
-                </h3>
-            </div>
-
-            <div class="table-responsive livewire-table">
-                <table class="table table-striped">
-                    <thead>
-                        <tr class="text-uppercase">
-                            <th class="text-muted mt-1 fw-bold fs-7">Doctor</th>
-                            <th class="text-muted mt-1 fw-bold fs-7 text-center">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="monthlyReport">
-                        <tr>
-                            <td colspan="4" class="text-center text-muted fw-bold">
-                                No Data Available
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-        </div> --}}
     </div>
 </div>
 
@@ -149,7 +97,7 @@
     </ul>
 
     <!-- Tab panes -->
-    <div class="tab-content container-fluid" style="background-color:lightgray">
+    <div class="tab-content container-fluid" style="background-color:#838996">
 
         <!-- UPCOMING TAB -->
         <div class="tab-pane fade show active" id="Upcoming" role="tabpanel" aria-labelledby="Upcoming-tab">
@@ -158,7 +106,7 @@
 
                     @foreach($upcoming as $upcoming_booking)
 
-                    <div class="border border-dark rounded m-4" style="background-color:cornflowerblue">
+                    <div class="border border-dark rounded m-4" style="background-color:#d0f0c0">
                         <div class="d-flex justify-content-between">
 
                             <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
@@ -198,53 +146,7 @@
 
                                                 <!-- MODAL BODY -->
                                                 <div class="modal-body">
-                                                    {{-- <form action="/patient/make-appointment" method="POST">
-                                                        @csrf
 
-                                                        <div class="form-group row">
-                                                            <label for="appointment_date"
-                                                                class="col-md-4 col-form-label text-md-right">{{__('Appointment
-                                                                Date') }}</label>
-                                                            <div class="col-md-6">
-                                                                <div class='input-group date'
-                                                                    id='datetimepicker'>
-
-                                                                    <input type='date' class="form-control"
-                                                                        name="appointment_date"
-                                                                        min="{{ date('Y-m-d', strtotime('tomorrow')) }}"
-                                                                        value="{{ date('Y-m-d', strtotime('tomorrow')) }}" />
-
-                                                                    <span class="input-group-addon">
-                                                                        <span
-                                                                            class="glyphicon glyphicon-calendar"></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="time_test"
-                                                                class="col-md-4 col-form-label text-md-right">{{
-                                                                __('Appointment Time') }}</label>
-                                                            <div class="col-md-6">
-
-                                                                <select class="form-control" name="time"
-                                                                    id="time_test" required>
-                                                                    <option value="">Select a time slot
-                                                                    </option>
-                                                                </select>
-
-                                                            </div>
-                                                        </div>
-                                                        <br />
-                                                        <div class="form-group row text-center">
-                                                            <div class="col-md-12">
-                                                                <button type="submit" class="btn btn-primary"
-                                                                    onclick="return confirm('Are you sure you want to create this appointment?')">{{
-                                                                    __('Create appointment') }}</button>
-                                                            </div>
-                                                        </div>
-                                                    </form> --}}
                                                 </div>
 
                                                 <!-- MODAL FOOTER -->
@@ -308,7 +210,7 @@
 
                     @foreach($pending as $pending_appointment)
 
-                    <div class="border border-dark rounded m-4" style="background-color:yellow">
+                    <div class="border border-dark rounded m-4" style="background-color:#fffacd">
                         <div class="d-flex justify-content-between">
 
                             <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
@@ -319,141 +221,17 @@
 
                             <!-- SHOW EDIT AND DELETE ICON -->
                             <div class="p-2">
-
-                                <!-- EDIT ICON -->
-                                <span>
-                                    <!-- EDIT BUTTON -->
-                                    <a data-bs-toggle="modal" data-bs-target="#editModal_2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20"
-                                            fill="black" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path
-                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd"
-                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg>
-                                    </a>
-
-                                    <!-- EDIT MODAL -->
-                                    <div class="modal fade" id="editModal_2" tabindex="-1"
-                                        aria-labelledby="cancelModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-
-                                                <!-- MODAL HEADER -->
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="cancelModalLabel">
-                                                        CHANGE APPOINTMENT DATE</h1>
-                                                    <button type="button" class="btn-close"
-                                                        data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-
-                                                <!-- MODAL BODY -->
-                                                <div class="modal-body">
-                                                    {{-- <form action="/patient/make-appointment" method="POST">
-                                                        @csrf
-
-                                                        <div class="form-group row">
-                                                            <label for="appointment_date"
-                                                                class="col-md-4 col-form-label text-md-right">{{__('Appointment
-                                                                Date') }}</label>
-                                                            <div class="col-md-6">
-                                                                <div class='input-group date'
-                                                                    id='datetimepicker'>
-
-                                                                    <input type='date' class="form-control"
-                                                                        name="appointment_date"
-                                                                        min="{{ date('Y-m-d', strtotime('tomorrow')) }}"
-                                                                        value="{{ date('Y-m-d', strtotime('tomorrow')) }}" />
-
-                                                                    <span class="input-group-addon">
-                                                                        <span
-                                                                            class="glyphicon glyphicon-calendar"></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="time_test"
-                                                                class="col-md-4 col-form-label text-md-right">{{
-                                                                __('Appointment Time') }}</label>
-                                                            <div class="col-md-6">
-
-                                                                <select class="form-control" name="time"
-                                                                    id="time_test" required>
-                                                                    <option value="">Select a time slot
-                                                                    </option>
-                                                                </select>
-
-                                                            </div>
-                                                        </div>
-                                                        <br />
-                                                        <div class="form-group row text-center">
-                                                            <div class="col-md-12">
-                                                                <button type="submit" class="btn btn-primary"
-                                                                    onclick="return confirm('Are you sure you want to create this appointment?')">{{
-                                                                    __('Create appointment') }}</button>
-                                                            </div>
-                                                        </div>
-                                                    </form> --}}
-
-                                                    <form action="/patient/make-appointment" method="POST">
-                                                        @csrf
-                                                        <input id="doctor_id" type="hidden" class="form-control" name="doctor_id"
-                                                        value="{{ $pending_appointment->doctor->id}}">
-                                                        <input id="id" type="hidden" class="form-control" name="id"
-                                                        value="{{ $pending_appointment->id}}">
-                                                        <div class="form-group row">
-                                                            <label for="appointment_date" class="col-md-4 col-form-label text-md-right">{{
-                                                                __('Appointment Date') }}</label>
-                                                            <div class="col-md-6">
-                                                                <div class='input-group date' id='datetimepicker'>
-                                                                    <input type='date' class="form-control" name="appointment_date"
-                                                                        min="{{ date('Y-m-d', strtotime('tomorrow')) }}"
-                                                                        value="{{ $pending_appointment['date'] }}" />
-                                                                    <span class="input-group-addon">
-                                                                        <span class="glyphicon glyphicon-calendar"></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label for="time_test" class="col-md-4 col-form-label text-md-right">{{ __('Appointment
-                                                                Time') }}</label>
-                                                            <div class="col-md-6">
-                                
-                                                                <select class="form-control" name="time" id="time_test" required>
-                                                                    <option value="">Select a time slot</option>
-                                                                </select>
-                                
-                                                            </div>
-                                                        </div>
-                                                        {{-- <button type="submit">Create appointment</button> --}}
-                                                        <br />
-
-                                                 
-                                                </div>
-
-                                                <!-- MODAL FOOTER -->
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    {{-- <button type="button" class="btn btn-danger">
-                                                        <a href="/cancel/{{$pending_appointment['id']}}"
-                                                            style="color: white; text-decoration:none">Confirm</a>
-                                                    </button> --}}
-
-
-                                                            <button type="submit" class="btn btn-primary" style="background:black;"
-                                                                onclick="return confirm('Are you sure you want to create this appointment?')">{{
-                                                                __('Edit appointment') }}</button>
-
-                                                </div>
-                                            </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </span>
+                                <form method="POST" action="/patient/editAppointment">
+                                    @csrf
+                                    <input type="hidden" name="chosen_doctor_id" value="{{strval($pending_appointment['doctor_id'])}}">
+                                    <input type="hidden" name="is_edit" value="true">
+                                    <input type="hidden" name="appointment_id" value={{$pending_appointment['id']}}>
+                                    <input type="hidden" name="edit_date" value="{{$pending_appointment['date']}}">
+                                                                <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary" style="background:black;">{{
+                                    __('Edit appointment') }}</button>
+                            </div>
+                            </form>
 
                                 <!-- DELETE ICON -->
                                 <span>
@@ -503,7 +281,7 @@
 
                     @foreach($completed as $completed_appointment)
 
-                    <div class="border border-dark rounded m-4" style="background-color:darkseagreen">
+                    <div class="border border-dark rounded m-4" style="background-color:#d3d3d3">
                         <div class="d-flex justify-content-between">
 
                             <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
@@ -531,54 +309,3 @@
 
 </div>
 
-<script type="text/javascript">
-    $(function() {
-            function updateAppointmentTimes() {
-                var appo = @json($upcoming);
-                var time_fixed = ['08:00am', '09:00am', '10:00am', '11:00am', '12:00pm', '13:00pm', '14:00pm',
-                    '15:00pm','16:00pm','17:00pm'
-                ];
-                var selectedDate = $('input[name="appointment_date"]').val();
-                console.log(selectedDate);
-                console.log(appo.length);
-                for (var i = 0; i < appo.length; i++) {
-                    console.log(appo[i].date);
-                    if (appo[i].date.toString() == selectedDate.toString()) {
-                        console.log(appo[i].date)
-                        var timeSlot = appo[i].time;
-                        var index = time_fixed.indexOf(timeSlot);
-                        if (index !== -1) {
-                            time_fixed.splice(index, 1);
-                        }
-                    }
-                }
-                var select = document.getElementById("time_test");
-                select.innerHTML = "";
-                for (var i = 0; i < time_fixed.length; i++) {
-                    var option = document.createElement("option");
-                    option.text = time_fixed[i];
-                    select.appendChild(option);
-                }
-            }
-
-            $(document).ready(function() {
-                updateAppointmentTimes();
-            });
-            $('#datetimepicker').on('dp.show', function(e) {
-                updateAppointmentTimes();
-            });
-
-            $('#datetimepicker').on('dp.change', function(e) {
-                updateAppointmentTimes();
-            });
-
-            $('input[name="appointment_date"]').on('input', function() {
-                updateAppointmentTimes();
-            });
-
-            $('select[name="doctor_id"]').change(function() {
-                $('input[name="appointment_date"]').val('');
-                $('#time_test').empty();
-            });
-        });
-</script>

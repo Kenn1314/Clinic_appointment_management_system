@@ -11,14 +11,25 @@
                     color: white; ">{{ __('Make an Appointment') }}</div>
 
                 <div class="card-body">
-                    <form action="/patient/make-appointment" method="POST">
+                    @if (isset($is_edit)&&!isset($is_admin))
+                        <form action="/patient/submit_edit_appointment_form" method="POST">
+                    @endif
+                    @if (isset($is_edit)&&isset($is_admin)) 
+                            <form action="/patient/admin_submit_edit_appointment_form" method="POST"> 
+                    @endif
+                    @if(!isset($is_edit))
+                        <form action="/patient/make-appointment" method="POST">  
+                    @endif
+                    {{-- <form action="/patient/make-appointment" method="POST"> --}}
                         @csrf
                         <div class="form-group row">
                             <label for="doctor_id" class="col-md-4 col-form-label text-md-right">{{ __('Doctor Name')
                                 }}</label>
                             <div class="col-md-6">
+                                <input id="appointment_id" type="hidden" class="form-control" name="appointment_id"
+                                value="{{$appointment_id}}">
                                 <input id="doctor_id" type="hidden" class="form-control" name="doctor_id"
-                                    value="{{ $doctors['id'] }}">
+                                    value="{{$doctors['id']}}">
                                 <input id="doctor_name" type="text" class="form-control" name="doctor_name"
                                     value="{{ $doctors['name'] }}" readonly>
                             </div>
@@ -30,7 +41,14 @@
                                 <div class='input-group date' id='datetimepicker'>
                                     <input type='date' class="form-control" name="appointment_date"
                                         min="{{ date('Y-m-d', strtotime('tomorrow')) }}"
-                                        value="{{ date('Y-m-d', strtotime('tomorrow')) }}" />
+                                        @if (isset($is_edit)){
+                                            value="{{$edit_date}}" 
+                                        }
+                                        @elseif(!isset($is_patient_edit)){
+                                            value="{{ date('Y-m-d', strtotime('tomorrow')) }}"
+                                        }
+                                        @endif
+                                        />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -93,7 +111,6 @@
                     select.appendChild(option);
                 }
             }
-
             $(document).ready(function() {
                 updateAppointmentTimes();
             });

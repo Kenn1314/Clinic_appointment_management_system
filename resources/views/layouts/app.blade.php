@@ -77,6 +77,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
+
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -88,9 +89,11 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
+
                         @else
 
                         @if(auth()->user()->role == 'patient')
+
                         <li class="nav-item">
                             <a href="../home" class="nav-link">Home</a>
                         </li>
@@ -103,8 +106,11 @@
                         {{-- <li class="nav-item">
                             <a href="../aboutUs" class="nav-link">About Us</a>
                         </li> --}}
+
                         @endif
+
                         @if(auth()->user()->role == 'admin')
+
                         <li class="nav-item">
                             <a href="../home" class="nav-link">Appointments</a>
                         </li>
@@ -114,7 +120,9 @@
                         <li class="nav-item">
                             <a href="/viewDoctor" class="nav-link">Doctor</a>
                         </li>
+
                         @endif
+
                         @if(auth()->user()->role == 'doctor')
                         <li class="nav-item">
                             <a href="" class="nav-link">Appointment</a>
@@ -143,6 +151,7 @@
                             </div>
                         </li>
                         @endguest
+                        
                     </ul>
                 </div>
             </div>

@@ -21,9 +21,9 @@
                 <td>{{ $patient['phone'] }}</td>
                 <td>
                     @can('isDoctor')
-                                <button type="button" class="btn btn-info"><a href="viewpatient/{{$patient['id']}}" style="text-decoration: none; color: inherit;">View</a></button>
+                                <a href="viewpatient/{{$patient['id']}}" class="btn btn-info" style="text-decoration: none; color: white;">View</a>
                     @elsecan('isAdmin')
-                                <button type="button" class="btn btn-info"><a href="viewpatient/{{$patient['id']}}" style="text-decoration: none; color: inherit;">View</a></button>
+                                <a href="viewpatient/{{$patient['id']}}" class="btn btn-info" style="text-decoration: none; color: white;">View</a>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target='#DeletePatientModal_{{$patient->id}}'>
                                     Delete
                     </button>

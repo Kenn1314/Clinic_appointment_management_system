@@ -28,10 +28,12 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $user_id = Auth::user()->id; // logged in user_id
+        $user_password = Auth::user()->password; 
 
         //=====SET USER ID TO SESSION=====
         $request->session()->put('user_id', $user_id);
-        
+        // $request->session()->put('user_password', $user_password);
+
         //=====SET USER NAME TO SESSION=====
         $request->session()->put('user_name', Auth::user()->name);
 
@@ -51,15 +53,22 @@ class HomeController extends Controller
         } else if(Gate::allows("isDoctor")){
 
             //=====GET ALL DOCTOR=====
-
-            return view('home');
+        $completed_appointment =Appointment::where('doctor_id', $user_id ) ->where('status', 'APPROVED')->get();
+            return view('home',['completed_appointment'=> $completed_appointment]);
+            // return   $completed_appointment;
 
         } else {
             
-            //=====GET ALL PENDING APPOINTMENT FROM APPOINTMENT TABLE=====
-            $pending_Appointment_all = Appointment::where('status', 'PENDING')->get();
+            //=====GET ALL THE APPROVED APPOINTMENT FROM APPOINTMENT TABLE
+            $completed_Appointment_All = Appointment::where('status', 'DONE')->get();
 
-            return view('home', ['all_pending_appointments' => $pending_Appointment_all]);
+            //=====GET ALL PENDING APPOINTMENT FROM APPOINTMENT TABLE=====
+            $pending_Appointment_All = Appointment::where('status', 'PENDING')->get();
+
+            //=====GET ALL THE ONGOING APPOINTMENT FROM APPOINTMENT TABLE=====
+            $approved_Appointment_All = Appointment::where('status', 'APPROVED')->get();
+            
+            return view('home', ['all_pending_appointments' => $pending_Appointment_All, 'all_completed_appointment' => $completed_Appointment_All, 'approved_Appointment_All' => $approved_Appointment_All]);
         }
     }
 }

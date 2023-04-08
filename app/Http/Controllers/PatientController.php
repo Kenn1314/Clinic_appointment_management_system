@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+
 class PatientController extends Controller
 {
     public function loadViewPatients()
@@ -17,10 +18,10 @@ class PatientController extends Controller
         if (Gate::allows('isDoctor')) {
             $sessionId = Session::get('user_id');
             $patients = patient_record::where('doctor_id', $sessionId)->get('patient_id');
-            foreach($patients as $patient){
+            foreach ($patients as $patient) {
                 $array[] = User::find($patient['patient_id']);
             }
-           
+
             $collection = collect($array);
             $uniqueCollection = $collection->unique('id');
             $uniqueArray = $uniqueCollection->all();
@@ -32,6 +33,16 @@ class PatientController extends Controller
         }
     }
 
+
+    public function loadPatientDetail($id)
+    {
+        $sessionId = Session::get('user_id');
+        $appointment = Appointment::find($id);
+        $doctor = User::find($sessionId)->first();
+        $patient = User::find($appointment['user_id'])->first();
+        return view('patient.addpatientrecord', ['patient' => $patient, 'doctor' => $doctor, 'appointment' => $appointment]);
+    }
+
     public function loadPatientDetails($id)
     {
         $name = User::find($id);
@@ -41,6 +52,30 @@ class PatientController extends Controller
         return view('patient.viewpatient', ['patient' => $data, 'name' => $name]);
     }
 
+    function addnewrecord(Request $req)
+    {
+        $req->validate([
+            'symptoms' => 'required',
+            'diagnosis' => 'required',
+            'prescription' => 'required',
+        ]);
+
+        //UPDATE APPOINTMENT TO DONE
+        $appoint = Appointment::find($req->appointment_id);
+        $appoint->status = "DONE";
+        $appoint->save();
+
+        $data = new patient_record();
+        $data->patient_id = $req->patient_id;
+        $data->doctor_id = $req->doctor_id;
+        $data->appointment_id = $req->appointment_id;
+        $data->symptoms = $req->symptoms;
+        $data->diagnosis = $req->diagnosis;
+        $data->prescription = $req->prescription;
+        $data->test_result = $req->test_result;
+        $data->save();
+        return redirect("home");
+    }
     public function deletePatient($id)
     {
         $data = User::find($id);
@@ -52,12 +87,13 @@ class PatientController extends Controller
     {
         if ($req != null) {
             $data = patient_record::find($req->id);
-            $patient = patient_record::find($req->patient_id);
+            $patient = User::find($req->patient_id);
             $data->symptoms = $req->symptoms;
             $data->diagnosis = $req->diagnosis;
             $data->prescription = $req->prescription;
             $data->test_result = $req->test_result;
             $data->save();
+            // return $req->patient_id;
             return redirect("/patient/viewpatient/" . $patient['id']);
         } else
             return ("error no data");
@@ -70,37 +106,8 @@ class PatientController extends Controller
         return view('patient.editpatient', ['data' => $data, 'patient' => $patient]);
     }
 
-    function appointment(Request $request)
-    {
-
-        return view('/patient/appointment', [
-            'doctors' => User::where('role', 'doctor')
-                ->where('id', $request->input('chosen_doctor_id'))
-                ->first(),
-            'appointments' => Appointment::where('doctor_id', $request->input('chosen_doctor_id'))
-                ->where('status', 'PENDING')
-                ->orWhere('status', 'APPROVED')
-                ->get(),
-        ]);
-    }
-
     function viewDoctors()
     {
         return view('/patient/viewDoctors', ['doctors' => User::where('role', 'doctor')->get()]);
-    }
-
-    public function submitForm(Request $request)
-    {
-
-        $appointment=Appointment::find($request->id);
-        $user = Auth::user();
-        $appointment->doctor_id = $request->input('doctor_id');
-        $appointment->date = $request->input('appointment_date');
-        $appointment->time = $request->input('time');
-        $appointment->user_id = $user['id']; //use session later
-        $appointment->status = 'PENDING';
-        $appointment->save();
-
-        return redirect('/home');
     }
 }
