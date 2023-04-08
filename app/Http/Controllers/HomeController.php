@@ -59,10 +59,16 @@ class HomeController extends Controller
 
         } else {
             
-            //=====GET ALL PENDING APPOINTMENT FROM APPOINTMENT TABLE=====
-            $pending_Appointment_all = Appointment::where('status', 'PENDING')->get();
+            //=====GET ALL THE APPROVED APPOINTMENT FROM APPOINTMENT TABLE
+            $completed_Appointment_All = Appointment::where('status', 'DONE')->get();
 
-            return view('home', ['all_pending_appointments' => $pending_Appointment_all]);
+            //=====GET ALL PENDING APPOINTMENT FROM APPOINTMENT TABLE=====
+            $pending_Appointment_All = Appointment::where('status', 'PENDING')->get();
+
+            //=====GET ALL THE ONGOING APPOINTMENT FROM APPOINTMENT TABLE=====
+            $approved_Appointment_All = Appointment::where('status', 'APPROVED')->get();
+            
+            return view('home', ['all_pending_appointments' => $pending_Appointment_All, 'all_completed_appointment' => $completed_Appointment_All, 'approved_Appointment_All' => $approved_Appointment_All]);
         }
     }
 }
