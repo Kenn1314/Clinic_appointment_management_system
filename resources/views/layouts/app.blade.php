@@ -131,7 +131,7 @@
 
                         @if(auth()->user()->role == 'doctor')
                         <li class="nav-item">
-                            <a href="" class="nav-link">Appointment</a>
+                            <a href="../home" class="nav-link">Appointment</a>
                         </li>
                         <li class="nav-item">
                             <a href="/patient/all" class="nav-link">Patient</a>
