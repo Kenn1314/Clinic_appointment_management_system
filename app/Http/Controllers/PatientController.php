@@ -18,7 +18,7 @@ class PatientController extends Controller
         if (Gate::allows('isDoctor')) {
             $sessionId = Session::get('user_id');
             $patients = patient_record::where('doctor_id', $sessionId)->get('patient_id');
-            
+
             foreach ($patients as $patient) {
                 $array[] = User::find($patient['patient_id']);
             }
