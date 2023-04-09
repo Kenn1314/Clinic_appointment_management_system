@@ -38,7 +38,7 @@ class PatientController extends Controller
     {
         $sessionId = Session::get('user_id');
         $appointment = Appointment::find($id);
-        $doctor = User::find($sessionId)->first();
+        $doctor = User::find($sessionId);
         $patient = User::find($appointment['user_id']);
         return view('patient.addpatientrecord', ['patient' => $patient, 'doctor' => $doctor, 'appointment' => $appointment]);
         // return $id;
