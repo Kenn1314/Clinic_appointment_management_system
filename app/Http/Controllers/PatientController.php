@@ -22,10 +22,14 @@ class PatientController extends Controller
                 $array[] = User::find($patient['patient_id']);
             }
 
+            if(!empty($array)){
             $collection = collect($array);
             $uniqueCollection = $collection->unique('id');
             $uniqueArray = $uniqueCollection->all();
             return view('patient.managepatient', ['patients' => $uniqueArray]);
+            }else{
+                return view('patient.managepatient', ['patients' => $array]);
+            }
         } else {
             $data = User::whereRole('patient')
                 ->paginate(3);
