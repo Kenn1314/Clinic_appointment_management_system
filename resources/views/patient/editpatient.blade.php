@@ -19,26 +19,27 @@
                         @can('isAdmin')
                         <div class="col-mb-3">
                             <div class="form-group">
-                                <label class="text-info-emphasis col-form-label-lg">Symptoms </label><textarea  class="form-control"
-                                    name="symptoms" readonly>{{$data['symptoms']}}</textarea><br>
+                                <label class="text-info-emphasis col-form-label-lg">Symptoms </label><textarea
+                                    class="form-control" name="symptoms" readonly>{{$data['symptoms']}}</textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="text-info-emphasis col-form-label-lg">Diagnosis </label><textarea  class="form-control"
-                                    name="diagnosis" readonly>{{$data['diagnosis']}}</textarea><br>
+                                <label class="text-info-emphasis col-form-label-lg">Diagnosis </label><textarea
+                                    class="form-control" name="diagnosis" readonly>{{$data['diagnosis']}}</textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="text-info-emphasis col-form-label-lg">Prescription </label><textarea  class="form-control"
-                                    name="prescription" readonly>{{$data['prescription']}}</textarea><br>
+                                <label class="text-info-emphasis col-form-label-lg">Prescription </label><textarea
+                                    class="form-control" name="prescription"
+                                    readonly>{{$data['prescription']}}</textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="col-form-label-lg">Test Result</label><textarea class="form-control" name="test_result"
-                                    >{{$data['test_result']}}</textarea>
+                                <label class="col-form-label-lg">Test Result</label><textarea class="form-control"
+                                    name="test_result">{{$data['test_result']}}</textarea>
                             </div>
                         </div>
 
@@ -47,26 +48,26 @@
                         @else
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="text-info-emphasis col-form-label-lg ">Symptoms </label><textarea readonly class="form-control"
-                                    name="symptoms" readonly>{{$data['symptoms']}} </textarea><br>
+                                <label class="text-info-emphasis col-form-label-lg ">Symptoms </label><textarea readonly
+                                    class="form-control" name="symptoms" readonly>{{$data['symptoms']}} </textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="col-form-label-lg">Diagnosis </label><textarea  class="form-control"
-                                    name="diagnosis" >{{$data['diagnosis']}}</textarea><br>
+                                <label class="col-form-label-lg">Diagnosis </label><textarea class="form-control"
+                                    name="diagnosis">{{$data['diagnosis']}}</textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="col-form-label-lg">Prescription </label><textarea class="form-control"
-                                    name="prescription" >{{$data['prescription']}}</textarea><br>
+                                <label class="col-form-label-lg">Prescription </label><textarea class="form-control"
+                                    name="prescription">{{$data['prescription']}}</textarea><br>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label  class="col-form-label-lg">Test Result</label><textarea class="form-control" 
-                                name="test_result">{{$data['test_result']}}</textarea>
+                                <label class="col-form-label-lg">Test Result</label><textarea class="form-control"
+                                    name="test_result">{{$data['test_result']}}</textarea>
                             </div>
                         </div>
                         @endcan

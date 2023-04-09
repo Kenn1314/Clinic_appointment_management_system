@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class ="container-sm" >
-<table class="table table-dark table-bordered border-2 border-secondary" id='patient_table' >
+<div class="container-sm">
+    <table class="table table-dark table-bordered border-2 border-secondary" id='patient_table'>
         <thead>
             <td>Patient Name</td>
             <td>Email</td>
@@ -21,21 +21,24 @@
                 <td>{{ $patient['phone'] }}</td>
                 <td>
                     @can('isDoctor')
-                                <a href="viewpatient/{{$patient['id']}}" class="btn btn-info" style="text-decoration: none; color: white;">View</a>
+                    <a href="viewpatient/{{$patient['id']}}" class="btn btn-info"
+                        style="text-decoration: none; color: white;">View</a>
                     @elsecan('isAdmin')
-                                <a href="viewpatient/{{$patient['id']}}" class="btn btn-info" style="text-decoration: none; color: white;">View</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target='#DeletePatientModal_{{$patient->id}}'>
-                                    Delete
+                    <a href="viewpatient/{{$patient['id']}}" class="btn btn-info"
+                        style="text-decoration: none; color: white;">View</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target='#DeletePatientModal_{{$patient->id}}'>
+                        Delete
                     </button>
-            
-                                <!-- APPROVED MODAL DISPLAY -->
+
+                    <!-- APPROVED MODAL DISPLAY -->
                     @include('partials.prompt_window', [
-                                'modal_id' => 'DeletePatientModal_'.$patient->id,
-                                'aria_label' => 'DeleteModalLabel',
-                                'modal_title' => 'Delete Patient',
-                                'modal_body' => 'DO YOU WANT TO DELETE THIS PATIENT ?',
+                    'modal_id' => 'DeletePatientModal_'.$patient->id,
+                    'aria_label' => 'DeleteModalLabel',
+                    'modal_title' => 'Delete Patient',
+                    'modal_body' => 'DO YOU WANT TO DELETE THIS PATIENT ?',
                     'id' => $patient->id,
-                                'route_name' => "deletepatient/".$patient->id
+                    'route_name' => "deletepatient/".$patient->id
                     ])
                     @endcan
                 </td>
