@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         if(Gate::allows('isPatient')){
 
-
+        
         // $req -> validate([
         //     'name' => 'required',
         //     'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
@@ -122,13 +122,11 @@ class ProfileController extends Controller
 
     public function updateProfilePicture(Request $req)
     {
-
+        
         // //save img to public/userImages
         // return $req->profilePic;
 
         $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
-
-      
         // $y = public_path($x);
 
         while(File::exists($x)){
