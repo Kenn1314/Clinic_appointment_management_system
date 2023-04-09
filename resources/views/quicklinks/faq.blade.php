@@ -28,7 +28,7 @@
     }
     .faq-inner{
       padding: 30px;
-      background: aliceblue;
+      background: rgb(187, 232, 236);
     }
     .faq-plus{
       float: right;
@@ -64,7 +64,7 @@
             <span class="faq-plus">&plus;</span>
           </h3>
           <div class="faq-body">
-            No, you cannot book appointment today, you can book appoinment before today.
+            No, you cannot book an appointment today. You can only book an appointment one day in advance.
           </div>
         </div>
         <hr>
