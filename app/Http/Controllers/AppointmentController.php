@@ -127,7 +127,5 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('/home');
-
-        // return $request->input('doctor_id');
     }
 }
