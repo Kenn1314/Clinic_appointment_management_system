@@ -97,7 +97,7 @@ class AppointmentController extends Controller
         $appointment->doctor_id = $request->doctor_id;
         $appointment->date = $request->input('appointment_date');
         $appointment->time = $request->input('time');
-        $appointment->user_id = $request->id; //use session later
+        $appointment->user_id = $request->patient_id; //use session later
         $appointment->status = 'APPROVED';
         $appointment->save();
 
