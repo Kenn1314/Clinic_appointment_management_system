@@ -20,12 +20,14 @@
             <table>
                 <tr>
                     <td><a href="/updateProfilePicture/{{$user->id}}">
-                        @if(strpos($user->profilePic, 'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg'))
+                        {{-- @if(strpos($user->profilePic, 'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg'))
                          <img src={{asset($user->profilePic)}} alt="pic" width="100" height="100"/>
                          @endif
                          @if(!strpos($user->profilePic, 'http'))
                          <img src={{$relative_path = ltrim(str_replace(public_path(), '', $user->profilePic), '\\/')}} alt="pic" width="100" height="100"/>
-                         @endif
+                         @endif --}}
+
+                         <img src={{asset($user->profilePic)}} alt="pic" width="100" height="100"/>
                         </a>
                     </td>
                 </tr>

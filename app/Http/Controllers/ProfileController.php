@@ -124,29 +124,31 @@ class ProfileController extends Controller
     {
         
         // //save img to public/userImages
-        return $req->profilePic;
+        // return $req->profilePic;
 
-        $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
-        $y = public_path($x);
+        // $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
 
-        while(File::exists($y)){
-            $y = public_path('UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension());
+        $x = 'UserImages/'.'mIgJNPxkAkccv0Rg.png';
+        // $y = public_path($x);
+
+        while(File::exists($x)){
+            $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
         }
 
 
         if(!File::exists(public_path('UserImages'))){
             File::makeDirectory(public_path('UserImages'), 0755, true);
-            File::move($req->profilePic, $y);
+            File::move($req->profilePic, $x);
         }
         else{
-            File::move($req->profilePic, $y);
+            File::move($req->profilePic, $x);
         }
 
         // File::delete($req->profilePic);
         $data = $req->input();
 
         $data = User::find($req ->  id);
-        $data -> profilePic = $y;
+        $data -> profilePic = $x;
         $data -> save();
 
         return redirect('/profile');
