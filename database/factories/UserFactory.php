@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'gender' => $this->faker->randomElement(['male', 'female']),
             'expertise' => $this->faker->randomElement(['Cardiologist: specializes in diagnosing and treating conditions related to the heart and circulatory system.', 'Neurologist: focuses on the diagnosis and treatment of conditions affecting the brain, spinal cord, and nerves.','Oncologist: specializes in the diagnosis and treatment of cancer.','Dermatologist: focuses on diagnosing and treating skin-related conditions, including skin cancer.','Gynecologist: specializes in the female reproductive system and associated conditions.','Psychiatrist: focuses on diagnosing and treating mental health disorders.']),
             'profilePic' => $this->faker->randomElement(['https://xsgames.co/randomusers/assets/avatars/male/67.jpg', 'https://xsgames.co/randomusers/assets/avatars/male/71.jpg','https://xsgames.co/randomusers/assets/avatars/male/69.jpg','https://xsgames.co/randomusers/assets/avatars/female/68.jpg','https://xsgames.co/randomusers/assets/avatars/female/55.jpg']),    
-        'phone' => $this->faker->unique()->numerify("01#-#######"),
+            'phone' => $this->faker->unique()->numerify("01#-#######"),
             'remember_token' => Str::random(10),
 
         ];

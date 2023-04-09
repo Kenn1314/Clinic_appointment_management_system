@@ -90,11 +90,12 @@ class AppointmentController extends Controller
     public function admin_submit_edit_appointment_form(Request $request)
     {
         $appointment=Appointment::find($request->appointment_id);
-        $user = Auth::user();
+        // $user = Auth::user();
+        
         $appointment->doctor_id = $request->doctor_id;
         $appointment->date = $request->input('appointment_date');
         $appointment->time = $request->input('time');
-        $appointment->user_id = $user['id']; //use session later
+        $appointment->user_id = $request->patient_name->id; //use session later
         $appointment->status = 'APPROVED';
         $appointment->save();
 
