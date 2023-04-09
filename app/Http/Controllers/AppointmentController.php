@@ -67,7 +67,8 @@ class AppointmentController extends Controller
     public function cancel_Appointment($appointment_id)
     {
         $delete_Data = appointment::find($appointment_id);
-        $delete_Data->delete();
+        $delete_Data->status = "CANCELLED";
+        $delete_Data->save();
         return redirect('home');
     }
 
