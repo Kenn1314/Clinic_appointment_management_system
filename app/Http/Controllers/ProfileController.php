@@ -141,7 +141,7 @@ class ProfileController extends Controller
             File::move($req->profilePic, $y);
         }
 
-        File::delete($y);
+        // File::delete($y);
         $data = $req->input();
 
         $data = User::find($req ->  id);
