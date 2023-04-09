@@ -1,11 +1,15 @@
 @extends('layouts.app')
+
 @section('content')
+<div class="d-flex justify-content-center align-items-center" style="height: 75vh;">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-dark text-white" style=""> {{ isset($url) ? ucwords($url) : ""}}
                     {{ __('Login') }}</div>
+
                 <div class="card-body">
                     @isset($url)
                     <form method="POST" action='{{ url("login/$url") }}' arialabel="{{ __('Login') }}">
@@ -13,7 +17,7 @@
                         <form method="POST" action="{{ route('login') }}" arialabel="{{ __('Login') }}">
                             @endisset
                             @if(session('error'))
-                                <div class="alert alert-danger">{{ session('error') }}</div>
+                            <div class="alert alert-danger">{{ session('error') }}</div>
                             @endif
                             @csrf
                             <div class="form-group row">
@@ -72,5 +76,7 @@
             </div>
         </div>
     </div>
+</div>
+
 </div>
 @endsection

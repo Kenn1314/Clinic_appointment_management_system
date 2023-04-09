@@ -55,12 +55,17 @@
 </head>
 
 <body style="background-color:#f0f8ff">
+    
     <div id="app">
+
+        <!-- NAVIGATION BAR -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container">
+
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -68,9 +73,10 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -131,6 +137,7 @@
                             <a href="/patient/all" class="nav-link">Patient</a>
                         </li>
                         @endif
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -151,8 +158,9 @@
                             </div>
                         </li>
                         @endguest
-                        
+
                     </ul>
+
                 </div>
             </div>
         </nav>
@@ -164,8 +172,11 @@
                 </div>
             </div>
         </main>
+
     </div>
+
     @can('isAdmin|isDoctor|isPatient')
+    <!-- FOOTER -->
     <footer class="footer" style="background-color: #17171A">
         <div class="container" style="color: white;">
             <hr />
@@ -223,6 +234,7 @@
             <p class="text-center">&copy; 2023 Dr. Ho Clinic. All Rights Reserved.</p>
         </div>
     </footer>
+
     @endcan
 </body>
 

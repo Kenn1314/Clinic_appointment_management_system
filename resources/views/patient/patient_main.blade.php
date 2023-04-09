@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">Welcome to Dr.Ho Clinic, {{session('user_name')}}</h1>
+<h1 style="text-align:center;">Welcome to Dr.Ho Clinic, {{ session('user_name') }}</h1>
 
 <!-- UPPER APPOINTMENTS OVERVIEW -->
 <div class="d-flex flex-column">
@@ -23,7 +23,7 @@
                             </svg>
                         </div>
                         <div class="text-end px-3 text-white">
-                            <h2 class="fs-1-xxl fw-bolder text-white">{{count($upcoming)}}</h2>
+                            <h2 class="fs-1-xxl fw-bolder text-white">{{ count($upcoming) }}</h2>
                             <h3 class="mb-0 fs-4 fw-light">Upcoming Appointments</h3>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             </svg>
                         </div>
                         <div class="text-end px-3 text-white">
-                            <h2 class="fs-1-xxl fw-bolder text-white">{{count($pending)}}</h2>
+                            <h2 class="fs-1-xxl fw-bolder text-white">{{ count($pending) }}</h2>
                             <h3 class="mb-0 fs-4 fw-light">Pending Appointments</h3>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             </svg>
                         </div>
                         <div class="text-end px-3 text-white">
-                            <h2 class="fs-1-xxl fw-bolder text-white">{{count($completed)}}</h2>
+                            <h2 class="fs-1-xxl fw-bolder text-white">{{ count($completed) }}</h2>
                             <h3 class="mb-0 fs-4 fw-light">Completed Appointments</h3>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
             </div>
         </div>
 
-        </div>
     </div>
+</div>
 </div>
 
 <!-- Lower PART -->
@@ -85,14 +85,12 @@
                 style="font-size:20px;">Upcoming</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="Pending-tab" data-bs-toggle="tab" data-bs-target="#Pending"
-                type="button" role="tab" aria-controls="Pending" aria-selected="false"
-                style="font-size:20px;">Pending</button>
+            <button class="nav-link" id="Pending-tab" data-bs-toggle="tab" data-bs-target="#Pending" type="button"
+                role="tab" aria-controls="Pending" aria-selected="false" style="font-size:20px;">Pending</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="History-tab" data-bs-toggle="tab" data-bs-target="#History"
-                type="button" role="tab" aria-controls="History" aria-selected="false"
-                style="font-size:20px">History</button>
+            <button class="nav-link" id="History-tab" data-bs-toggle="tab" data-bs-target="#History" type="button"
+                role="tab" aria-controls="History" aria-selected="false" style="font-size:20px">History</button>
         </li>
     </ul>
 
@@ -104,99 +102,100 @@
             <ul class="list-group">
                 <div class="justify-content-center">
 
-                    @foreach($upcoming as $upcoming_booking)
+                    @foreach ($upcoming as $upcoming_booking)
+                        <div class="border border-dark rounded m-4" style="background-color:#d0f0c0">
+                            <div class="d-flex justify-content-between">
 
-                    <div class="border border-dark rounded m-4" style="background-color:#d0f0c0">
-                        <div class="d-flex justify-content-between">
+                                <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
+                                <div class="p-2">
+                                    <h4>{{ $upcoming_booking['date'] }} ({{ $upcoming_booking['time'] }})</h4>
+                                </div>
 
-                            <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
-                            <div class="p-2">
-                                <h4>{{$upcoming_booking['date']}} ({{$upcoming_booking['time']}})</h4>
-                            </div>
+                                <!-- SHOW EDIT AND DELETE ICON -->
+                                <div class="p-2">
 
-                            <!-- SHOW EDIT AND DELETE ICON -->
-                            <div class="p-2">
+                                    <!-- EDIT ICON -->
+                                    <span>
+                                        <!-- EDIT BUTTON -->
+                                        <a data-bs-toggle="modal" data-bs-target="#editModal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20"
+                                                fill="black" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </a>
 
-                                <!-- EDIT ICON -->
-                                <span>
-                                    <!-- EDIT BUTTON -->
-                                    <a data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20"
-                                            fill="black" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path
-                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd"
-                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg>
-                                    </a>
+                                        <!-- EDIT MODAL -->
+                                        <div class="modal fade" id="editModal" tabindex="-1"
+                                            aria-labelledby="cancelModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
 
-                                    <!-- EDIT MODAL -->
-                                    <div class="modal fade" id="editModal" tabindex="-1"
-                                        aria-labelledby="cancelModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
+                                                    <!-- MODAL HEADER -->
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="cancelModalLabel">
+                                                            CHANGE APPOINTMENT DATE</h1>
+                                                        <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
 
-                                                <!-- MODAL HEADER -->
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="cancelModalLabel">
-                                                        CHANGE APPOINTMENT DATE</h1>
-                                                    <button type="button" class="btn-close"
-                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <!-- MODAL BODY -->
+                                                    <div class="modal-body">
+
+                                                    </div>
+
+                                                    <!-- MODAL FOOTER -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-danger">
+                                                            <a href="/cancel/{{ $upcoming_booking['id'] }}"
+                                                                style="color: white; text-decoration:none">Confirm</a>
+                                                        </button>
+                                                    </div>
+
                                                 </div>
-
-                                                <!-- MODAL BODY -->
-                                                <div class="modal-body">
-
-                                                </div>
-
-                                                <!-- MODAL FOOTER -->
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-danger">
-                                                        <a href="/cancel/{{$upcoming_booking['id']}}"
-                                                            style="color: white; text-decoration:none">Confirm</a>
-                                                    </button>
-                                                </div>
-
                                             </div>
                                         </div>
-                                    </div>
-                                </span>
+                                    </span>
 
-                                <!-- DELETE ICON -->
-                                <span>
+                                    <!-- DELETE ICON -->
+                                    <span>
 
-                                    <!-- CANCEL BUTTON -->
-                                    <a data-bs-toggle="modal" data-bs-target="#cancelModal_{{$upcoming_booking['id']}}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                                        </svg>
-                                    </a>
+                                        <!-- CANCEL BUTTON -->
+                                        <a data-bs-toggle="modal"
+                                            data-bs-target="#cancelModal_{{ $upcoming_booking['id'] }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                            </svg>
+                                        </a>
 
-                                    <!-- CANCEL MODAL -->
-                                    @include('partials.prompt_window', [
-                                    'modal_id' => 'cancelModal_'.$upcoming_booking['id'] ,
-                                    'aria_label' => 'cancelModalLabel',
-                                    'modal_title' => 'Cancel Request',
-                                    'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
-                                    'id' => $upcoming_booking['id'],
-                                    'route_name' => '/cancel/'.$upcoming_booking['id']
-                                    ])
-                                </span>
+                                        <!-- CANCEL MODAL -->
+                                        @include('partials.prompt_window', [
+                                            'modal_id' => 'cancelModal_' . $upcoming_booking['id'],
+                                            'aria_label' => 'cancelModalLabel',
+                                            'modal_title' => 'Cancel Request',
+                                            'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
+                                            'id' => $upcoming_booking['id'],
+                                            'route_name' => '/cancel/' . $upcoming_booking['id'],
+                                        ])
+                                    </span>
+
+                                </div>
 
                             </div>
 
+                            <!-- SHOW THE DOCTOR OF APPOINTMENT -->
+                            <h5 style="padding-left: 8px">{{ $upcoming_booking->doctor->name }}</h5>
                         </div>
-
-                        <!-- SHOW THE DOCTOR OF APPOINTMENT -->
-                        <h5 style="padding-left: 8px">{{$upcoming_booking->doctor->name}}</h5>
-                    </div>
-
                     @endforeach
 
-                    @if(count($upcoming) == 0)
-                    <h4 style="text-align:center; margin: 53.5px">Not available</h4>
+                    @if (count($upcoming) == 0)
+                        <h4 style="text-align:center; margin: 53.5px">Not available</h4>
                     @endif
 
                 </div>
@@ -208,67 +207,69 @@
             <ul class="list-group">
                 <div class="justify-content-center">
 
-                    @foreach($pending as $pending_appointment)
+                    @foreach ($pending as $pending_appointment)
+                        <div class="border border-dark rounded m-4" style="background-color:#fffacd">
+                            <div class="d-flex justify-content-between">
 
-                    <div class="border border-dark rounded m-4" style="background-color:#fffacd">
-                        <div class="d-flex justify-content-between">
+                                <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
+                                <div class="p-2">
+                                    <h4>{{ $pending_appointment['date'] }} ({{ $pending_appointment['time'] }})
+                                    </h4>
+                                </div>
 
-                            <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
-                            <div class="p-2">
-                                <h4>{{$pending_appointment['date']}} ({{$pending_appointment['time']}})
-                                </h4>
+                                <!-- SHOW EDIT AND DELETE ICON -->
+                                <div class="p-2">
+                                    <form method="POST" action="/patient/editAppointment">
+                                        @csrf
+                                        <input type="hidden" name="chosen_doctor_id"
+                                            value="{{ strval($pending_appointment['doctor_id']) }}">
+                                        <input type="hidden" name="is_edit" value="true">
+                                        <input type="hidden" name="appointment_id"
+                                            value={{ $pending_appointment['id'] }}>
+                                        <input type="hidden" name="edit_date"
+                                            value="{{ $pending_appointment['date'] }}">
+                           
+                                            <button type="submit" class="btn btn-primary"
+                                                style="background:black;">{{ __('Edit appointment') }}</button>
+                                                                        <!-- DELETE ICON -->
+                                                                        <span>
+
+                                                                            <!-- CANCEL BUTTON -->
+                                                                            <a data-bs-toggle="modal"
+                                                                                data-bs-target="#cancelModal_{{ $pending_appointment['id'] }}">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                                                    fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                                                                </svg>
+                                                                            </a>
+                                    
+                                                                            <!-- CANCEL MODAL -->
+                                                                            @include('partials.prompt_window', [
+                                                                                'modal_id' => 'cancelModal_' . $pending_appointment['id'],
+                                                                                'aria_label' => 'cancelModalLabel',
+                                                                                'modal_title' => 'Cancel Request',
+                                                                                'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
+                                                                                'id' => $pending_appointment['id'],
+                                                                                'route_name' => '/cancel/' . $pending_appointment['id'],
+                                                                            ])
+                                    
+                                    
+                                                                        </span>
+                                    </form>
+
+
+                                </div>
+
                             </div>
 
-                            <!-- SHOW EDIT AND DELETE ICON -->
-                            <div class="p-2">
-                                <form method="POST" action="/patient/editAppointment">
-                                    @csrf
-                                    <input type="hidden" name="chosen_doctor_id" value="{{strval($pending_appointment['doctor_id'])}}">
-                                    <input type="hidden" name="is_edit" value="true">
-                                    <input type="hidden" name="appointment_id" value={{$pending_appointment['id']}}>
-                                    <input type="hidden" name="edit_date" value="{{$pending_appointment['date']}}">
-                                                                <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary" style="background:black;">{{
-                                    __('Edit appointment') }}</button>
-                            </div>
-                            </form>
-
-                                <!-- DELETE ICON -->
-                                <span>
-
-                                    <!-- CANCEL BUTTON -->
-                                    <a data-bs-toggle="modal" data-bs-target="#cancelModal_{{$pending_appointment['id']}}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                                        </svg>
-                                    </a>
-
-                                    <!-- CANCEL MODAL -->
-                                    @include('partials.prompt_window', [
-                                    'modal_id' => 'cancelModal_'.$pending_appointment['id'],
-                                    'aria_label' => 'cancelModalLabel',
-                                    'modal_title' => 'Cancel Request',
-                                    'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
-                                    'id' => $pending_appointment['id'],
-                                    'route_name' => '/cancel/'.$pending_appointment['id']
-                                    ])
-
-
-                                </span>
-                            </div>
-
+                            <!-- SHOW THE DOCTOR OF APPOINTMENT -->
+                            <h5 style="padding-left: 8px">{{ $pending_appointment->doctor->name }}</h5>
                         </div>
-
-                        <!-- SHOW THE DOCTOR OF APPOINTMENT -->
-                        <h5 style="padding-left: 8px">{{$pending_appointment->doctor->name}}</h5>
-                    </div>
-
                     @endforeach
 
-                    @if(count($pending) == 0)
-                    <h4 style="text-align:center; margin: 53.5px">Not available</h4>
+                    @if (count($pending) == 0)
+                        <h4 style="text-align:center; margin: 53.5px">Not available</h4>
                     @endif
                 </div>
             </ul>
@@ -279,26 +280,25 @@
             <ul class="list-group">
                 <div class="justify-content-center">
 
-                    @foreach($completed as $completed_appointment)
+                    @foreach ($completed as $completed_appointment)
+                        <div class="border border-dark rounded m-4" style="background-color:#d3d3d3">
+                            <div class="d-flex justify-content-between">
 
-                    <div class="border border-dark rounded m-4" style="background-color:#d3d3d3">
-                        <div class="d-flex justify-content-between">
+                                <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
+                                <div class="p-2">
+                                    <h4>{{ $completed_appointment['date'] }} ({{ $completed_appointment['time'] }})
+                                    </h4>
+                                </div>
 
-                            <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
-                            <div class="p-2">
-                                <h4>{{$completed_appointment['date']}} ({{$completed_appointment['time']}})</h4>
                             </div>
 
+                            <!-- SHOW THE DOCTOR OF APPOINTMENT -->
+                            <h5 style="padding-left: 8px">{{ $completed_appointment->doctor->name }}</h5>
                         </div>
-
-                        <!-- SHOW THE DOCTOR OF APPOINTMENT -->
-                        <h5 style="padding-left: 8px">{{$completed_appointment->doctor->name}}</h5>
-                    </div>
-
                     @endforeach
 
-                    @if(count($completed) == 0)
-                    <h4 style="text-align:center; margin: 53.5px">Not available</h4>
+                    @if (count($completed) == 0)
+                        <h4 style="text-align:center; margin: 53.5px">Not available</h4>
                     @endif
 
                 </div>
@@ -308,4 +308,3 @@
     </div>
 
 </div>
-
