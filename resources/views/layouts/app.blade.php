@@ -101,7 +101,7 @@
                         @if(auth()->user()->role == 'patient')
 
                         <li class="nav-item">
-                            <a href="../home" class="nav-link">Home</a>
+                            <a href="/home" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="/patient/viewDoctors" class="nav-link">Make appointment</a>
@@ -118,7 +118,7 @@
                         @if(auth()->user()->role == 'admin')
 
                         <li class="nav-item">
-                            <a href="../home" class="nav-link">Appointments</a>
+                            <a href="/home" class="nav-link">Appointments</a>
                         </li>
                         <li class="nav-item">
                             <a href="/patient/all" class="nav-link">Patient</a>
@@ -131,7 +131,7 @@
 
                         @if(auth()->user()->role == 'doctor')
                         <li class="nav-item">
-                            <a href="../home" class="nav-link">Appointment</a>
+                            <a href="/home" class="nav-link">Appointment</a>
                         </li>
                         <li class="nav-item">
                             <a href="/patient/all" class="nav-link">Patient</a>

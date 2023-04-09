@@ -18,17 +18,21 @@ class PatientController extends Controller
         if (Gate::allows('isDoctor')) {
             $sessionId = Session::get('user_id');
             $patients = patient_record::where('doctor_id', $sessionId)->get('patient_id');
+
             foreach ($patients as $patient) {
                 $array[] = User::find($patient['patient_id']);
             }
 
+            if(!empty($array)){
             $collection = collect($array);
             $uniqueCollection = $collection->unique('id');
             $uniqueArray = $uniqueCollection->all();
             return view('patient.managepatient', ['patients' => $uniqueArray]);
+            }else{
+                return view('patient.managepatient', ['patients' => []]);
+            }
         } else {
-            $data = User::whereRole('patient')
-                ->paginate(3);
+            $data = User::whereRole('patient')->paginate(3);
             return view('patient.managepatient', ['patients' => $data]);
         }
     }
