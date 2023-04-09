@@ -103,53 +103,53 @@
                 <div class="justify-content-center">
 
                     @foreach ($upcoming as $upcoming_booking)
-                        <div class="border border-dark rounded m-4" style="background-color:#d0f0c0">
-                            <div class="d-flex justify-content-between">
+                    <div class="border border-dark rounded m-4" style="background-color:#d0f0c0">
+                        <div class="d-flex justify-content-between">
 
-                                <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
-                                <div class="p-2">
-                                    <h4>{{ $upcoming_booking['date'] }} ({{ $upcoming_booking['time'] }})</h4>
-                                </div>
+                            <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
+                            <div class="p-2">
+                                <h4>{{ $upcoming_booking['date'] }} ({{ $upcoming_booking['time'] }})</h4>
+                            </div>
 
-                                <!-- SHOW EDIT AND DELETE ICON -->
-                                <div class="p-2">
+                            <!-- SHOW EDIT AND DELETE ICON -->
+                            <div class="p-2">
 
 
-                                    <!-- DELETE ICON -->
-                                    <span>
+                                <!-- DELETE ICON -->
+                                <span>
 
-                                        <!-- CANCEL BUTTON -->
-                                        <a data-bs-toggle="modal"
-                                            data-bs-target="#cancelModal_{{ $upcoming_booking['id'] }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                                            </svg>
-                                        </a>
+                                    <!-- CANCEL BUTTON -->
+                                    <a data-bs-toggle="modal"
+                                        data-bs-target="#cancelModal_{{ $upcoming_booking['id'] }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red"
+                                            class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                        </svg>
+                                    </a>
 
-                                        <!-- CANCEL MODAL -->
-                                        @include('partials.prompt_window', [
-                                            'modal_id' => 'cancelModal_' . $upcoming_booking['id'],
-                                            'aria_label' => 'cancelModalLabel',
-                                            'modal_title' => 'Cancel Request',
-                                            'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
-                                            'id' => $upcoming_booking['id'],
-                                            'route_name' => '/cancel/' . $upcoming_booking['id'],
-                                        ])
-                                    </span>
-
-                                </div>
+                                    <!-- CANCEL MODAL -->
+                                    @include('partials.prompt_window', [
+                                    'modal_id' => 'cancelModal_' . $upcoming_booking['id'],
+                                    'aria_label' => 'cancelModalLabel',
+                                    'modal_title' => 'Cancel Request',
+                                    'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
+                                    'id' => $upcoming_booking['id'],
+                                    'route_name' => '/cancel/' . $upcoming_booking['id'],
+                                    ])
+                                </span>
 
                             </div>
 
-                            <!-- SHOW THE DOCTOR OF APPOINTMENT -->
-                            <h5 style="padding-left: 8px">{{ $upcoming_booking->doctor->name }}</h5>
                         </div>
+
+                        <!-- SHOW THE DOCTOR OF APPOINTMENT -->
+                        <h5 style="padding-left: 8px">{{ $upcoming_booking->doctor->name }}</h5>
+                    </div>
                     @endforeach
 
                     @if (count($upcoming) == 0)
-                        <h4 style="text-align:center; margin: 53.5px">Not available</h4>
+                    <h4 style="text-align:center; margin: 53.5px">Not available</h4>
                     @endif
 
                 </div>
@@ -162,68 +162,66 @@
                 <div class="justify-content-center">
 
                     @foreach ($pending as $pending_appointment)
-                        <div class="border border-dark rounded m-4" style="background-color:#fffacd">
-                            <div class="d-flex justify-content-between">
+                    <div class="border border-dark rounded m-4" style="background-color:#fffacd">
+                        <div class="d-flex justify-content-between">
 
-                                <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
-                                <div class="p-2">
-                                    <h4>{{ $pending_appointment['date'] }} ({{ $pending_appointment['time'] }})
-                                    </h4>
-                                </div>
+                            <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
+                            <div class="p-2">
+                                <h4>{{ $pending_appointment['date'] }} ({{ $pending_appointment['time'] }})
+                                </h4>
+                            </div>
 
-                                <!-- SHOW EDIT AND DELETE ICON -->
-                                <div class="p-2">
-                                    <form method="POST" action="/patient/editAppointment">
-                                        @csrf
-                                        <input type="hidden" name="chosen_doctor_id"
-                                            value="{{ strval($pending_appointment['doctor_id']) }}">
-                                        <input type="hidden" name="is_edit" value="true">
-                                        <input type="hidden" name="appointment_id"
-                                            value={{ $pending_appointment['id'] }}>
-                                        <input type="hidden" name="edit_date"
-                                            value="{{ $pending_appointment['date'] }}">
-                           
-                                            <button type="submit" class="btn btn-primary"
-                                                style="background:black;">{{ __('Edit') }}</button>
-                                                                        <!-- DELETE ICON -->
-                                                                        <span>
+                            <!-- SHOW EDIT AND DELETE ICON -->
+                            <div class="p-2">
+                                <form method="POST" action="/patient/editAppointment">
+                                    @csrf
+                                    <input type="hidden" name="chosen_doctor_id"
+                                        value="{{ strval($pending_appointment['doctor_id']) }}">
+                                    <input type="hidden" name="is_edit" value="true">
+                                    <input type="hidden" name="appointment_id" value={{ $pending_appointment['id'] }}>
+                                    <input type="hidden" name="edit_date" value="{{ $pending_appointment['date'] }}">
 
-                                                                            <!-- CANCEL BUTTON -->
-                                                                            <a data-bs-toggle="modal"
-                                                                                data-bs-target="#cancelModal_{{ $pending_appointment['id'] }}">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                                                    fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                                                                    <path
-                                                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                                                                                </svg>
-                                                                            </a>
-                                    
-                                                                            <!-- CANCEL MODAL -->
-                                                                            @include('partials.prompt_window', [
-                                                                                'modal_id' => 'cancelModal_' . $pending_appointment['id'],
-                                                                                'aria_label' => 'cancelModalLabel',
-                                                                                'modal_title' => 'Cancel Request',
-                                                                                'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
-                                                                                'id' => $pending_appointment['id'],
-                                                                                'route_name' => '/cancel/' . $pending_appointment['id'],
-                                                                            ])
-                                    
-                                    
-                                                                        </span>
-                                    </form>
+                                    <button type="submit" class="btn btn-primary" style="background:black;">{{
+                                        __('Edit') }}</button>
+                                    <!-- DELETE ICON -->
+                                    <span>
+
+                                        <!-- CANCEL BUTTON -->
+                                        <a data-bs-toggle="modal"
+                                            data-bs-target="#cancelModal_{{ $pending_appointment['id'] }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red"
+                                                class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                            </svg>
+                                        </a>
+
+                                        <!-- CANCEL MODAL -->
+                                        @include('partials.prompt_window', [
+                                        'modal_id' => 'cancelModal_' . $pending_appointment['id'],
+                                        'aria_label' => 'cancelModalLabel',
+                                        'modal_title' => 'Cancel Request',
+                                        'modal_body' => 'DO YOU WANT TO CANCEL THIS APPOINTMENT ?',
+                                        'id' => $pending_appointment['id'],
+                                        'route_name' => '/cancel/' . $pending_appointment['id'],
+                                        ])
 
 
-                                </div>
+                                    </span>
+                                </form>
+
 
                             </div>
 
-                            <!-- SHOW THE DOCTOR OF APPOINTMENT -->
-                            <h5 style="padding-left: 8px">{{ $pending_appointment->doctor->name }}</h5>
                         </div>
+
+                        <!-- SHOW THE DOCTOR OF APPOINTMENT -->
+                        <h5 style="padding-left: 8px">{{ $pending_appointment->doctor->name }}</h5>
+                    </div>
                     @endforeach
 
                     @if (count($pending) == 0)
-                        <h4 style="text-align:center; margin: 53.5px">Not available</h4>
+                    <h4 style="text-align:center; margin: 53.5px">Not available</h4>
                     @endif
                 </div>
             </ul>
@@ -235,24 +233,24 @@
                 <div class="justify-content-center">
 
                     @foreach ($completed as $completed_appointment)
-                        <div class="border border-dark rounded m-4" style="background-color:#d3d3d3">
-                            <div class="d-flex justify-content-between">
+                    <div class="border border-dark rounded m-4" style="background-color:#d3d3d3">
+                        <div class="d-flex justify-content-between">
 
-                                <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
-                                <div class="p-2">
-                                    <h4>{{ $completed_appointment['date'] }} ({{ $completed_appointment['time'] }})
-                                    </h4>
-                                </div>
-
+                            <!-- SHOW THE DATE AND TIME OF APPOINTMENT -->
+                            <div class="p-2">
+                                <h4>{{ $completed_appointment['date'] }} ({{ $completed_appointment['time'] }})
+                                </h4>
                             </div>
 
-                            <!-- SHOW THE DOCTOR OF APPOINTMENT -->
-                            <h5 style="padding-left: 8px">{{ $completed_appointment->doctor->name }}</h5>
                         </div>
+
+                        <!-- SHOW THE DOCTOR OF APPOINTMENT -->
+                        <h5 style="padding-left: 8px">{{ $completed_appointment->doctor->name }}</h5>
+                    </div>
                     @endforeach
 
                     @if (count($completed) == 0)
-                        <h4 style="text-align:center; margin: 53.5px">Not available</h4>
+                    <h4 style="text-align:center; margin: 53.5px">Not available</h4>
                     @endif
 
                 </div>
