@@ -18,7 +18,13 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'role' => $this->faker->randomElement(['patient', 'doctor', 'admin']),
+            'ic'=> '1326546',
+            'phone' => $this->faker->unique()->numerify('###-#######'),
+            'gender' => $this->faker->randomElement(['Male', 'Female']),
+            'expertise' => 'adasdasdadadasdadasda',
+            'profilePic' => 'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
             'remember_token' => Str::random(10),
         ];
     }
