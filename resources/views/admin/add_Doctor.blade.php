@@ -22,10 +22,6 @@
 
                             <div class="controls">
 
-                                {{--
-                                <!-- ID -->
-                                <input name="id" type="hidden" value="{{ old['id'] }}"> --}}
-
                                 <!-- ROW 1 -->
                                 <div class="row">
 

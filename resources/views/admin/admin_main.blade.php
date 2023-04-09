@@ -26,11 +26,6 @@
             <td>{{$appointment->status}}</td>
             <td>{{$appointment->doctor->name}}</td>
             <td>
-                {{-- <form action="/update_Status" method="POST">
-                    @csrf
-                    <input type="hidden" value="{{$appointment->id}}" name="id" />
-                    <input type="submit" class="btn btn-success" value="Approved" />
-                </form> --}}
 
                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
                     data-bs-target='#approvedModal_{{$appointment->id}}'>
