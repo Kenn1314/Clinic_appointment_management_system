@@ -20,14 +20,15 @@
                     @if(!isset($is_edit))
                         <form action="/patient/make-appointment" method="POST">  
                     @endif
-                    {{-- <form action="/patient/make-appointment" method="POST"> --}}
                         @csrf
                         <div class="form-group row">
                             <label for="doctor_id" class="col-md-4 col-form-label text-md-right">{{ __('Doctor Name')
                                 }}</label>
                             <div class="col-md-6">
-                                <input id="appointment_id" type="hidden" class="form-control" name="appointment_id"
-                                value="{{$appointment_id}}">
+                                @if(isset($is_edit))
+                                <input id="appointment_id" type="hidden" class="form-control" name="appointment_id" value="{{$appointment_id}}">
+                            @endif
+                            
                                 <input id="doctor_id" type="hidden" class="form-control" name="doctor_id"
                                     value="{{$doctors['id']}}">
                                 <input id="doctor_name" type="text" class="form-control" name="doctor_name"

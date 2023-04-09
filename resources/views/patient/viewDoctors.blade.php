@@ -5,6 +5,10 @@
   .doctor-card:hover {
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
   }
+  .card{
+
+    height:550px;
+  }
 </style>
 <div class="container">
   <div class="row m-b-40" style="      background: black;
@@ -21,10 +25,10 @@
   @foreach($doctors as $doctor)
   <div class="col">
     <div class="card doctor-card">
-      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill" />
+      <img src="{{$doctor['profilePic']}}" class="card-img-top" alt="Hollywood Sign on The Hill" />
       <div class="card-body">
         <h5 class="card-title">{{$doctor['name']}}</h5>
-        <p class="card-text">{{$doctor['description']}}</p>
+        <p class="card-text">{{$doctor['expertise']}}</p>
       </div>
       <form method="POST" action="/patient/appointment">
         @csrf

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
-
+use \App\Models\Appointment;
 class UserSeeder extends Seeder
 {
     /**
@@ -62,10 +62,10 @@ class UserSeeder extends Seeder
         // ];
 
         //======STORE IT TO DATABASE=====
-        foreach($users as $user)
-        {
-            User::create($user);
-        }
+        // foreach($users as $user)
+        // {
+        //     User::create($user);
+        // }
         
     }
 }
