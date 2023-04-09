@@ -23,6 +23,7 @@
                     @endif
                     @if (isset($is_edit)&&isset($is_admin)) 
                             <form action="/patient/admin_submit_edit_appointment_form" method="POST"> 
+                               <input type="hidden" name="patient_id" value="{{$patient_id}}">
                     @endif
                     @if(!isset($is_edit))
                         <form action="/patient/make-appointment" method="POST">  
@@ -81,7 +82,7 @@
 
                                 @if(isset($is_edit))
                                 <button type="submit" class="btn btn-primary" style="background:black;"
-                                    onclick="return confirm('Are you sure you want to create this appointment?')">{{
+                                    onclick="return confirm('Are you sure you want to edit this appointment?')">{{
                                     __('Edit appointment') }}</button>
                                 @endif
 

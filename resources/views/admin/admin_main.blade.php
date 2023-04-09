@@ -75,15 +75,14 @@
                         cellspacing="0" width="100%">
                         <thead>
                             <tr class="text-uppercase">
-                                <th class="th-sm">#</th>
-                                <th class="th-sm">Appointment_id</th>
-                                <th class="th-sm">DATE
-                                </th>
-                                <th class="th-sm">Time
-                                </th>
-                                <th class="th-sm">Action</th>
-                                <th class="th-sm">Action</th>
-                                <th class="th-sm">Action</th>
+                                <th class="th-sm">No.</th>
+                                <th class="th-sm">Patient Name</th>
+                                <th class="th-sm">Doctor Name</th>
+                                <th class="th-sm">DATE</th>
+                                <th class="th-sm">Time</th>
+                                <th class="th-sm">View</th>
+                                <th class="th-sm">Delete</th>
+                                <th class="th-sm">Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,7 +90,8 @@
                             @foreach($approved_Appointment_All as $key => $approved_Appointment)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$approved_Appointment['id']}}</td>
+                                <td>{{$approved_Appointment->patient_name->name}}</td>
+                                <td>{{$approved_Appointment->doctor->name}}</td>
                                 <td>{{$approved_Appointment['date']}}</td>
                                 <td>{{$approved_Appointment['time']}}</td>
 
@@ -223,6 +223,7 @@
                                         <input type="hidden" name="edit_date" value="{{$approved_Appointment['date']}}">
                                         <input type="hidden" name="appointment_id"
                                             value={{$approved_Appointment['id']}}>
+                                        <input type="hidden" name="patient_id" value="{{$approved_Appointment->patient_name->id}}">
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary" style="background:black;"><svg
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -259,13 +260,14 @@
                         cellspacing="0" width="100%">
                         <thead>
                             <tr class="text-uppercase">
-                                <th class="th-sm">#</th>
-                                <th class="th-sm">Appointment_id</th>
+                                <th class="th-sm">No.</th>
+                                <th class="th-sm">Patient Name</th>
+                                <th class="th-sm">Doctor Name</th>
                                 <th class="th-sm">DATE
                                 </th>
                                 <th class="th-sm">Time
                                 </th>
-                                <th class="th-sm">Action</th>
+                                <th class="th-sm">View</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -273,7 +275,8 @@
                             @foreach($all_completed_appointment as $key => $completed_Appointment)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$completed_Appointment['id']}}</td>
+                                <td>{{$completed_Appointment->patient_name->name}}</td>
+                                <td>{{$completed_Appointment->doctor->name}}</td>
                                 <td>{{$completed_Appointment['date']}}</td>
                                 <td>{{$completed_Appointment['time']}}</td>
                                 <td>
