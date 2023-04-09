@@ -29,7 +29,7 @@ class PatientController extends Controller
             $uniqueArray = $uniqueCollection->all();
             return view('patient.managepatient', ['patients' => $uniqueArray]);
             }else{
-                return view('patient.managepatient', ['patients' => $array]);
+                return view('patient.managepatient', ['patients' => []]);
             }
         } else {
             $data = User::whereRole('patient')->paginate(3);
