@@ -125,7 +125,6 @@ class ProfileController extends Controller
         
         // //save img to public/userImages
 
-
         $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
         $y = public_path($x);
 
@@ -142,7 +141,7 @@ class ProfileController extends Controller
             File::move($req->profilePic, $y);
         }
 
-
+        File::delete($y);
         $data = $req->input();
 
         $data = User::find($req ->  id);
@@ -150,22 +149,6 @@ class ProfileController extends Controller
         $data -> save();
 
         return redirect('/profile');
-
-        // File::move($req->profilePic, public_path('test1//doctors.jpg'));
-    
-        // if(!File::exists(public_path('test1'))){
-        //     File::makeDirectory(public_path('test1'), 0755, true);
-        //     // File::move(public_path('doctors.jpg'), public_path('test1/doctors.jpg'));
-        // }
-        // else{
-        //     File::move($req->profilePic, public_path('test1//doctors.jpg'.));
-        //     return "hi";
-        // }
-        
-        // File::makeDirectory(public_path('UserImages'), 0755, true);
-            // File::move(public_path('doctors.jpg'), public_path('UserImages'));
-        // $path = $req->path();
-        // return $path;
 
 
     }

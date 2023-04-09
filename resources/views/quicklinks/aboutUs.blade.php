@@ -90,12 +90,13 @@
     </p>
     <div class="row g-4">
       <div class="col-md-6 col-lg-3">
-        <div class="card bg-light">
+        <div class="card bg-light" >
           <div class="card-body text-center">
             <img
               src="https://xsgames.co/randomusers/assets/avatars/male/67.jpg"
               class="rounded-circle mb-3"
               alt=""
+              width="100%"
             />
             <h3 class="card-title mb-3">Dr. Ho</h3>
             <p class="card-text">
@@ -106,12 +107,13 @@
       </div>
 
       <div class="col-md-6 col-lg-3">
-        <div class="card bg-light">
+        <div class="card bg-light" style="height: 90%;">
           <div class="card-body text-center">
             <img
               src="https://xsgames.co/randomusers/assets/avatars/male/21.jpg"
               class="rounded-circle mb-3"
               alt=""
+              width="100%"
             />
             <h3 class="card-title mb-3">Dr. Yong</h3>
             <p class="card-text">
@@ -132,6 +134,7 @@
               src="https://xsgames.co/randomusers/assets/avatars/male/20.jpg"
               class="rounded-circle mb-3"
               alt=""
+              width="100%"
             />
             <h3 class="card-title mb-3">Dr. Hai</h3>
             <p class="card-text">
@@ -148,6 +151,7 @@
               src="https://xsgames.co/randomusers/assets/avatars/female/23.jpg"
               class="rounded-circle mb-3"
               alt=""
+              width="100%"
             />
             <h3 class="card-title mb-3">Dr. Wee</h3>
             <p class="card-text">
