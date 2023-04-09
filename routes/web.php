@@ -33,7 +33,7 @@ Route::view('aboutUs', 'quicklinks/aboutUs');
 Route::view('faq', 'quicklinks/faq');  
 
 //==========PATIENT ROUTE==========
-Route::middleware(['can:isPatient'])->group(function () {
+Route::middleware(['can:isPatient|isDoctor'])->group(function () {
     
     //=====YONG ZHENG HENG========================
     // Route::view('aboutUs', 'quicklinks/aboutUs');

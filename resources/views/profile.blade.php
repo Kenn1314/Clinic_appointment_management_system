@@ -37,10 +37,29 @@
                     <td>Email:</td>
                     <td>{{ $user->email }}</td>
                 </tr>
+
+                @can('isDoctor')
                 <tr>
                     <td>Expertise:</td>
                     <td>{{ $user->expertise }}</td>
                 </tr>
+                @endcan
+
+                <tr>
+                    <td >Gender:</td>
+                    <td>{{ $user->gender }}</td>
+                </tr>
+
+                <tr>
+                    <td >IC Number:</td>
+                    <td>{{ $user->ic }}</td>
+                </tr>
+
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>{{ $user->phone }}</td>
+                </tr>
+
                 <!-- <tr>
                     <td>Password:</td>
                     <td>{{ $user->password }}</td>
