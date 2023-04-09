@@ -124,7 +124,6 @@ class ProfileController extends Controller
     {
         
         // //save img to public/userImages
-        return $req->profilePic;
 
         $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
         $y = public_path($x);
