@@ -8,29 +8,28 @@
     route_name   => The route name in web.php
 
 -->
-<div class="modal fade" id="{{$modal_id}}" tabindex="-1" aria-labelledby="{{$aria_label}}" aria-hidden="true">
+<div class="modal fade" id="{{ $modal_id }}" tabindex="-1" aria-labelledby="{{ $aria_label }}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- MODAL HEADER -->
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="cancelModalLabel">
-                    {{$modal_title}}
+                    {{ $modal_title }}
                 </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <!-- MODAL BODY -->
             <div class="modal-body">
-                {{$modal_body}}
+                {{ $modal_body }}
             </div>
 
             <!-- MODAL FOOTER -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger" id="confirmBtn">
-                    <a href="{{$route_name}}" style="color: white; text-decoration:none">Confirm</a>
+                    <a href="{{ $route_name }}" style="color: white; text-decoration:none">Confirm</a>
                 </button>
             </div>
 
