@@ -34,7 +34,7 @@
 
                 <button type="button" class="btn btn-success" data-bs-toggle="modal"
                     data-bs-target='#approvedModal_{{$appointment->id}}'>
-                    APPROVED
+                    APPROVE
                 </button>
 
                 <!-- APPROVED MODAL DISPLAY -->

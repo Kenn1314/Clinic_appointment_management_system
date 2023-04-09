@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use App\Models\patient_record;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+
 class testSeeder extends Seeder
 {
     /**
