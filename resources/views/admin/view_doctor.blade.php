@@ -52,6 +52,12 @@
     </tbody>
 </table>
 
+<br>
+<form action="/addDoctor_page" method="GET">
+    @csrf
+    <button type="submit" class="btn btn-success">Add a Doctor</button>
+</form>
+
 <script>
     $('#doctor_table').DataTable();
 </script>

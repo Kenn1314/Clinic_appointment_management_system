@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Faker\Factory as Faker;
 
 class DoctorController extends Controller
 {
@@ -49,6 +50,36 @@ class DoctorController extends Controller
         $update_Doctor->save();
 
         return redirect('/viewDoctor');
+    }
+
+    function addDoctor(Request $request)
+    {
+        // CREATE FAKER INSTANCES 
+        $faker = Faker::create();
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required | email | unique:users',
+            'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
+            'phone' => 'regex: /^\d{3}-\d{7}$/ | required | unique:users',
+            'expertise' => 'required | max:255',
+            'gender' => ['required']
+        ]);
+
+        $new_Doctor = new User;
+        $new_Doctor->name = $request->name;
+        $new_Doctor->email = $request->email;
+        $new_Doctor->ic = $request->ic;
+        $new_Doctor->phone = $request->phone;
+        $new_Doctor->expertise = $request->expertise;
+        $new_Doctor->profilePic = $faker->randomElement(['https://xsgames.co/randomusers/assets/avatars/male/67.jpg', 'https://xsgames.co/randomusers/assets/avatars/male/71.jpg','https://xsgames.co/randomusers/assets/avatars/male/69.jpg','https://xsgames.co/randomusers/assets/avatars/female/68.jpg','https://xsgames.co/randomusers/assets/avatars/female/55.jpg']);
+        $new_Doctor->password = bcrypt('password');
+        $new_Doctor->role = "doctor";
+        $new_Doctor->gender = $request->gender;
+        $new_Doctor->save();
+
+        return redirect('/viewDoctor');
+        
     }
 
 }
