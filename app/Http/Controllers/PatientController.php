@@ -32,8 +32,7 @@ class PatientController extends Controller
                 return view('patient.managepatient', ['patients' => $array]);
             }
         } else {
-            $data = User::whereRole('patient')
-                ->paginate(3);
+            $data = User::whereRole('patient')->paginate(3);
             return view('patient.managepatient', ['patients' => $data]);
         }
     }
