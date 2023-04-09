@@ -165,7 +165,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main style="min-height: calc(100vh - 20px);" class="py-4">
             <div class="container">
                 <div class="card-body">
                     @yield('content')
@@ -177,7 +177,7 @@
 
     @can('isAdmin|isDoctor|isPatient')
     <!-- FOOTER -->
-    <footer class="footer" style="background-color: #17171A">
+    <footer class="footer" style="background-color: #17171A;">
         <div class="container" style="color: white;">
             <hr />
             <div class="row">
