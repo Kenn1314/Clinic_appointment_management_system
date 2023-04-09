@@ -32,7 +32,6 @@ class HomeController extends Controller
 
         //=====SET USER ID TO SESSION=====
         $request->session()->put('user_id', $user_id);
-        // $request->session()->put('user_password', $user_password);
 
         //=====SET USER NAME TO SESSION=====
         $request->session()->put('user_name', Auth::user()->name);
@@ -55,7 +54,6 @@ class HomeController extends Controller
             //=====GET ALL DOCTOR=====
         $completed_appointment =Appointment::where('doctor_id', $user_id ) ->where('status', 'APPROVED')->get();
             return view('home',['completed_appointment'=> $completed_appointment]);
-            // return   $completed_appointment;
 
         } else {
             

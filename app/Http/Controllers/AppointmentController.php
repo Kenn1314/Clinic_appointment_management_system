@@ -40,8 +40,6 @@ class AppointmentController extends Controller
             'edit_date'=>$request->input('edit_date'),
             'appointment_id'=>$request->input('appointment_id'),
         ]);
-
-        // return $request->input('appointment_id');
     }
 
     
@@ -62,8 +60,6 @@ class AppointmentController extends Controller
             'appointment_id'=>$request->input('appointment_id'),
             'patient_id'=>$request->input('patient_id'),
         ]);
-
-        // return $request->input('appointment_id');
     }
     public function cancel_Appointment($appointment_id)
     {
@@ -85,14 +81,11 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('/home');
-
-        // return Appointment::find($request->appointment_id);
     }
 
     public function admin_submit_edit_appointment_form(Request $request)
     {
         $appointment=Appointment::find($request->appointment_id);
-        // $user = Auth::user();
         
         $appointment->doctor_id = $request->doctor_id;
         $appointment->date = $request->input('appointment_date');
@@ -102,9 +95,8 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('/home');
-
-        // return Appointment::find($request->appointment_id);
     }
+
     public function update_Appointment_Id(Request $req)
     {
         $update_appointment = Appointment::find($req->id);
@@ -127,7 +119,5 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('/home');
-
-        // return $request->input('doctor_id');
     }
 }

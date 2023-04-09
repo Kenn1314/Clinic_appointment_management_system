@@ -45,14 +45,11 @@ class PatientController extends Controller
         $doctor = User::find($sessionId);
         $patient = User::find($appointment['user_id']);
         return view('patient.addpatientrecord', ['patient' => $patient, 'doctor' => $doctor, 'appointment' => $appointment]);
-        // return $id;
     }
 
     public function loadPatientDetails($id)
     {
         $name = User::find($id);
-        // $data = patient_record::find($id);
-        // $data = User::find($id)->getRecords()->get();
         $data = patient_record::where('patient_id', $id)->get();
         return view('patient.viewpatient', ['patient' => $data, 'name' => $name]);
     }
@@ -98,7 +95,7 @@ class PatientController extends Controller
             $data->prescription = $req->prescription;
             $data->test_result = $req->test_result;
             $data->save();
-            // return $req->patient_id;
+
             return redirect("/patient/viewpatient/" . $patient['id']);
         } else
             return ("error no data");
