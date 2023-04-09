@@ -25,23 +25,6 @@
   @foreach($doctors as $doctor)
   <div class="col">
     <div class="card doctor-card">
-
-      {{-- @if(strpos($doctor['profilePic'], 'https://'))
-      <img src="{{$doctor['profilePic']}}" class="card-img-top" alt="" />
-      @endif
-      @if(!strpos($doctor['profilePic'], 'https://'))
-      <img src={{asset($doctor['profilePic'])}} class="card-img-top" alt=""/>
-      @endif --}}
-
-      {{-- @if(!strpos($doctor['profilePic'],'https'))
-      <img src={{$relative_path = ltrim(str_replace(public_path(), '', $doctor->profilePic), '\\/')}} class="card-img-top" alt="pic"/>
-      <p>{{$doctor['profilePic']}}</p>
-      @endif
-  
-      @if(strpos($doctor['profilePic'],'https'))
-      <img src={{asset($doctor->profilePic)}}  class="card-img-top" alt="pic" />
-      <p>Https</p>
-      @endif --}}
       <img src="{{asset($doctor['profilePic'])}}" class="card-img-top" alt="" height="400"/>
 
       <div class="card-body">

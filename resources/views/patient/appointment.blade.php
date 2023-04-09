@@ -3,7 +3,7 @@
 @section('content')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-{{-- <div class="container"> --}}
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -75,7 +75,6 @@
 
                             </div>
                         </div>
-                        {{-- <button type="submit">Create appointment</button> --}}
                         <br />
                         <div class="form-group row text-center">
                             <div class="col-md-12">
@@ -98,7 +97,6 @@
             </div>
         </div>
     </div>
-{{-- </div> --}}
 
 <script type="text/javascript">
     $(function() {
