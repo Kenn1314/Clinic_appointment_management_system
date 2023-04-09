@@ -184,10 +184,10 @@
                 <div class="col-md-4">
                     <h3>Contact Us</h3>
                     <ul class="list-unstyled">
-                        <li>123 Main Street</li>
-                        <li>Anytown, USA 12345</li>
-                        <li>Email: info@yourdomain.com</li>
-                        <li>Phone: 555-555-5555</li>
+                        <li>153, Persiaran Raja Muda Musa</li>
+                        <li>41100 Port Klang, Selangor</li>
+                        <li>Email: clinickHo@gmail.com</li>
+                        <li>Phone: 012-345-6789</li>
                     </ul>
                     <ul class="list-inline social-media">
                         <li><a href="#"><i class="fab fa-facebook"></i></a></li>

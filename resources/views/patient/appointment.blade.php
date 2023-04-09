@@ -7,8 +7,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @if(isset($is_edit))
+                <div class="card-header" style="text-align:center; background:black;
+                    color: white; ">{{ __('Edit an Appointment') }}</div>
+                @endif
+                @if(!isset($is_edit))
                 <div class="card-header" style="text-align:center; background:black;
                     color: white; ">{{ __('Make an Appointment') }}</div>
+                @endif
+
 
                 <div class="card-body">
                     @if (isset($is_edit)&&!isset($is_admin))
@@ -71,9 +78,18 @@
                         <br />
                         <div class="form-group row text-center">
                             <div class="col-md-12">
+
+                                @if(isset($is_edit))
                                 <button type="submit" class="btn btn-primary" style="background:black;"
                                     onclick="return confirm('Are you sure you want to create this appointment?')">{{
-                                    __('Create appointment') }}</button>
+                                    __('Edit appointment') }}</button>
+                                @endif
+
+                                @if(!isset($is_edit))
+                                <button type="submit" class="btn btn-primary" style="background:black;"
+                                onclick="return confirm('Are you sure you want to create this appointment?')">{{
+                                __('Create appointment') }}</button>
+                                @endif
                             </div>
                         </div>
                     </form>
