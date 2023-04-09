@@ -28,7 +28,7 @@
                                     <div class="col-md-6">
                                         <input id="email" type="email"
                                             class="formcontrol @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                            value="{{ old('email') }}" required autocomplete="email" autofocus style="width:390px; border-radius:5px; line-height: 1.5;">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -66,11 +66,11 @@
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Login') }}
                                         </button>
-                                        @if (Route::has('password.request'))
+                                        {{-- @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                             </form>
