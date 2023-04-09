@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->count(10)->create();
-        Appointment::factory()->count(30)->create();
-        patient_record::factory()->count(30)->create();
+        Appointment::factory()->count(40)->create();
+        patient_record::factory()->count(40)->create();
         User::create([
             'name' => 'admin',
             'email' =>'admin@gmail.com',
