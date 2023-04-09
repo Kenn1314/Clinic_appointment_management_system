@@ -114,7 +114,7 @@
                                 <!-- SHOW EDIT AND DELETE ICON -->
                                 <div class="p-2">
 
-                                    <!-- EDIT ICON -->
+                                    {{-- <!-- EDIT ICON -->
                                     <span>
                                         <!-- EDIT BUTTON -->
                                         <a data-bs-toggle="modal" data-bs-target="#editModal">
@@ -159,7 +159,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </span>
+                                    </span> --}}
 
                                     <!-- DELETE ICON -->
                                     <span>
