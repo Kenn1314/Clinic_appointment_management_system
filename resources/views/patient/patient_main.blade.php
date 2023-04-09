@@ -230,7 +230,7 @@
                                             value="{{ $pending_appointment['date'] }}">
                            
                                             <button type="submit" class="btn btn-primary"
-                                                style="background:black;">{{ __('Edit appointment') }}</button>
+                                                style="background:black;">{{ __('Edit') }}</button>
                                                                         <!-- DELETE ICON -->
                                                                         <span>
 

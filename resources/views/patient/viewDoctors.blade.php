@@ -25,7 +25,15 @@
   @foreach($doctors as $doctor)
   <div class="col">
     <div class="card doctor-card">
-      <img src="{{$doctor['profilePic']}}" class="card-img-top" alt="Hollywood Sign on The Hill" />
+
+      @if(strpos($doctor['profilePic'], 'https://'))
+      <img src="{{$doctor['profilePic']}}" class="card-img-top" alt="" />
+      @endif
+      @if(!strpos($doctor['profilePic'], 'https://'))
+      <img src={{asset($doctor['profilePic'])}} class="card-img-top" alt=""/>
+      @endif
+
+
       <div class="card-body">
         <h5 class="card-title">{{$doctor['name']}}</h5>
         <p class="card-text">{{$doctor['expertise']}}</p>
