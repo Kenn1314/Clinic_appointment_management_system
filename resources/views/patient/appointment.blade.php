@@ -12,7 +12,7 @@
 
                 <div class="card-body">
                     @if (isset($is_edit)&&!isset($is_admin))
-                        <form action="/patient/submit_edit_appointment_form" method="POST"> 
+                        <form action="/patient/submit_edit_appointment_form" method="POST">
                     @endif
                     @if (isset($is_edit)&&isset($is_admin)) 
                             <form action="/patient/admin_submit_edit_appointment_form" method="POST"> 

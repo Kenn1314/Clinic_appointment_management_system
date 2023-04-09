@@ -1,7 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
 
@@ -14,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // //=====THIS WILL BE STORE IT TO USERS TABLE AFTER RUNNING (php artisan db:seed)=====
+        // =====THIS WILL BE STORE IT TO USERS TABLE AFTER RUNNING (php artisan db:seed)=====
         // $users = [
         //     [
         //         'name' => 'Patient1',
@@ -59,13 +60,6 @@ class UserSeeder extends Seeder
         //         'phone'=>'012-0034567891'
         //     ],
         // ];
-
-        // //======STORE IT TO DATABASE=====
-        // foreach($users as $user)
-        // {
-        //     User::create($user);
-        // }
-        User::factory(15)->create();  
 
         
     }
