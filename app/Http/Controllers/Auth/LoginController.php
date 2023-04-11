@@ -43,7 +43,6 @@ class LoginController extends Controller
     {
         $input = $request->all();
         
-        
 
         $this->validate($request, [
             'email' => 'required|email',
