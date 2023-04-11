@@ -33,22 +33,8 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $req)
     {
-        // $old_password = Session::get("user_password");
 
         if(Gate::allows('isPatient')){
-
-        
-        // $req -> validate([
-        //     'name' => 'required',
-        //     'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
-        //     'phone' => 'regex: /^\d{3}-\d{7}$/ | required | unique:users',
-        //     // 'oldPassword' => 'required | regex: /$session/',
-        //     'oldPassword' => 'required|regex:/^' . preg_quote($old_password, '/') . '$/',
-
-        //     'newPassword' => 'required',
-        //     'confirmPassword' => 'required | same:newPassword'
-        // ]);
-
 
         //compare hash old password with user input old password
         $hashedPassword = $req->oldPasswordHash;
@@ -59,20 +45,10 @@ class ProfileController extends Controller
             $password = $req->newPassword;
             $hashedPassword = Hash::make($password);
 
-            // $data = $req->input();
-
-            // $data = User::find($req -> id);
-            // $data -> name = $req -> name;
-            // $data -> email = $req -> email;
-            // $data -> expertise = $req -> expertise;
-            // $data -> password = $hashedPassword;
-            // $data -> save();
-            // return redirect('/profile');
             $req -> validate([
                 'name' => 'required',
                 'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
                 'phone' => 'regex: /^\d{3}-\d{7}$/ | required | unique:users',
-                // 'oldPassword' => 'required | regex: /$session/',
                 'oldPassword' => 'required',
                 'newPassword' => 'required',
                 'confirmPassword' => 'required | same:newPassword'
@@ -92,7 +68,6 @@ class ProfileController extends Controller
                 'name' => 'required',
                 'ic' => 'required | unique:users| regex: /^\d{6}-\d{2}-\d{4}$/',
                 'phone' => 'regex: /^\d{3}-\d{7}$/ | required | unique:users',
-                // 'oldPassword' => 'required | regex: /$session/',
                 'oldPassword' => 'required',
                 'newPassword' => 'required',
                 'confirmPassword' => 'required | same:newPassword'
@@ -128,16 +103,12 @@ class ProfileController extends Controller
 
     public function updateProfilePicture(Request $req)
     {
-        
-        // //save img to public/userImages
-        // return $req->profilePic;
-
+        //save img to public/userImages
         $req->validate([
             'profilePic' => 'required',
         ]);
 
         $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
-        // $y = public_path($x);
 
         while(File::exists($x)){
             $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
@@ -152,7 +123,6 @@ class ProfileController extends Controller
             File::move($req->profilePic, $x);
         }
 
-        // File::delete($req->profilePic);
         $data = $req->input();
 
         $data = User::find($req ->  id);
@@ -160,7 +130,5 @@ class ProfileController extends Controller
         $data -> save();
 
         return redirect('/profile');
-
-
     }
 }

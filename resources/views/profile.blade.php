@@ -11,8 +11,6 @@
     @endforeach
 @endif
 
-{{-- Currrent User: {{$image_test=$user->profilePic}} --}}
-
 <div class="container">
     <div class="col-12">
     <div class="card mb-4">
@@ -59,12 +57,6 @@
                     <td>Phone Number:</td>
                     <td>{{ $user->phone }}</td>
                 </tr>
-
-                <!-- <tr>
-                    <td>Password:</td>
-                    <td>{{ $user->password }}</td>
-                </tr> -->
-
 
                 <tr>
                     <td><a href='/updateProfile/{{$user->id}}' class="btn btn-primary">Update profile</a></td>

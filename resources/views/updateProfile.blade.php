@@ -6,7 +6,7 @@
 </div>
 
 @if(session()->has('PassFailedUpdate'))
-<span style="color:red">{{session('PassFailedUpdate')}}</span>
+    <span style="color:red">{{session('PassFailedUpdate')}}</span>
 @endif
 
 <div class="row ">
@@ -110,34 +110,11 @@
                         </div>
                         @endif
 
-
-
-                        <!-- {{-- <input name='name' value='{{$data->name}}' /> <br><br>
-                        <span style="color:red">@error('name'){{$message}}@enderror</span> <br><br>
-
-                        <label>Email</label><br>
-                        <input name='email' value='{{$data->email}}' /> <br><br>
-                        <span style="color:red">@error('email'){{$message}}@enderror</span> <br><br>
-
-                        <input type="password" name='oldPassword' placeholder="oldPassword" /> <br><br>
-                        <span style="color:red">@error('oldPassword'){{$message}}@enderror</span> <br><br>
-
-                        <input type="password" name='newPassword' placeholder="newPassword" /> <br><br>
-                        <span style="color:red">@error('newPassword'){{$message}}@enderror</span> <br><br>
-
-                        <input type="password" name='confirmPassword' placeholder='confirmPassword' /> <br><br>
-                        <span style="color:red">@error('confirmPassword'){{$message}}@enderror</span> <br><br> --}} -->
-
-
-
                         {{-- DOCTOR --}}
                         
                         @elsecan('isDoctor')
 
                         <div class="controls">
-
-                            <!-- ID -->
-                            {{-- <input name="id" type="hidden" value="{{$data['id']}}"> --}}
 
                             <!-- ROW 1 -->
                             <div class="row">
