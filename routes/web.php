@@ -33,13 +33,11 @@ Route::view('aboutUs', 'quicklinks/aboutUs');
 Route::view('faq', 'quicklinks/faq');  
 
 //==========PATIENT ROUTE==========
-Route::middleware(['can:isPatient|isDoctor'])->group(function () {
+Route::middleware(['can:isPatient'])->group(function () {
     
     Route::post('/patient/appointment', [AppointmentController::class, 'getAppointmentForSpecificDoctor']);
     Route::get('/patient/viewDoctors', [PatientController::class, 'viewDoctors']);
     Route::post('/patient/submit_edit_appointment_form', [AppointmentController::class, 'submit_edit_appointment_form']);
-    Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
-    Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
     Route::post('/patient/editAppointment', [AppointmentController::class, 'editAppointment']);
 
 });
@@ -77,16 +75,20 @@ Route::middleware(['can:isAdmin|isDoctor'])->group(function () {
 });
 
 Route::middleware(['can:isPatient|isDoctor'])->group(function () {
-    Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
     Route::get('/profile',[ProfileController::class,'loadViewUser']);
-    Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
-});
 
+    Route::get('/updateProfile/{id}',[ProfileController::class,'showProfile']);
+    Route::post('/updateProfile',[ProfileController::class,'updateProfile']);
+
+    Route::get('/updateProfilePicture/{id}',[ProfileController::class,'showProfilePicture']);
+    Route::post('/updateProfilePicture',[ProfileController::class,'updateProfilePicture']);
+});
 
 Route::middleware(['can:isAdmin|isPatient'])->group(function() {
     Route::get('/cancel/{appointment_id}', [AppointmentController::class, 'cancel_Appointment']);
     Route::post('/patient/make-appointment', [AppointmentController::class, 'make_appointment']);
 });
+
 });
 
 

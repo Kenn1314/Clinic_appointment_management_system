@@ -61,6 +61,7 @@ class AppointmentController extends Controller
             'patient_id'=>$request->input('patient_id'),
         ]);
     }
+    
     public function cancel_Appointment($appointment_id)
     {
         $delete_Data = appointment::find($appointment_id);
