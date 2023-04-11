@@ -145,9 +145,15 @@
                                                     </p>
                                                     <p>
                                                         <span>
-                                                            <strong>Appointment time : </strong>
+                                                            <strong>Patient id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
                                                         </span>
-                                                        {{$approved_Appointment['time']}}
+                                                        {{$approved_Appointment->patient_name->id}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Patient name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
+                                                        </span>
+                                                        {{$approved_Appointment->patient_name->name}}
                                                     </p>
                                                     <p>
                                                         <span>
@@ -328,9 +334,15 @@
                                                     </p>
                                                     <p>
                                                         <span>
-                                                            <strong>Appointment time : </strong>
+                                                            <strong>Patient id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
                                                         </span>
-                                                        {{$completed_Appointment['time']}}
+                                                        {{$completed_Appointment->patient_name->id}}
+                                                    </p>
+                                                    <p>
+                                                        <span>
+                                                            <strong>Patient name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
+                                                        </span>
+                                                        {{$completed_Appointment->patient_name->name}}
                                                     </p>
                                                     <p>
                                                         <span>

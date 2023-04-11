@@ -56,8 +56,8 @@ class ProfileController extends Controller
 
         if(Hash::check($plainTextPassword, $hashedPassword))
         {
-            $password = $req->newPassword;
-            $hashedPassword = Hash::make($password);
+            // $password = $req->newPassword;
+            // $hashedPassword = Hash::make($password);
 
             // $data = $req->input();
 
@@ -78,14 +78,6 @@ class ProfileController extends Controller
                 'confirmPassword' => 'required | same:newPassword'
             ]);
 
-            $update_Patient = User::find($req->id);
-            $update_Patient ->name = $req->name;
-            $update_Patient ->ic = $req->ic;
-            $update_Patient ->phone = $req->phone;
-            $update_Patient ->password = $hashedPassword;
-            $update_Patient ->save();
-            
-            return redirect('/profile');
 
         }else{
             $req -> validate([
@@ -97,6 +89,8 @@ class ProfileController extends Controller
                 'newPassword' => 'required',
                 'confirmPassword' => 'required | same:newPassword'
             ]);
+            //flash
+            //redirect update profile
 
             $req->session()->flash('PassFailedUpdate','Password update failed, old password is incorrect');
             return redirect('/updateProfile/'.$req -> id);
@@ -131,10 +125,6 @@ class ProfileController extends Controller
         
         // //save img to public/userImages
         // return $req->profilePic;
-
-        $req->validate([
-            'profilePic' => 'required',
-        ]);
 
         $x = 'UserImages/'.\Illuminate\Support\Str::random().'.'.$req->profilePic->getClientOriginalExtension();
         // $y = public_path($x);
